@@ -1,0 +1,60 @@
+<HTML>
+  <head>
+    <script src="jquery-1.8.2.js"></script>
+    <script src="watch.js" type="text/javascript"></script>
+    <script src="_comet.io/comet.io.client.js"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" type="text/css" href= todos.css >
+  </head>
+  <body>
+      <div id="main-pane">
+          <div name="todos">
+              <div id="items-view">
+                  <div id="new-todo-box">
+                      <input type="text" id="new-todo" placeholder="New item" />
+                  </div>
+                  <ul id="item-list">
+                          <li class="todo" id="todo-item-template">
+                              <div class="edit">
+                                  <input id="todo-input" type="text" value="{{text}}" />
+                              </div>
+
+                              <div class="destroy"></div>
+                              <div class="display">
+                                  <div class="todo-text">{{text}}</div><a class="item-del">[DEL]</a>
+                              </div>
+                          </li>
+
+                  </ul>
+              </div>
+
+          </div>
+
+      </div>
+
+      <div id="side-pane">
+          <div name="lists" >
+              <h3>Todo Lists</h3>
+              <div id="side-lists" >
+                  <div class="list false" id="side-item-template">
+                      <div class="edit">
+                          <input class="list-name-input" id="list-name-input" type="text" value="{{name}}" />
+                      </div>
+                      <div class="display">
+                          <a class="list-name" href="#"></a><a class="item-del">[DEL]</a>
+
+                      </div>
+                  </div>
+
+              </div>
+
+              <div id="createList">
+                  <input type="text" id="new-list" placeholder="New list" />
+              </div>
+
+          </div>
+      </div>
+  </body>
+
+
+</HTML>
