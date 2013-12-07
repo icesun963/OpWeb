@@ -1731,11 +1731,13 @@ var OpLog$Exctions =
         },
         GetPropertys: function (o)
         {
+
             if (Is(o, System.Type.ctor))
             {
                 return (As(o, System.Type.ctor)).GetProperties();
             }
             return o.GetType().GetProperties();
+
         },
         GetProperty: function (o, pname)
         {
@@ -1743,6 +1745,9 @@ var OpLog$Exctions =
         },
         GetValue: function (o, name)
         {
+            if(o.hasOwnProperty(name))
+                return o[name];
+
             if (Is(o, System.Reflection.PropertyInfo.ctor))
             {
                 var pinfo = As(o, System.Reflection.PropertyInfo.ctor);

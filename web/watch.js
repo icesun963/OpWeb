@@ -160,6 +160,9 @@
 
     var watchAll = function (obj, watcher, level, addNRemove) {
 
+        if(level == undefined)
+            level = 1;
+
         if ((typeof obj == "string") || (!(obj instanceof Object) && !isArray(obj))) { //accepts only objects and array (not string)
             return;
         }
@@ -304,7 +307,8 @@
 
             if (level !== 0 && obj[prop]){
                 // watch sub properties
-                watchAll(obj[prop], watcher, (level===undefined)?level:level-1);
+                if(prop!="PropertyChanged")
+                 watchAll(obj[prop], watcher, (level===undefined)?level:level-1);
             }
 
             watchFunctions(obj, prop);
@@ -373,6 +377,7 @@
 
         removeFromLengthSubjects(obj, prop, watcher);
     };
+
 
     var loop = function(){
 
@@ -456,3 +461,241 @@
     return WatchJS;
 
 }));
+
+
+//删除数组后找不到对象的问题
+Array.prototype.__ondelItem__={};
+//增加remove方法(可用自定义列表处理)
+Array.prototype.remove = function(item) {
+    item.__ondel__ = true;
+    this.sort(function(a,b){
+        if(a.__ondel__)
+            return 1;
+        return 0;
+    });
+    this.__ondelItem__=item;
+    this.pop();
+};
+
+
+//opSession for Client
+var opSession = function(opitem,opid){
+    this.Opid = opid;
+    this.BindItem = opitem;
+    this.Ts = 0;
+    var self = this;
+
+    var url="http://localhost:8000";
+
+    var socket;
+    if (typeof io == 'undefined') {
+        socket = comet.connect(url);
+    } else {
+        socket = io.connect();
+    }
+
+
+    socket.on('connect', function() {
+        console.log('connected');
+    }).on('sync.message', function (data) {
+            dochange(data);
+            var item={
+                Ts:self.Ts,
+                Opid:self.Opid,
+                count:data.count
+            };
+            socket.emit('sync.response', item);
+            console.log("do sync..");
+    });
+
+    this.doRpcCall=function ( fun , args){
+        var rpcfun = {
+            fun : fun ,
+            args : JSON.stringify(args)
+        };
+
+        socket.emit("rpc.response",rpcfun);
+        console.log("do Rcp:" + fun + " " + JSON.stringify(rpcfun));
+    }
+
+    var isFunction = function (functionToCheck) {
+        var getType = {};
+        return functionToCheck && getType.toString.call(functionToCheck) == '[object Function]';
+    };
+
+    var isInt = function (x) {
+        return x % 1 === 0;
+    };
+
+    var isArray = function(obj) {
+        return Object.prototype.toString.call(obj) === '[object Array]';
+    };
+
+    var buildSubItem = function(subitem,tagitem){
+        if(typeof subitem == "string")
+            return subitem;
+        else if(isFunction(subitem))
+            return subitem;
+
+        else if(isArray(subitem))
+        {
+            var doret =false;
+            if(tagitem == undefined || !isArray(tagitem))
+            {
+                tagitem = [];
+                doret=true;
+            }
+            subitem.forEach(function(item){
+                 var ret= buildSubItem(item, tagitem);
+                    if(ret!=undefined)
+                    {
+                        tagitem.push(ret);
+                    }
+            });
+            if(!doret)
+                return undefined;
+            else
+                return tagitem;
+        }
+        else if(isInt(subitem))
+            return subitem;
+        else
+        {
+            var newItem = {};
+            /*if(subitem.__type!=undefined)
+            {
+                eval(subitem.__type + ".call(newItem)");
+            }*/
+
+            if(tagitem!=undefined && tagitem.__type)
+               tagitem.__type.call(newItem);
+            for(var prop in subitem){
+               var ret= buildSubItem(subitem[prop],newItem);
+               if(ret != undefined)
+                   newItem[prop]=ret;
+            }
+
+            return newItem;
+
+        }
+    };
+
+    var findItem = function(root,opid,level){
+
+        level--;
+        if(level<=0)
+            return null;
+
+        if(root._OpId==opid)
+            return root;
+
+        for(var prop in root){
+            var subitem = root[prop];
+            if(subitem._OpId){
+                if(subitem._OpId==opid)
+                    return subitem;
+                var ret = findItem(subitem,opid,level - 1);
+                if(ret!=null)
+                    return ret;
+            }
+            if(isArray(subitem)){
+                for(var i= 0;i<=subitem.length ;i++){
+                    var ret = findItem(subitem[i],opid,level - 1);
+                    if(ret!=null)
+                        return ret;
+                }
+            }
+        }
+
+        return null;
+    }
+    var dochange = function(changeData){
+        console.log("dochange..");
+        for(var item in changeData){
+            if(changeData[item].Ts && changeData[item].Ts>self.Ts)
+                self.Ts=changeData[item].Ts;
+            if(changeData[item].Op != undefined){
+                var opitem=changeData[item];
+                switch (opitem.Op){
+                    case 0:
+                    case 1:
+                        var rootobj = self.BindItem;
+                        if(opitem.Op==1) {
+                           rootobj = findItem(rootobj,opitem.RId,5);
+                        }
+                        if(rootobj!=null){
+                            for(var subitem in opitem.OpStr){
+                               var ret= buildSubItem(opitem.OpStr[subitem],rootobj[subitem]);
+                               if(ret!=undefined)
+                                   rootobj[subitem]=ret;
+                            }
+                        }
+                        break;
+
+                    case 2:
+                        var rootobj = findItem(self.BindItem,opitem.RId,5);
+                        rootobj[opitem.Ns].push(buildSubItem(opitem.OpStr,rootobj[opitem.Ns]));
+                        break;
+                    case 3:
+                        var rootobj = findItem(self.BindItem,opitem.RId,5);
+                        rootobj[opitem.Ns].forEach(function(item){
+                            if(item._OpId==opitem.OId){
+                                rootobj[opitem.Ns].remove(item);
+                            }
+                        })
+                        break;
+                }
+            }
+        }
+    };
+}
+
+//服务端转换对象
+if(window!=undefined && window.Clr){
+    window.IsClient = function(){
+        return false;
+    }
+    global.OpLogItem= function(baseObj){
+        this.OpStr = null;
+        this.Op=0;
+        this.RId=null;
+        this.Ts=0;
+        if(baseObj){
+            this.Op = baseObj._Op;
+            this.RId = baseObj._RId;
+            this.Ts = baseObj._Ts;
+            if(baseObj._opStr)
+                this.OpStr = baseObj._opStr._Target;
+            if(baseObj._Ns){
+                this.Ns=baseObj._Ns.substr(8);
+            }
+
+            if(baseObj._OId){
+                this.OId=baseObj._OId;
+            }
+        }
+    };
+
+    global.OpLogItems=function(array){
+        var resultArray= [];
+        for(var item in array){
+            if(array[item]._Op != undefined)
+            {
+                var newitem= new OpLogItem(array[item]);
+                if(newitem.Op == 1 && JSON.stringify(newitem.OpStr)=="{}")
+                {
+                    continue;
+                }
+                resultArray.push(newitem);
+            }
+        }
+        return resultArray;
+    }
+}
+else
+{
+    window.IsClient = function(){
+        return true;
+    }
+}
+

@@ -1,31 +1,5 @@
+//********客户端代码***********
 $(document).ready(function() {
-   /*
-    var socket;
-  if (typeof io == 'undefined') {
-    socket = comet.connect();
-  } else {
-    socket = io.connect();
-  }
-  socket.on('connect', function() {
-    console.log('connected');
-  }).on('test.message', function (data) {
-    socket.emit('test.response', data);
-  });
-  */
-
-//删除数组后找不到对象的问题
-Array.prototype.__ondelItem__={};
-//增加remove方法(可用自定义列表处理)
-Array.prototype.remove = function(item) {
-    item.__ondel__ = true;
-   this.sort(function(a,b){
-      if(a.__ondel__)
-        return 1;
-       return 0;
-   });
-   this.__ondelItem__=item;
-   this.pop();
-};
 
 //对象基类
 var uiItemList =   function(rootdiv,template){
@@ -66,8 +40,11 @@ var todoItem = function(value,div) {
     this.value=value;
 
     watch(this, function(prop, action, newval, oldval){
-        self.input.val(newval);
-        self.txt.text(newval);
+        if(self.input && self.txt)
+        {
+            self.input.val(newval);
+            self.txt.text(newval);
+        }
     });
 
     this.setBind = function (div) {
@@ -77,8 +54,8 @@ var todoItem = function(value,div) {
         this.input=$(this.bind).contents().find("input");
         this.txt= $(this.bind).contents().find(".todo-text");
         this.deltxt= $(this.bind).contents().find(".item-del");
-        this.input.val(value);
-        this.txt.text(value);
+        this.input.val(this.value);
+        this.txt.text(this.value);
         this.input.hide();
         this.txt.dblclick(function(){
             self.txt.hide();
@@ -101,13 +78,16 @@ var todoItem = function(value,div) {
 }
 
  //绑定侧边栏对象显示
- var sideItem = function(value,div) {
+var sideItem = function(value,div) {
      var self = this;
      this.value=value;
 
      watch(this, function(prop, action, newval, oldval){
-         self.input.val(newval);
-         self.txt.text(newval);
+         if(self.input && self.txt)
+         {
+            self.input.val(newval);
+            self.txt.text(newval);
+         }
      });
 
      this.setBind = function (div) {
@@ -117,8 +97,8 @@ var todoItem = function(value,div) {
          this.input=$(this.bind).contents().find("input");
          this.txt= $(this.bind).contents().find(".list-name");
          this.deltxt= $(this.bind).contents().find(".item-del");
-         this.input.val(value);
-         this.txt.text(value);
+         this.input.val(this.value);
+         this.txt.text(this.value);
          this.input.hide();
          this.txt.dblclick(function(){
             self.txt.hide();
@@ -143,14 +123,28 @@ var todoItem = function(value,div) {
 
  //初始化侧边栏
  var sideList = new uiItemList($("#side-lists"),$("#side-item-template"));
+
+ //设置列表子对象
+ sideList.lists.__type = sideItem;
+ //绑定session
+ var session1=new opSession(sideList,"1000");
  //右边列表
  var todoList = new uiItemList($("#item-list"),$("#todo-item-template"));
+ todoList.lists.__type =todoItem;
+ //绑定session
+ var session2=new opSession(todoList,"1001");
+
 
  RPCSetItemValue =function (item , value){
+     //我们需要子对象类型
+     session1.doRpcCall("RPCSetItemValue",[ item._OpId  ,value ]);
+     return;
      item.value = value;
  };
 
 RPCAddItem = function (userto, value){
+     session1.doRpcCall("RPCAddItem",[ userto ,value ]);
+     return;
      if(userto)
      {
          todoList.lists.push(new  todoItem(value));
@@ -162,6 +156,8 @@ RPCAddItem = function (userto, value){
 };
 
 RPCDelItem = function (userto , value){
+    session1.doRpcCall("RPCDelItem",[ userto ,value._OpId ]);
+    return;
     if(userto)
     {
         todoList.lists.remove(value);
@@ -187,3 +183,6 @@ $("#new-todo").bind('keydown', function (e) {
 });
 
 });
+//客户端UI结束
+//************************
+

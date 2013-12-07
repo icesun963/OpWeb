@@ -146,7 +146,7 @@ var comet = (function() {
     var params = { _uuid:self.uuid };
     $.extend(params, options);
     
-    $.getJSON('/_comet.io/' + event, params, function(payload) {
+    $.getJSON(this.url +'/_comet.io/' + event, params, function(payload) {
       //self._wait();
     });
   };
@@ -154,7 +154,7 @@ var comet = (function() {
   Socket.prototype.connect = function() {
     var self = this;
     $.ajax({
-      url: '/_comet.io/_connect',
+      url: this.url + '/_comet.io/_connect',
       data: null,
       cache: false,
       success: function(payload) {
@@ -169,7 +169,7 @@ var comet = (function() {
   Socket.prototype._wait = function() {
     var self = this;
     $.ajax({
-      url: '/_comet.io/_wait',
+      url: this.url +'/_comet.io/_wait',
       data: { uuid:self.uuid },
       cache: false,
       success: function(payload) {

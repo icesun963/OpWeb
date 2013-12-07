@@ -579,7 +579,7 @@ var System$Threading$Thread =
         },
         ctor$$ThreadStart: function (start)
         {
-            this._timer = new OpHost.JS.Timer.ctor(1);
+            this._timer = new OpHost.JS.Timer.ctor(10);
             this._Name = null;
             this._Priority = 0;
             this._ThreadState = 0;
