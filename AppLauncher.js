@@ -10,6 +10,8 @@ global.HTMLInputElement = function(){};
 global.window = global;
 global.Services = [];
 
+console.log("app start..");
+
 global.AddService = function(app){
     global.Services.push(app);
 };
@@ -21,17 +23,15 @@ global.StartApps =function(){
 }
 
 
+require('./Core/jsclr.js');
+require('./Core/GameApp.js');
+require('./Core/OpLog.js');
+require('./Core/system.js');
 
+var JsTypes = global.Clr["JsTypes"];
 
-require('./res/jsclr.js');
-
-console.log("app start..");
-
-
- var JsTypes = global.Clr["JsTypes"];
- require('./system.js');
- require('./GameApp.js');
- require('./OpLog.js');
+var WatchJS = require("./Shared/watch.js");
+var watch = WatchJS.watch;
 
 if (typeof(JsTypes) == "undefined")
     var JsTypes = [];
@@ -58,8 +58,6 @@ compiler();
 
 console.log("End Compile..");
 
-var WatchJS = require("./web/watch.js");
-var watch = WatchJS.watch;
 
 
 global.JsOpItem = function () {
@@ -220,7 +218,7 @@ function getAllFiles(root){
 var files=getAllFiles(root_path);
 files.forEach(function(file){
 
-    if(file.startsWith("./Service")){
+    if(file.startsWith("./Service") && file.endsWith(".js") && file.indexOf("web")==-1){
         console.log("Load:" + file);
         require(file);
     }

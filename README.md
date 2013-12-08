@@ -37,10 +37,21 @@ node AppLauncher.js
 在浏览器中打开(你可以打开多个)
 http://localhost:8000
 
-todo 示例 demo代码
-web/index.html
-web/todos.css
-web/mian.js(客户端代码）
-Service/todoTest.js(服务部分代码）
+目录:
+Core--核心框架库
+    ｜－GameApp.js--日志库和基本配置库（移植于C#)
+    ｜－jsclr.js--SharpKit clrjs库（移植于C#)
+    ｜－OpLog.js--OpLog核心库（移植于C#)
+    ｜－system.js--clr js 兼容库（跨平台桥接库)
+Shared--前后端共享库
+Service--服务库（所有服务都放此目录下，./web/下js不会被加载)
+    |
+    --Core--系统服务库
+    |    |
+    |    --server.js--静态文件服务＋推送服务
+    |
+    --Demos--或者你的App
+        |
+        --todos--todos测试demo
 
-（下次更新会考虑分开个版本）
+
