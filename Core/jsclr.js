@@ -4377,7 +4377,8 @@ JsTypes.push({ fullname: "Array", baseTypeName: "Object", definition:
 			target.push(this[i]);
 		}
 	},
-	filter: function (pred) {
+    //fix node-static 
+	dofilter: function (pred) {
 		var item, i = 0;
 		for (var i = 0, j = this.length; i < j; i++) {
 			item = this[i];
@@ -4390,7 +4391,7 @@ JsTypes.push({ fullname: "Array", baseTypeName: "Object", definition:
 		return this;
 	},
 	filterOut: function (pred) {
-		return this.filter(function (item) { return !pred(item); });
+	    return this.dofilter(function (item) { return !pred(item); });
 	},
 	apply: function (modifier) {
 		for (var i = 0, j = this.length; i < j; i++) {

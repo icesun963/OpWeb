@@ -1,0 +1,2 @@
+node AppLauncher.js
+pause

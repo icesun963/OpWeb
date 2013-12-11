@@ -37,7 +37,7 @@ var GameApp$Common$Config$Config =
             }
         }
     },
-    assemblyName: "GameApp.Logger",
+    assemblyName: "GameApp",
     Kind: "Class",
     definition:
     {
@@ -162,7 +162,7 @@ var GameApp$Common$Config$Config$CacheItem =
  {
     fullname: "GameApp.Common.Config.Config.CacheItem",
     baseTypeName: "System.Object",
-    assemblyName: "GameApp.Logger",
+    assemblyName: "GameApp",
     Kind: "Class",
     definition:
     {
@@ -219,7 +219,7 @@ var GameApp$Common$Config$Config$1 =
             return GameApp.Common.Config.Config$1._instance;
         }
     },
-    assemblyName: "GameApp.Logger",
+    assemblyName: "GameApp",
     Kind: "Class",
     definition:
     {
@@ -306,7 +306,7 @@ var GameApp$Common$Config$ConfigurationManager =
             }
         }
     },
-    assemblyName: "GameApp.Logger",
+    assemblyName: "GameApp",
     Kind: "Class",
     definition:
     {
@@ -317,1137 +317,6 @@ var GameApp$Common$Config$ConfigurationManager =
     }
 };
 JsTypes.push(GameApp$Common$Config$ConfigurationManager);
-var GameApp$Common$Logging$ConsoleTarget =
- {
-    fullname: "GameApp.Common.Logging.ConsoleTarget",
-    baseTypeName: "GameApp.Common.Logging.LogTarget",
-    staticDefinition:
-    {
-        SetForeGroundColor: function (level)
-        {
-            switch (level)
-            {
-                case GameApp.Common.Logging.Logger.Level.Dump:
-                    GameApp.Console.set_ForegroundColor(8);
-                    break;
-                case GameApp.Common.Logging.Logger.Level.Trace:
-                    GameApp.Console.set_ForegroundColor(8);
-                    break;
-                case GameApp.Common.Logging.Logger.Level.Debug:
-                    GameApp.Console.set_ForegroundColor(11);
-                    break;
-                case GameApp.Common.Logging.Logger.Level.Info:
-                    GameApp.Console.set_ForegroundColor(15);
-                    break;
-                case GameApp.Common.Logging.Logger.Level.Warn:
-                    GameApp.Console.set_ForegroundColor(14);
-                    break;
-                case GameApp.Common.Logging.Logger.Level.Error:
-                    GameApp.Console.set_ForegroundColor(13);
-                    break;
-                case GameApp.Common.Logging.Logger.Level.Fatal:
-                    GameApp.Console.set_ForegroundColor(12);
-                    break;
-                default :
-                    break;
-            }
-        }
-    },
-    assemblyName: "GameApp.Logger",
-    Kind: "Class",
-    definition:
-    {
-        ctor: function (minLevel, maxLevel, includeTimeStamps, filterStr)
-        {
-            GameApp.Common.Logging.LogTarget.ctor.call(this);
-            this.set_MinimumLevel(minLevel);
-            this.set_MaximumLevel(maxLevel);
-            this.set_IncludeTimeStamps(includeTimeStamps);
-            if (!System.String.IsNullOrEmpty(filterStr))
-            {
-                this.set_Filters(filterStr.Split$$Char$Array("|"));
-            }
-        },
-        LogMessage: function (level, logger, message)
-        {
-            var timeStamp = this.get_IncludeTimeStamps() ? "[" + System.CurrentTimeGetter.get_Now().ToString$$String("dd.MM.yyyy HH:mm:ss.fff") + "] " : "";
-            GameApp.Common.Logging.ConsoleTarget.SetForeGroundColor(level);
-            var str = System.String.Format$$String$$Object$Array("{0}[{1}] [{2}]: {3}", [timeStamp, level.toString(), logger, message]);
-            GameApp.Console.WriteLine$$String(str);
-            GameApp.Trace.WriteLine$$String(str);
-            GameApp.Common.Logging.ConsoleTarget.SetForeGroundColor(GameApp.Common.Logging.Logger.Level.Info);
-        },
-        LogException: function (level, logger, message, exception)
-        {
-            var timeStamp = this.get_IncludeTimeStamps() ? "[" + System.CurrentTimeGetter.get_Now().ToString$$String("dd.MM.yyyy HH:mm:ss.fff") + "] " : "";
-            GameApp.Common.Logging.ConsoleTarget.SetForeGroundColor(level);
-            var str = System.String.Format$$String$$Object$Array("{0}[{1}] [{2}]: {3} - [Exception] {4}", [timeStamp, level.toString(), logger, message, exception]);
-            GameApp.Console.WriteLine$$String(str);
-            GameApp.Trace.WriteLine$$String(str);
-            GameApp.Common.Logging.ConsoleTarget.SetForeGroundColor(GameApp.Common.Logging.Logger.Level.Info);
-        }
-    }
-};
-JsTypes.push(GameApp$Common$Logging$ConsoleTarget);
-var GameApp$Common$Logging$ExtensionLogTarget =
- {
-    fullname: "GameApp.Common.Logging.ExtensionLogTarget",
-    baseTypeName: "GameApp.Common.Logging.LogTarget",
-    assemblyName: "GameApp.Logger",
-    Kind: "Class",
-    definition:
-    {
-        ctor: function (fileName, minLevel, maxLevel, includeTimeStamps, reset, filterStr)
-        {
-            GameApp.Common.Logging.LogTarget.ctor.call(this);
-            this.set_MinimumLevel(minLevel);
-            this.set_MaximumLevel(maxLevel);
-            this.set_IncludeTimeStamps(this.get_IncludeTimeStamps());
-            if (!System.String.IsNullOrEmpty(filterStr))
-            {
-                this.set_Filters(filterStr.Split$$Char$Array("|"));
-            }
-        }
-    }
-};
-JsTypes.push(GameApp$Common$Logging$ExtensionLogTarget);
-var GameApp$Common$Logging$LogConfig =
- {
-    fullname: "GameApp.Common.Logging.LogConfig",
-    baseTypeName: "GameApp.Common.Config.Config",
-    staticDefinition:
-    {
-        cctor: function ()
-        {
-            GameApp.Common.Logging.LogConfig._instance = null;
-            GameApp.Common.Logging.LogConfig._isinit = false;
-        },
-        Instance$$: "GameApp.Common.Logging.LogConfig",
-        get_Instance: function ()
-        {
-            if (GameApp.Common.Logging.LogConfig._instance == null)
-            {
-                GameApp.Common.Logging.LogConfig._instance = new GameApp.Common.Logging.LogConfig.ctor();
-                if (!System.String.IsNullOrEmpty(GameApp.Common.Logging.LogConfig._instance.get_LogTargets()))
-                {
-                    var logs = GameApp.Common.Logging.LogConfig._instance.get_LogTargets().Split$$Char$Array("|");
-                    var configs = new System.Collections.Generic.List$1.ctor(GameApp.Common.Logging.LogTargetConfig.ctor);
-                    for (var $i5 = 0, $l5 = logs.length, log = logs[$i5]; $i5 < $l5; $i5++, log = logs[$i5])
-                    {
-                        if (!System.String.IsNullOrEmpty(log))
-                        {
-                            configs.Add(new GameApp.Common.Logging.LogTargetConfig.ctor(log));
-                        }
-                    }
-                    GameApp.Common.Logging.LogConfig._instance.Targets = configs.ToArray();
-                }
-            }
-            return GameApp.Common.Logging.LogConfig._instance;
-        }
-    },
-    assemblyName: "GameApp.Logger",
-    Kind: "Class",
-    definition:
-    {
-        ctor: function ()
-        {
-            this.Targets = [new GameApp.Common.Logging.LogTargetConfig.ctor("ConsoleLog"), new GameApp.Common.Logging.LogTargetConfig.ctor("ServerLog")];
-            GameApp.Common.Config.Config.ctor$$String.call(this, "Logging");
-        },
-        LoggingRoot$$: "System.String",
-        get_LoggingRoot: function ()
-        {
-            return this.GetString("Root", "@root\\logs").Replace$$String$$String("@root", GameApp.Common.Helpers.IO.FileHelpers.get_AssemblyRoot());
-        },
-        set_LoggingRoot: function (value)
-        {
-            this.Set("Root", value);
-        },
-        LogTargets$$: "System.String",
-        get_LogTargets: function ()
-        {
-            return this.GetString("LogTargets", "ConsoleLog|ServerLog");
-        },
-        set_LogTargets: function (value)
-        {
-        },
-        ctor$$String: function (sectionName)
-        {
-            this.Targets = [new GameApp.Common.Logging.LogTargetConfig.ctor("ConsoleLog"), new GameApp.Common.Logging.LogTargetConfig.ctor("ServerLog")];
-            GameApp.Common.Config.Config.ctor$$String.call(this, sectionName);
-        }
-    }
-};
-JsTypes.push(GameApp$Common$Logging$LogConfig);
-var GameApp$Common$Logging$Logger =
- {
-    fullname: "GameApp.Common.Logging.Logger",
-    baseTypeName: "System.Object",
-    assemblyName: "GameApp.Logger",
-    Kind: "Class",
-    definition:
-    {
-        ctor: function (name)
-        {
-            this._Name = null;
-            System.Object.ctor.call(this);
-            this.set_Name(name);
-        },
-        Name$$: "System.String",
-        get_Name: function ()
-        {
-            return this._Name;
-        },
-        set_Name: function (value)
-        {
-            this._Name = value;
-        },
-        Log: function (level, message, args)
-        {
-            GameApp.Common.Logging.LogRouter.RouteMessage$$Level$$String$$String$$Object$Array(level, this.get_Name(), message, args);
-        },
-        LogException: function (level, message, args, exception)
-        {
-            GameApp.Common.Logging.LogRouter.RouteException(level, this.get_Name(), message, args, exception);
-        },
-        Trace$$String: function (message)
-        {
-            this.Log(GameApp.Common.Logging.Logger.Level.Trace, message, null);
-        },
-        Trace$$String$$Object$Array: function (message, args)
-        {
-            this.Log(GameApp.Common.Logging.Logger.Level.Trace, message, args);
-        },
-        Debug$$String: function (message)
-        {
-            this.Log(GameApp.Common.Logging.Logger.Level.Debug, message, null);
-        },
-        Debug$$String$$Object$Array: function (message, args)
-        {
-            this.Log(GameApp.Common.Logging.Logger.Level.Debug, message, args);
-        },
-        Info$$String: function (message)
-        {
-            this.Log(GameApp.Common.Logging.Logger.Level.Info, message, null);
-        },
-        Info$$String$$Object$Array: function (message, args)
-        {
-            this.Log(GameApp.Common.Logging.Logger.Level.Info, message, args);
-        },
-        Warn$$String: function (message)
-        {
-            this.Log(GameApp.Common.Logging.Logger.Level.Warn, message, null);
-        },
-        Warn$$String$$Object$Array: function (message, args)
-        {
-            this.Log(GameApp.Common.Logging.Logger.Level.Warn, message, args);
-        },
-        Error$$String: function (message)
-        {
-            this.Log(GameApp.Common.Logging.Logger.Level.Error, message, null);
-        },
-        Error$$String$$Object$Array: function (message, args)
-        {
-            this.Log(GameApp.Common.Logging.Logger.Level.Error, message, args);
-        },
-        Fatal$$String: function (message)
-        {
-            this.Log(GameApp.Common.Logging.Logger.Level.Fatal, message, null);
-        },
-        Fatal$$String$$Object$Array: function (message, args)
-        {
-            this.Log(GameApp.Common.Logging.Logger.Level.Fatal, message, args);
-        },
-        LogIncoming: function (message, msg, args)
-        {
-            this.Log(GameApp.Common.Logging.Logger.Level.Dump, "[I] " + msg, args);
-        },
-        LogOutgoing: function (message, msg, args)
-        {
-            this.Log(GameApp.Common.Logging.Logger.Level.Dump, "[O] " + msg, args);
-        },
-        TraceException$$Exception$$String: function (exception, message)
-        {
-            this.LogException(GameApp.Common.Logging.Logger.Level.Trace, message, null , exception);
-        },
-        TraceException$$Exception$$String$$Object$Array: function (exception, message, args)
-        {
-            this.LogException(GameApp.Common.Logging.Logger.Level.Trace, message, args, exception);
-        },
-        DebugException$$Exception$$String: function (exception, message)
-        {
-            this.LogException(GameApp.Common.Logging.Logger.Level.Debug, message, null , exception);
-        },
-        DebugException$$Exception$$String$$Object$Array: function (exception, message, args)
-        {
-            this.LogException(GameApp.Common.Logging.Logger.Level.Debug, message, args, exception);
-        },
-        InfoException$$Exception$$String: function (exception, message)
-        {
-            this.LogException(GameApp.Common.Logging.Logger.Level.Info, message, null , exception);
-        },
-        InfoException$$Exception$$String$$Object$Array: function (exception, message, args)
-        {
-            this.LogException(GameApp.Common.Logging.Logger.Level.Info, message, args, exception);
-        },
-        WarnException$$Exception$$String: function (exception, message)
-        {
-            this.LogException(GameApp.Common.Logging.Logger.Level.Warn, message, null , exception);
-        },
-        WarnException$$Exception$$String$$Object$Array: function (exception, message, args)
-        {
-            this.LogException(GameApp.Common.Logging.Logger.Level.Warn, message, args, exception);
-        },
-        ErrorException$$Exception$$String: function (exception, message)
-        {
-            this.LogException(GameApp.Common.Logging.Logger.Level.Error, message, null , exception);
-        },
-        ErrorException$$Exception$$String$$Object$Array: function (exception, message, args)
-        {
-            this.LogException(GameApp.Common.Logging.Logger.Level.Error, message, args, exception);
-        },
-        FatalException$$Exception$$String: function (exception, message)
-        {
-            this.LogException(GameApp.Common.Logging.Logger.Level.Fatal, message, null , exception);
-        },
-        FatalException$$Exception$$String$$Object$Array: function (exception, message, args)
-        {
-            this.LogException(GameApp.Common.Logging.Logger.Level.Fatal, message, args, exception);
-        }
-    }
-};
-JsTypes.push(GameApp$Common$Logging$Logger);
-var GameApp$Common$Logging$Logger$Level =
- {
-    fullname: "GameApp.Common.Logging.Logger.Level",
-    staticDefinition: {Dump: 0, Trace: 1, Debug: 2, Info: 3, Warn: 4, Error: 5, Fatal: 6},
-    Kind: "Enum"
-};
-JsTypes.push(GameApp$Common$Logging$Logger$Level);
-var GameApp$Common$Logging$LogManager =
- {
-    fullname: "GameApp.Common.Logging.LogManager",
-    baseTypeName: "System.Object",
-    staticDefinition:
-    {
-        Enabled$$: "System.Boolean",
-        get_Enabled: function ()
-        {
-            return GameApp.Common.Logging.LogManager._Enabled;
-        },
-        set_Enabled: function (value)
-        {
-            GameApp.Common.Logging.LogManager._Enabled = value;
-        },
-        AttachLogTarget: function (target)
-        {
-            GameApp.Common.Logging.LogManager.Targets.Add(target);
-        },
-        CreateLogger: function ()
-        {
-            var frame = new System.Diagnostics.StackFrame.ctor$$Int32$$Boolean(1, false);
-            var name = frame.GetMethod().get_DeclaringType().get_Name();
-            if (name == null)
-                throw $CreateException(new System.Exception.ctor$$String("Error getting full name for declaring type."), new Error());
-            if (!GameApp.Common.Logging.LogManager.Loggers.ContainsKey(name))
-                GameApp.Common.Logging.LogManager.Loggers.Add(name, new GameApp.Common.Logging.Logger.ctor(name));
-            return GameApp.Common.Logging.LogManager.Loggers.get_Item$$TKey(name);
-        },
-        CreateLogger$$String: function (name)
-        {
-            if (!GameApp.Common.Logging.LogManager.Loggers.ContainsKey(name))
-                GameApp.Common.Logging.LogManager.Loggers.Add(name, new GameApp.Common.Logging.Logger.ctor(name));
-            return GameApp.Common.Logging.LogManager.Loggers.get_Item$$TKey(name);
-        },
-        cctor: function ()
-        {
-            GameApp.Common.Logging.LogManager.Targets = new System.Collections.Generic.List$1.ctor(GameApp.Common.Logging.LogTarget.ctor);
-            GameApp.Common.Logging.LogManager.Loggers = new System.Collections.Generic.Dictionary$2.ctor(System.String.ctor, GameApp.Common.Logging.Logger.ctor);
-            GameApp.Common.Logging.LogManager._isInit = false;
-            GameApp.Common.Logging.LogManager._Enabled = false;
-            GameApp.Common.Config.ConfigurationManager.Init();
-            GameApp.Common.Logging.LogManager.InitLoggers();
-        },
-        InitLoggers: function ()
-        {
-            if (GameApp.Common.Logging.LogManager._isInit)
-                return;
-            GameApp.Common.Logging.LogManager.set_Enabled(true);
-            var isAddConsole = false;
-            for (var $i6 = 0, $t6 = GameApp.Common.Logging.LogConfig.get_Instance().Targets, $l6 = $t6.length, targetConfig = $t6[$i6]; $i6 < $l6; $i6++, targetConfig = $t6[$i6])
-            {
-                if (!targetConfig.get_Enabled())
-                    continue;
-                var target = null;
-                try
-                {
-                    switch (targetConfig.get_Target().toLowerCase())
-                    {
-                        case "console":
-                            isAddConsole = true;
-                            target = new GameApp.Common.Logging.ConsoleTarget.ctor(targetConfig.get_MinimumLevel(), targetConfig.get_MaximumLevel(), targetConfig.get_IncludeTimeStamps(), targetConfig.get_FilterStr());
-                            break;
-                        case "file":
-                            break;
-                        default :
-                            try
-                            {
-                                var assembly = System.Reflection.Assembly.Load$$String(targetConfig.get_Assembly());
-                                var type = assembly.GetType$$String(targetConfig.get_TargetType());
-                                target = As(System.Activator.CreateInstance$$Type$$Object$Array(type, targetConfig.get_FileName(), targetConfig.get_MinimumLevel(), targetConfig.get_MaximumLevel(), targetConfig.get_IncludeTimeStamps(), targetConfig.get_ResetOnStartup(), targetConfig.get_FilterStr()), GameApp.Common.Logging.ExtensionLogTarget.ctor);
-                            }
-                            catch (e)
-                            {
-                                GameApp.Console.WriteLine$$String$$Object$Array("ExtensionLogTarget Load Error:{0} {1}", targetConfig.get_Target(), e);
-                            }
-                            break;
-                    }
-                }
-                catch (ex)
-                {
-                    System.Diagnostics.Trace.WriteLine$$String(ex.get_Message());
-                }
-                if (target != null)
-                    GameApp.Common.Logging.LogManager.AttachLogTarget(target);
-            }
-            if (GameApp.Common.Helpers.DebugHelper.InDebugMode() && !isAddConsole)
-                GameApp.Common.Logging.LogManager.AttachLogTarget(new GameApp.Common.Logging.ConsoleTarget.ctor(GameApp.Common.Logging.Logger.Level.Dump, GameApp.Common.Logging.Logger.Level.Fatal, false, null));
-            try
-            {
-                GameApp.Common.Logging.LogManager.CreateLogger().Info$$String$$Object$Array("App:{0} v{1} warming-up..", System.Reflection.Assembly.GetEntryAssembly().GetName(), System.Reflection.Assembly.GetEntryAssembly().GetName().get_Version());
-                for (var $i7 = 0, $t7 = GameApp.Common.Logging.LogConfig.get_Instance().Targets, $l7 = $t7.length, targetConfig = $t7[$i7]; $i7 < $l7; $i7++, targetConfig = $t7[$i7])
-                {
-                    GameApp.Common.Logging.LogManager.CreateLogger().Info$$String$$Object$Array("LogTarget Load :{0}", targetConfig.get_Target());
-                }
-            }
-            catch ($$e2)
-            {
-            }
-            GameApp.Common.Logging.LogManager._isInit = true;
-        }
-    },
-    assemblyName: "GameApp.Logger",
-    Kind: "Class",
-    definition:
-    {
-        ctor: function ()
-        {
-            System.Object.ctor.call(this);
-        }
-    }
-};
-JsTypes.push(GameApp$Common$Logging$LogManager);
-var GameApp$Common$Logging$LogRouter =
- {
-    fullname: "GameApp.Common.Logging.LogRouter",
-    baseTypeName: "System.Object",
-    staticDefinition:
-    {
-        MaxLevel$$: "GameApp.Common.Logging.Logger+Level",
-        get_MaxLevel: function ()
-        {
-            return GameApp.Common.Logging.LogRouter._MaxLevel;
-        },
-        set_MaxLevel: function (value)
-        {
-            GameApp.Common.Logging.LogRouter._MaxLevel = value;
-        },
-        MinLevel$$: "GameApp.Common.Logging.Logger+Level",
-        get_MinLevel: function ()
-        {
-            return GameApp.Common.Logging.LogRouter._MinLevel;
-        },
-        set_MinLevel: function (value)
-        {
-            GameApp.Common.Logging.LogRouter._MinLevel = value;
-        },
-        RouteMessage$$Level$$String$$String$$Object$Array: function (level, logger, message, args)
-        {
-            if (!GameApp.Common.Logging.LogManager.get_Enabled())
-                return;
-            if (GameApp.Common.Logging.LogManager.Targets.get_Count() == 0)
-                return;
-            if (level > GameApp.Common.Logging.LogRouter.get_MaxLevel() || level < GameApp.Common.Logging.LogRouter.get_MinLevel())
-                return;
-            GameApp.Common.Logging.LogRouter.LogQueue.Enqueue((function ()
-            {
-                var $v2 = new GameApp.Common.Logging.LogRouter.LogItem.ctor();
-                $v2.level = level;
-                $v2.logger = logger;
-                $v2.message = args == null ? message : System.String.Format$$IFormatProvider$$String$$Object$Array(System.Globalization.CultureInfo.get_InvariantCulture(), message, args);
-                return $v2;
-            })());
-            if (GameApp.Common.Logging.LogRouter.LogQueue.get_Count() > 1000)
-            {
-                GameApp.Common.Logging.LogRouter.LogQueue.Enqueue((function ()
-                {
-                    var $v3 = new GameApp.Common.Logging.LogRouter.LogItem.ctor();
-                    $v3.level = level;
-                    $v3.logger = logger;
-                    $v3.message = "=====================================================\r\nLogQueue Count:" + GameApp.Common.Logging.LogRouter.LogQueue.get_Count();
-                    return $v3;
-                })());
-            }
-        },
-        cctor: function ()
-        {
-            GameApp.Common.Logging.LogRouter._loggThread = null;
-            GameApp.Common.Logging.LogRouter.LogQueue = new System.ConcurrentQueue$1.ctor(GameApp.Common.Logging.LogRouter.LogItem.ctor);
-            GameApp.Common.Logging.LogRouter._MaxLevel = GameApp.Common.Logging.Logger.Level.Dump;
-            GameApp.Common.Logging.LogRouter._MinLevel = GameApp.Common.Logging.Logger.Level.Dump;
-            GameApp.Common.Logging.LogRouter._loggThread = (function ()
-            {
-                var $v4 = new GameApp.Common.SyncThread.ctor();
-                $v4.set_Name("LogRouter Thread");
-                $v4.set_Sleep(10);
-                $v4.set_Tag(GameApp.Common.Logging.LogRouter.LogQueue);
-                return $v4;
-            })();
-            GameApp.Common.Logging.LogRouter._loggThread.add_OnSync(GameApp.Common.Logging.LogRouter.RouteMessage);
-            GameApp.Common.Logging.LogRouter._loggThread.add_OnCheck(function (sender)
-            {
-                return (As(sender, System.ConcurrentQueue$1.ctor)).get_Count() > 0;
-            });
-            GameApp.Common.Logging.LogRouter.set_MaxLevel(GameApp.Common.Logging.Logger.Level.Dump);
-            GameApp.Common.Logging.LogRouter.set_MinLevel(GameApp.Common.Logging.Logger.Level.Fatal);
-            if (GameApp.Common.Logging.LogManager.Targets.get_Count() > 0)
-            {
-                var $it7 = GameApp.Common.Logging.LogManager.Targets.GetEnumerator();
-                while ($it7.MoveNext())
-                {
-                    var logTarget = $it7.get_Current();
-                    if (logTarget.get_MaximumLevel() > GameApp.Common.Logging.LogRouter.get_MaxLevel())
-                    {
-                        GameApp.Common.Logging.LogRouter.set_MaxLevel(logTarget.get_MaximumLevel());
-                    }
-                    if (logTarget.get_MinimumLevel() < GameApp.Common.Logging.LogRouter.get_MinLevel())
-                    {
-                        GameApp.Common.Logging.LogRouter.set_MinLevel(logTarget.get_MinimumLevel());
-                    }
-                }
-            }
-            GameApp.Common.Logging.LogRouter._loggThread.Start();
-        },
-        RouteMessage: function ()
-        {
-            try
-            {
-                while (GameApp.Common.Logging.LogRouter.LogQueue.get_Count() > 0)
-                {
-                    var item = null;
-                    (function ()
-                    {
-                        var $1 = {Value: item};
-                        var $res = GameApp.Common.Logging.LogRouter.LogQueue.TryDequeue($1);
-                        item = $1.Value;
-                        return $res;
-                    })();
-                    if (item != null)
-                    {
-                        var $it8 = System.Linq.Enumerable.Where$1$$IEnumerable$1$$Func$2(GameApp.Common.Logging.LogTarget.ctor, GameApp.Common.Logging.LogManager.Targets, function (target)
-                        {
-                            return item.level >= target.get_MinimumLevel() && item.level <= target.get_MaximumLevel();
-                        }).GetEnumerator();
-                        while ($it8.MoveNext())
-                        {
-                            var target = $it8.get_Current();
-                            var next = false;
-                            if (target.get_Filters() != null && target.get_Filters().length > 0)
-                            {
-                                for (var $i10 = 0, $t10 = target.get_Filters(), $l10 = $t10.length, str = $t10[$i10]; $i10 < $l10; $i10++, str = $t10[$i10])
-                                {
-                                    if (item.message.indexOf(str) >= 0)
-                                    {
-                                        next = true;
-                                        break;
-                                    }
-                                }
-                            }
-                            if (!next)
-                            {
-                                if (item.exception != null)
-                                    target.LogException(item.level, item.logger, item.message, item.exception);
-                                else
-                                    target.LogMessage(item.level, item.logger, item.message);
-                            }
-                            else
-                            {
-                                if (item != null)
-                                {
-                                    continue;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            catch ($$e3)
-            {
-            }
-        },
-        RouteException: function (level, logger, message, args, exception)
-        {
-            if (!GameApp.Common.Logging.LogManager.get_Enabled())
-                return;
-            if (GameApp.Common.Logging.LogManager.Targets.get_Count() == 0)
-                return;
-            GameApp.Common.Logging.LogRouter.LogQueue.Enqueue((function ()
-            {
-                var $v5 = new GameApp.Common.Logging.LogRouter.LogItem.ctor();
-                $v5.level = level;
-                $v5.logger = logger;
-                $v5.message = args == null ? message : System.String.Format$$IFormatProvider$$String$$Object$Array(System.Globalization.CultureInfo.get_InvariantCulture(), message, args);
-                $v5.exception = exception;
-                return $v5;
-            })());
-        }
-    },
-    assemblyName: "GameApp.Logger",
-    Kind: "Class",
-    definition:
-    {
-        ctor: function ()
-        {
-            System.Object.ctor.call(this);
-        }
-    }
-};
-JsTypes.push(GameApp$Common$Logging$LogRouter);
-var GameApp$Common$Logging$LogRouter$LogItem =
- {
-    fullname: "GameApp.Common.Logging.LogRouter.LogItem",
-    baseTypeName: "System.Object",
-    assemblyName: "GameApp.Logger",
-    Kind: "Class",
-    definition:
-    {
-        ctor: function ()
-        {
-            this.level = GameApp.Common.Logging.Logger.Level.Dump;
-            this.logger = null;
-            this.message = null;
-            this.exception = null;
-            this.time = System.DateTime.MinValue;
-            System.Object.ctor.call(this);
-            this.time = System.CurrentTimeGetter.get_Now();
-        }
-    }
-};
-JsTypes.push(GameApp$Common$Logging$LogRouter$LogItem);
-var GameApp$Common$Logging$LogTarget =
- {
-    fullname: "GameApp.Common.Logging.LogTarget",
-    baseTypeName: "System.Object",
-    assemblyName: "GameApp.Logger",
-    Kind: "Class",
-    definition:
-    {
-        ctor: function ()
-        {
-            this._MinimumLevel = GameApp.Common.Logging.Logger.Level.Dump;
-            this._MaximumLevel = GameApp.Common.Logging.Logger.Level.Dump;
-            this._IncludeTimeStamps = false;
-            this._Filters = null;
-            System.Object.ctor.call(this);
-        },
-        MinimumLevel$$: "GameApp.Common.Logging.Logger+Level",
-        get_MinimumLevel: function ()
-        {
-            return this._MinimumLevel;
-        },
-        set_MinimumLevel: function (value)
-        {
-            this._MinimumLevel = value;
-        },
-        MaximumLevel$$: "GameApp.Common.Logging.Logger+Level",
-        get_MaximumLevel: function ()
-        {
-            return this._MaximumLevel;
-        },
-        set_MaximumLevel: function (value)
-        {
-            this._MaximumLevel = value;
-        },
-        IncludeTimeStamps$$: "System.Boolean",
-        get_IncludeTimeStamps: function ()
-        {
-            return this._IncludeTimeStamps;
-        },
-        set_IncludeTimeStamps: function (value)
-        {
-            this._IncludeTimeStamps = value;
-        },
-        Filters$$: "System.String[]",
-        get_Filters: function ()
-        {
-            return this._Filters;
-        },
-        set_Filters: function (value)
-        {
-            this._Filters = value;
-        },
-        LogMessage: function (level, logger, message)
-        {
-            throw $CreateException(new System.NotSupportedException.ctor(), new Error());
-        },
-        LogException: function (level, logger, message, exception)
-        {
-            throw $CreateException(new System.NotSupportedException.ctor(), new Error());
-        }
-    }
-};
-JsTypes.push(GameApp$Common$Logging$LogTarget);
-var GameApp$Common$Logging$LogTargetConfig =
- {
-    fullname: "GameApp.Common.Logging.LogTargetConfig",
-    baseTypeName: "GameApp.Common.Config.Config",
-    staticDefinition:
-    {
-        cctor: function ()
-        {
-        }
-    },
-    assemblyName: "GameApp.Logger",
-    Kind: "Class",
-    definition:
-    {
-        ctor: function (loggerName)
-        {
-            GameApp.Common.Config.Config.ctor$$String.call(this, loggerName);
-        },
-        Enabled$$: "System.Boolean",
-        get_Enabled: function ()
-        {
-            return this.GetBoolean("Enabled", false);
-        },
-        set_Enabled: function (value)
-        {
-            this.Set("Enabled", value);
-        },
-        Target$$: "System.String",
-        get_Target: function ()
-        {
-            return this.GetString("Target", "Console");
-        },
-        set_Target: function (value)
-        {
-            this.GetString("Target", value);
-        },
-        IncludeTimeStamps$$: "System.Boolean",
-        get_IncludeTimeStamps: function ()
-        {
-            return this.GetBoolean("IncludeTimeStamps", false);
-        },
-        set_IncludeTimeStamps: function (value)
-        {
-            this.Set("IncludeTimeStamps", value);
-        },
-        FileName$$: "System.String",
-        get_FileName: function ()
-        {
-            return this.GetString("FileName", "");
-        },
-        set_FileName: function (value)
-        {
-            this.GetString("FileName", value);
-        },
-        Assembly$$: "System.String",
-        get_Assembly: function ()
-        {
-            return this.GetString("Assembly", "");
-        },
-        set_Assembly: function (value)
-        {
-            this.GetString("Assembly", value);
-        },
-        TargetType$$: "System.String",
-        get_TargetType: function ()
-        {
-            return this.GetString("TargetType", "");
-        },
-        set_TargetType: function (value)
-        {
-            this.GetString("TargetType", value);
-        },
-        MinimumLevel$$: "GameApp.Common.Logging.Logger+Level",
-        get_MinimumLevel: function ()
-        {
-            return Cast((this.GetInt$$String$$Int32$$Boolean("MinimumLevel", 3, true)), GameApp.Common.Logging.Logger.Level.ctor);
-        },
-        set_MinimumLevel: function (value)
-        {
-            this.Set("MinimumLevel", value);
-        },
-        MaximumLevel$$: "GameApp.Common.Logging.Logger+Level",
-        get_MaximumLevel: function ()
-        {
-            return Cast((this.GetInt$$String$$Int32$$Boolean("MaximumLevel", 6, true)), GameApp.Common.Logging.Logger.Level.ctor);
-        },
-        set_MaximumLevel: function (value)
-        {
-            this.Set("MaximumLevel", value);
-        },
-        ResetOnStartup$$: "System.Boolean",
-        get_ResetOnStartup: function ()
-        {
-            return this.GetBoolean("ResetOnStartup", false);
-        },
-        set_ResetOnStartup: function (value)
-        {
-            this.Set("ResetOnStartup", value);
-        },
-        FilterStr$$: "System.String",
-        get_FilterStr: function ()
-        {
-            return this.GetString("FilterStr", "");
-        },
-        set_FilterStr: function (value)
-        {
-            this.GetString("FilterStr", value);
-        }
-    }
-};
-JsTypes.push(GameApp$Common$Logging$LogTargetConfig);
-var GameApp$Common$Priority =
- {
-    fullname: "GameApp.Common.Priority",
-    staticDefinition: {Normal: 30, High: 10, Low: 50, Singlone: 0, VeryHigh: 1, VeryLow: 100, MAX: 500},
-    Kind: "Enum"
-};
-JsTypes.push(GameApp$Common$Priority);
-var GameApp$Common$SyncThread =
- {
-    fullname: "GameApp.Common.SyncThread",
-    baseTypeName: "System.Object",
-    staticDefinition:
-    {
-        cctor: function ()
-        {
-            GameApp.Common.SyncThread.stopWatch = null;
-            GameApp.Common.SyncThread._mtlock = new System.Object.ctor();
-            GameApp.Common.SyncThread._RunThreads = new System.SafeList$1.ctor(GameApp.Common.SyncThread.ctor);
-            GameApp.Common.SyncThread.logger = GameApp.Common.Logging.LogManager.CreateLogger();
-        },
-        ShutDown: function ()
-        {
-            if (GameApp.Common.SyncThread._RunThreads != null)
-            {
-                var $it10 = GameApp.Common.SyncThread._RunThreads.GetEnumerator();
-                while ($it10.MoveNext())
-                {
-                    var syncThread = $it10.get_Current();
-                    syncThread.Stop();
-                }
-                GameApp.Common.SyncThread._RunThreads.Clear();
-            }
-            if (GameApp.Common.SyncThread.stopWatch != null)
-                GameApp.Common.SyncThread.stopWatch.Stop();
-            GameApp.Common.SyncThread.stopWatch = null;
-        },
-        Suspend: function (name)
-        {
-            var $it11 = GameApp.Common.SyncThread._RunThreads.GetEnumerator();
-            while ($it11.MoveNext())
-            {
-                var syncThread = $it11.get_Current();
-                if (syncThread.get_Name() == name)
-                {
-                    syncThread._syncThread.Suspend();
-                }
-            }
-        },
-        Resume: function (name)
-        {
-            var $it12 = GameApp.Common.SyncThread._RunThreads.GetEnumerator();
-            while ($it12.MoveNext())
-            {
-                var syncThread = $it12.get_Current();
-                if (syncThread.get_Name() == name)
-                {
-                    syncThread._syncThread.Resume();
-                }
-            }
-        },
-        PrintInfo: function ()
-        {
-            GameApp.Console.WriteLine$$String(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-            var $it13 = GameApp.Common.SyncThread._RunThreads.GetEnumerator();
-            while ($it13.MoveNext())
-            {
-                var syncThread = $it13.get_Current();
-                GameApp.Console.WriteLine$$String$$Object$Array("#{0} Sleep:{1} {2} {3} LastRun:{4} MS:{5}", syncThread.get_Name(), syncThread.get_Sleep(), syncThread.get_Priority(), syncThread._syncThread == null ? "Stop" : syncThread._syncThread.get_ThreadState().toString(), syncThread._lastRun.ToString$$String("HH:mm:ss"), syncThread.RunMs / 1000);
-            }
-        }
-    },
-    assemblyName: "GameApp.Logger",
-    Kind: "Class",
-    definition:
-    {
-        ctor: function ()
-        {
-            this._syncThread = null;
-            this._isInt = false;
-            this._lock = new System.Object.ctor();
-            this._autoResetEvent = new System.Threading.AutoResetEvent.ctor(false);
-            this._lastRun = System.CurrentTimeGetter.get_Now();
-            this.RunMs = 0;
-            this._inRuningCount = 0;
-            this.OnCheck = null;
-            this.OnSync = null;
-            this.OnTagSync = null;
-            this.OnError = null;
-            this._UserPool = false;
-            this._MaxActiveThreadCount = 0;
-            this.__Pools = null;
-            this._Sleep = 0;
-            this._Name = null;
-            this._Priority = GameApp.Common.Priority.Singlone;
-            this._Tag = null;
-            System.Object.ctor.call(this);
-            this.set_Priority(GameApp.Common.Priority.Normal);
-            if (GameApp.Common.SyncThread.stopWatch == null)
-            {
-                GameApp.Common.SyncThread.stopWatch = new GameApp.StopWatchTimer.ctor(0);
-                GameApp.Common.SyncThread.stopWatch.Start();
-            }
-            if (GameApp.Common.SyncThread._RunThreads == null)
-                GameApp.Common.SyncThread._RunThreads = new System.SafeList$1.ctor(GameApp.Common.SyncThread.ctor);
-            GameApp.Common.SyncThread._RunThreads.Add(this);
-            this.set__Pools(new System.SafeList$1.ctor(GameApp.Common.SyncThread.ctor));
-        },
-        UserPool$$: "System.Boolean",
-        get_UserPool: function ()
-        {
-            return this._UserPool;
-        },
-        set_UserPool: function (value)
-        {
-            this._UserPool = value;
-        },
-        MaxActiveThreadCount$$: "System.Int32",
-        get_MaxActiveThreadCount: function ()
-        {
-            return this._MaxActiveThreadCount;
-        },
-        set_MaxActiveThreadCount: function (value)
-        {
-            this._MaxActiveThreadCount = value;
-        },
-        _Pools$$: "System.SafeList`1[[GameApp.Common.SyncThread]]",
-        get__Pools: function ()
-        {
-            return this.__Pools;
-        },
-        set__Pools: function (value)
-        {
-            this.__Pools = value;
-        },
-        stopWatch_Elapsed: function (sender, e)
-        {
-            if (this._inRuningCount > 0)
-            {
-                if (this.get_UserPool() && this.get__Pools().get_Count() < this.get_MaxActiveThreadCount() - 1)
-                {
-                    if ((System.DateTime.op_Subtraction$$DateTime$$DateTime(System.CurrentTimeGetter.get_Now(), this._lastRun)).get_TotalMilliseconds() >= this.get_Sleep())
-                    {
-                        var _newThread = (function ()
-                        {
-                            var $v6 = new GameApp.Common.SyncThread.ctor();
-                            $v6.set_Name(this.get_Name() + "#" + (this.get__Pools().get_Count() + 1));
-                            $v6.set_UserPool(false);
-                            $v6.set_Sleep(this.get_Sleep());
-                            return $v6;
-                        }).call(this);
-                        _newThread.OnSync = this.OnSync;
-                        _newThread.OnCheck = this.OnCheck;
-                        _newThread.OnError = this.OnError;
-                        _newThread.OnTagSync = this.OnTagSync;
-                        this.get__Pools().Add(_newThread);
-                        _newThread.Start();
-                    }
-                }
-                return;
-            }
-            if (this.Check())
-                this.PostEvent();
-        },
-        Sleep$$: "System.Int32",
-        get_Sleep: function ()
-        {
-            return this._Sleep;
-        },
-        set_Sleep: function (value)
-        {
-            this._Sleep = value;
-        },
-        Name$$: "System.String",
-        get_Name: function ()
-        {
-            return this._Name;
-        },
-        set_Name: function (value)
-        {
-            this._Name = value;
-        },
-        Priority$$: "GameApp.Common.Priority",
-        get_Priority: function ()
-        {
-            return this._Priority;
-        },
-        set_Priority: function (value)
-        {
-            this._Priority = value;
-        },
-        Tag$$: "System.Object",
-        get_Tag: function ()
-        {
-            return this._Tag;
-        },
-        set_Tag: function (value)
-        {
-            this._Tag = value;
-        },
-        add_OnCheck: function (value)
-        {
-            this.OnCheck = $CombineDelegates(this.OnCheck, value);
-        },
-        remove_OnCheck: function (value)
-        {
-            this.OnCheck = $RemoveDelegate(this.OnCheck, value);
-        },
-        add_OnSync: function (value)
-        {
-            this.OnSync = $CombineDelegates(this.OnSync, value);
-        },
-        remove_OnSync: function (value)
-        {
-            this.OnSync = $RemoveDelegate(this.OnSync, value);
-        },
-        add_OnTagSync: function (value)
-        {
-            this.OnTagSync = $CombineDelegates(this.OnTagSync, value);
-        },
-        remove_OnTagSync: function (value)
-        {
-            this.OnTagSync = $RemoveDelegate(this.OnTagSync, value);
-        },
-        add_OnError: function (value)
-        {
-            this.OnError = $CombineDelegates(this.OnError, value);
-        },
-        remove_OnError: function (value)
-        {
-            this.OnError = $RemoveDelegate(this.OnError, value);
-        },
-        Check: function ()
-        {
-            if (this.OnCheck != null)
-                return this.OnCheck(this.get_Tag());
-            return true;
-        },
-        PostEvent: function ()
-        {
-            this._autoResetEvent.Set();
-        },
-        DoError: function (ex)
-        {
-            try
-            {
-                if (this.OnError != null)
-                    this.OnError();
-            }
-            catch (e)
-            {
-                GameApp.Common.SyncThread.logger.InfoException$$Exception$$String(e, e.get_Message());
-            }
-        },
-        Run: function ()
-        {
-            if ((System.DateTime.op_Subtraction$$DateTime$$DateTime(System.CurrentTimeGetter.get_Now(), this._lastRun)).get_TotalMilliseconds() >= this.get_Sleep())
-            {
-                var sw = new System.Diagnostics.Stopwatch.ctor();
-                try
-                {
-                    this._inRuningCount++;
-                    sw.Start();
-                    this._lastRun = System.CurrentTimeGetter.get_Now();
-                    if (this.OnSync != null)
-                        this.OnSync();
-                    if (this.OnTagSync != null)
-                        this.OnTagSync(this.get_Tag());
-                }
-                catch (ex)
-                {
-                    GameApp.Common.SyncThread.logger.InfoException$$Exception$$String(ex, ex.get_Message());
-                    this.DoError(ex);
-                }
-                finally
-                {
-                    this._inRuningCount--;
-                    sw.Stop();
-                    this.RunMs += sw.get_ElapsedMilliseconds();
-                }
-            }
-        },
-        Init: function ()
-        {
-            if (this._isInt)
-                return;
-            this._isInt = true;
-            this._syncThread = new System.Threading.Thread.ctor$$ThreadStart($CreateAnonymousDelegate(this, function ()
-            {
-                if (this._isInt && System.App.IsJs())
-                {
-                    if (this.Check())
-                    {
-                        this.Run();
-                    }
-                }
-                else
-                {
-                    while (this._syncThread != null && this._isInt)
-                    {
-                        this._autoResetEvent.WaitOne$$Int32(this.get_Sleep());
-                        if (this.Check())
-                        {
-                            this.Run();
-                        }
-                    }
-                }
-            }));
-            this._syncThread.set_Name("SyncThread_" + this.get_Priority() + "_" + this.get_Name());
-        },
-        Start: function ()
-        {
-            if (this.OnSync == null && this.OnTagSync == null)
-                return;
-            if (!this._isInt)
-                this.Init();
-            if (this._syncThread != null && this._syncThread.get_ThreadState() == 8)
-            {
-                this._syncThread.Start();
-                GameApp.Common.SyncThread.stopWatch.add_Elapsed($CreateDelegate(this, this.stopWatch_Elapsed));
-            }
-        },
-        Stop: function ()
-        {
-            this._syncThread = null;
-            this.PostEvent();
-            this._isInt = false;
-            GameApp.Common.SyncThread.stopWatch.remove_Elapsed($CreateDelegate(this, this.stopWatch_Elapsed));
-            var $it14 = this.get__Pools().GetEnumerator();
-            while ($it14.MoveNext())
-            {
-                var syncThread = $it14.get_Current();
-                syncThread.Stop();
-            }
-            this.get__Pools().Clear();
-        }
-    }
-};
-JsTypes.push(GameApp$Common$SyncThread);
-if (typeof(JsTypes) == "undefined")
-    var JsTypes = [];
 var GameApp$Common$Helpers$DebugHelper =
  {
     fullname: "GameApp.Common.Helpers.DebugHelper",
@@ -1482,10 +351,10 @@ var GameApp$Common$Helpers$DebugHelper =
                 return GameApp.Common.Helpers.DebugHelper.isDebugMode.get_Value();
             }
             var pname = System.Diagnostics.Process.GetCurrentProcess().get_ProcessName();
-            var $it1 = GameApp.Common.Helpers.DebugHelper.get_DebugProcessNames().GetEnumerator();
-            while ($it1.MoveNext())
+            var $it4 = GameApp.Common.Helpers.DebugHelper.get_DebugProcessNames().GetEnumerator();
+            while ($it4.MoveNext())
             {
-                var test = $it1.get_Current();
+                var test = $it4.get_Current();
                 if (pname.indexOf(test) >= 0)
                 {
                     GameApp.Common.Helpers.DebugHelper.isDebugMode = true;
@@ -1534,7 +403,7 @@ var GameApp$Common$Helpers$IO$FileHelpers =
                 {
                     return topDir + "/" + fileInfo.get_Name();
                 }))));
-                for (var $i3 = 0, $t3 = System.IO.Directory.GetDirectories$$String(topDir), $l3 = $t3.length, dir = $t3[$i3]; $i3 < $l3; $i3++, dir = $t3[$i3])
+                for (var $i6 = 0, $t6 = System.IO.Directory.GetDirectories$$String(topDir), $l6 = $t6.length, dir = $t6[$i6]; $i6 < $l6; $i6++, dir = $t6[$i6])
                 {
                     stack.Push(dir);
                 }
@@ -1725,7 +594,7 @@ var Lib$Nini$Config$ConfigBase =
             {
                 this.format = System.Globalization.NumberFormatInfo.get_CurrentInfo();
             }
-            catch ($$e1)
+            catch ($$e2)
             {
             }
             this.configName = name;
@@ -2105,10 +974,10 @@ var Lib$Nini$Config$ConfigCollection =
         get_Item$$String: function (configName)
         {
             var result = null;
-            var $it3 = this.configList.GetEnumerator();
-            while ($it3.MoveNext())
+            var $it6 = this.configList.GetEnumerator();
+            while ($it6.MoveNext())
             {
-                var config = $it3.get_Current();
+                var config = $it6.get_Current();
                 if (config.get_Name() == configName)
                 {
                     result = config;
@@ -2285,10 +1154,10 @@ var Lib$Nini$Config$ConfigSourceBase =
             {
                 this.sourceList.Add(source);
             }
-            var $it4 = source.get_Configs().GetEnumerator();
-            while ($it4.MoveNext())
+            var $it7 = source.get_Configs().GetEnumerator();
+            while ($it7.MoveNext())
             {
-                var config = $it4.get_Current();
+                var config = $it7.get_Current();
                 this.get_Configs().Add$$IConfig(config);
             }
         },
@@ -2311,10 +1180,10 @@ var Lib$Nini$Config$ConfigSourceBase =
         ExpandKeyValues: function ()
         {
             var keys = null;
-            var $it5 = this.configList.GetEnumerator();
-            while ($it5.MoveNext())
+            var $it8 = this.configList.GetEnumerator();
+            while ($it8.MoveNext())
             {
-                var config = $it5.get_Current();
+                var config = $it8.get_Current();
                 keys = config.GetKeys();
                 for (var i = 0; i < keys.length; i++)
                 {
@@ -2465,10 +1334,10 @@ var Lib$Nini$Config$IniConfig =
         {
             var result = null;
             var lowerKey = key.toLowerCase();
-            var $it6 = this.keys.get_Keys().GetEnumerator();
-            while ($it6.MoveNext())
+            var $it9 = this.keys.get_Keys().GetEnumerator();
+            while ($it9.MoveNext())
             {
-                var currentKey = $it6.get_Current();
+                var currentKey = $it9.get_Current();
                 if (currentKey.toLowerCase() == lowerKey)
                 {
                     result = currentKey;
@@ -2480,253 +1349,6 @@ var Lib$Nini$Config$IniConfig =
     }
 };
 JsTypes.push(Lib$Nini$Config$IniConfig);
-var Lib$Nini$Config$IniConfigSource =
- {
-    fullname: "Lib.Nini.Config.IniConfigSource",
-    baseTypeName: "Lib.Nini.Config.ConfigSourceBase",
-    assemblyName: "GameApp",
-    Kind: "Class",
-    definition:
-    {
-        ctor: function ()
-        {
-            this.iniDocument = null;
-            this.savePath = null;
-            this.caseSensitive = true;
-            Lib.Nini.Config.ConfigSourceBase.ctor.call(this);
-            this.iniDocument = new Lib.Nini.Ini.IniDocument.ctor();
-        },
-        ctor$$String: function (filePath)
-        {
-            this.iniDocument = null;
-            this.savePath = null;
-            this.caseSensitive = true;
-            Lib.Nini.Config.ConfigSourceBase.ctor.call(this);
-            this.Load$$String(filePath);
-        },
-        ctor$$TextReader: function (reader)
-        {
-            this.iniDocument = null;
-            this.savePath = null;
-            this.caseSensitive = true;
-            Lib.Nini.Config.ConfigSourceBase.ctor.call(this);
-            this.Load$$TextReader(reader);
-        },
-        ctor$$IniDocument: function (document)
-        {
-            this.iniDocument = null;
-            this.savePath = null;
-            this.caseSensitive = true;
-            Lib.Nini.Config.ConfigSourceBase.ctor.call(this);
-            this.Load$$IniDocument(document);
-        },
-        ctor$$Stream: function (stream)
-        {
-            this.iniDocument = null;
-            this.savePath = null;
-            this.caseSensitive = true;
-            Lib.Nini.Config.ConfigSourceBase.ctor.call(this);
-            this.Load$$Stream(stream);
-        },
-        CaseSensitive$$: "System.Boolean",
-        get_CaseSensitive: function ()
-        {
-            return this.caseSensitive;
-        },
-        set_CaseSensitive: function (value)
-        {
-            this.caseSensitive = value;
-        },
-        SavePath$$: "System.String",
-        get_SavePath: function ()
-        {
-            return this.savePath;
-        },
-        Load$$String: function (filePath)
-        {
-            this.Load$$TextReader(new System.IO.StreamReader.ctor$$String(filePath));
-            this.savePath = filePath;
-        },
-        Load$$TextReader: function (reader)
-        {
-            this.Load$$IniDocument(new Lib.Nini.Ini.IniDocument.ctor$$TextReader(reader));
-        },
-        Load$$IniDocument: function (document)
-        {
-            this.get_Configs().Clear();
-            this.Merge(this);
-            this.iniDocument = document;
-            this.Load();
-        },
-        Load$$Stream: function (stream)
-        {
-            this.Load$$TextReader(new System.IO.StreamReader.ctor$$Stream(stream));
-        },
-        Save: function ()
-        {
-            if (!this.IsSavable())
-            {
-                throw $CreateException(new System.ArgumentException.ctor$$String("Source cannot be saved in this state"), new Error());
-            }
-            this.MergeConfigsIntoDocument();
-            this.iniDocument.Save$$String(this.savePath);
-            Lib.Nini.Config.ConfigSourceBase.commonPrototype.Save.call(this);
-        },
-        Save$$String: function (path)
-        {
-            this.savePath = path;
-            this.Save();
-        },
-        Save$$TextWriter: function (writer)
-        {
-            this.MergeConfigsIntoDocument();
-            this.iniDocument.Save$$TextWriter(writer);
-            this.savePath = null;
-            this.OnSaved(new System.EventArgs.ctor());
-        },
-        Save$$Stream: function (stream)
-        {
-            this.MergeConfigsIntoDocument();
-            this.iniDocument.Save$$Stream(stream);
-            this.savePath = null;
-            this.OnSaved(new System.EventArgs.ctor());
-        },
-        Reload: function ()
-        {
-            if (this.savePath == null)
-            {
-                throw $CreateException(new System.ArgumentException.ctor$$String("Error reloading: You must have the loaded the source from a file"), new Error());
-            }
-            this.iniDocument = new Lib.Nini.Ini.IniDocument.ctor$$String(this.savePath);
-            this.MergeDocumentIntoConfigs();
-            Lib.Nini.Config.ConfigSourceBase.commonPrototype.Reload.call(this);
-        },
-        toString: function ()
-        {
-            this.MergeConfigsIntoDocument();
-            var writer = new System.IO.StringWriter.ctor();
-            this.iniDocument.Save$$TextWriter(writer);
-            return writer.toString();
-        },
-        MergeConfigsIntoDocument: function ()
-        {
-            this.RemoveSections();
-            var $it7 = this.get_Configs().GetEnumerator();
-            while ($it7.MoveNext())
-            {
-                var config = $it7.get_Current();
-                var keys = config.GetKeys();
-                if (this.iniDocument.get_Sections().get_Item$$String(config.get_Name()) == null)
-                {
-                    var section = new Lib.Nini.Ini.IniSection.ctor$$String(config.get_Name());
-                    this.iniDocument.get_Sections().Add(section);
-                }
-                this.RemoveKeys(config.get_Name());
-                for (var i = 0; i < keys.length; i++)
-                {
-                    this.iniDocument.get_Sections().get_Item$$String(config.get_Name()).Set$$String$$String(keys[i], config.Get$$String(keys[i]));
-                }
-            }
-        },
-        RemoveSections: function ()
-        {
-            var section = null;
-            for (var i = 0; i < this.iniDocument.get_Sections().get_Count(); i++)
-            {
-                section = this.iniDocument.get_Sections().get_Item$$Int32(i);
-                if (this.get_Configs().get_Item$$String(section.get_Name()) == null)
-                {
-                    this.iniDocument.get_Sections().Remove(section.get_Name());
-                }
-            }
-        },
-        RemoveKeys: function (sectionName)
-        {
-            var section = this.iniDocument.get_Sections().get_Item$$String(sectionName);
-            if (section != null)
-            {
-                for (var $i9 = 0, $t9 = section.GetKeys(), $l9 = $t9.length, key = $t9[$i9]; $i9 < $l9; $i9++, key = $t9[$i9])
-                {
-                    if (this.get_Configs().get_Item$$String(sectionName).Get$$String(key) == null)
-                    {
-                        section.Remove(key);
-                    }
-                }
-            }
-        },
-        Load: function ()
-        {
-            var config = null;
-            var section = null;
-            var item = null;
-            for (var j = 0; j < this.iniDocument.get_Sections().get_Count(); j++)
-            {
-                section = this.iniDocument.get_Sections().get_Item$$Int32(j);
-                config = new Lib.Nini.Config.IniConfig.ctor(section.get_Name(), this);
-                for (var i = 0; i < section.get_ItemCount(); i++)
-                {
-                    item = section.GetItem(i);
-                    if (item.get_Type() == Lib.Nini.Ini.IniType.Key)
-                    {
-                        config.Add(item.get_Name(), item.get_Value());
-                    }
-                }
-                this.get_Configs().Add$$IConfig(config);
-            }
-        },
-        MergeDocumentIntoConfigs: function ()
-        {
-            this.RemoveConfigs();
-            var section = null;
-            for (var i = 0; i < this.iniDocument.get_Sections().get_Count(); i++)
-            {
-                section = this.iniDocument.get_Sections().get_Item$$Int32(i);
-                var config = this.get_Configs().get_Item$$String(section.get_Name());
-                if (config == null)
-                {
-                    config = new Lib.Nini.Config.ConfigBase.ctor(section.get_Name(), this);
-                    this.get_Configs().Add$$IConfig(config);
-                }
-                this.RemoveConfigKeys(config);
-            }
-        },
-        RemoveConfigs: function ()
-        {
-            var config = null;
-            for (var i = this.get_Configs().get_Count() - 1; i > -1; i--)
-            {
-                config = this.get_Configs().get_Item$$Int32(i);
-                if (this.iniDocument.get_Sections().get_Item$$String(config.get_Name()) == null)
-                {
-                    this.get_Configs().Remove$$IConfig(config);
-                }
-            }
-        },
-        RemoveConfigKeys: function (config)
-        {
-            var section = this.iniDocument.get_Sections().get_Item$$String(config.get_Name());
-            var configKeys = config.GetKeys();
-            for (var $i10 = 0, $l10 = configKeys.length, configKey = configKeys[$i10]; $i10 < $l10; $i10++, configKey = configKeys[$i10])
-            {
-                if (!section.Contains(configKey))
-                {
-                    config.Remove(configKey);
-                }
-            }
-            var keys = section.GetKeys();
-            for (var i = 0; i < keys.length; i++)
-            {
-                var key = keys[i];
-                config.Set(key, section.GetItem(i).get_Value());
-            }
-        },
-        IsSavable: function ()
-        {
-            return (this.savePath != null);
-        }
-    }
-};
-JsTypes.push(Lib$Nini$Config$IniConfigSource);
 var Lib$Nini$Ini$IniFileType =
  {
     fullname: "Lib.Nini.Ini.IniFileType",
@@ -2734,1096 +1356,6 @@ var Lib$Nini$Ini$IniFileType =
     Kind: "Enum"
 };
 JsTypes.push(Lib$Nini$Ini$IniFileType);
-var Lib$Nini$Ini$IniDocument =
- {
-    fullname: "Lib.Nini.Ini.IniDocument",
-    baseTypeName: "System.Object",
-    assemblyName: "GameApp",
-    Kind: "Class",
-    definition:
-    {
-        ctor$$String: function (filePath)
-        {
-            this.sections = new Lib.Nini.Ini.IniSectionCollection.ctor();
-            this.initialComment = new System.Collections.ArrayList.ctor();
-            this.fileType = Lib.Nini.Ini.IniFileType.Standard;
-            System.Object.ctor.call(this);
-            this.fileType = Lib.Nini.Ini.IniFileType.Standard;
-            this.Load$$String(filePath);
-        },
-        FileType$$: "Lib.Nini.Ini.IniFileType",
-        get_FileType: function ()
-        {
-            return this.fileType;
-        },
-        set_FileType: function (value)
-        {
-            this.fileType = value;
-        },
-        ctor$$String$$IniFileType: function (filePath, type)
-        {
-            this.sections = new Lib.Nini.Ini.IniSectionCollection.ctor();
-            this.initialComment = new System.Collections.ArrayList.ctor();
-            this.fileType = Lib.Nini.Ini.IniFileType.Standard;
-            System.Object.ctor.call(this);
-            this.fileType = type;
-            this.Load$$String(filePath);
-        },
-        ctor$$TextReader: function (reader)
-        {
-            this.sections = new Lib.Nini.Ini.IniSectionCollection.ctor();
-            this.initialComment = new System.Collections.ArrayList.ctor();
-            this.fileType = Lib.Nini.Ini.IniFileType.Standard;
-            System.Object.ctor.call(this);
-            this.fileType = Lib.Nini.Ini.IniFileType.Standard;
-            this.Load$$TextReader(reader);
-        },
-        ctor$$TextReader$$IniFileType: function (reader, type)
-        {
-            this.sections = new Lib.Nini.Ini.IniSectionCollection.ctor();
-            this.initialComment = new System.Collections.ArrayList.ctor();
-            this.fileType = Lib.Nini.Ini.IniFileType.Standard;
-            System.Object.ctor.call(this);
-            this.fileType = type;
-            this.Load$$TextReader(reader);
-        },
-        ctor$$Stream: function (stream)
-        {
-            this.sections = new Lib.Nini.Ini.IniSectionCollection.ctor();
-            this.initialComment = new System.Collections.ArrayList.ctor();
-            this.fileType = Lib.Nini.Ini.IniFileType.Standard;
-            System.Object.ctor.call(this);
-            this.fileType = Lib.Nini.Ini.IniFileType.Standard;
-            this.Load$$Stream(stream);
-        },
-        ctor$$Stream$$IniFileType: function (stream, type)
-        {
-            this.sections = new Lib.Nini.Ini.IniSectionCollection.ctor();
-            this.initialComment = new System.Collections.ArrayList.ctor();
-            this.fileType = Lib.Nini.Ini.IniFileType.Standard;
-            System.Object.ctor.call(this);
-            this.fileType = type;
-            this.Load$$Stream(stream);
-        },
-        ctor$$IniReader: function (reader)
-        {
-            this.sections = new Lib.Nini.Ini.IniSectionCollection.ctor();
-            this.initialComment = new System.Collections.ArrayList.ctor();
-            this.fileType = Lib.Nini.Ini.IniFileType.Standard;
-            System.Object.ctor.call(this);
-            this.fileType = Lib.Nini.Ini.IniFileType.Standard;
-            this.Load$$IniReader(reader);
-        },
-        ctor: function ()
-        {
-            this.sections = new Lib.Nini.Ini.IniSectionCollection.ctor();
-            this.initialComment = new System.Collections.ArrayList.ctor();
-            this.fileType = Lib.Nini.Ini.IniFileType.Standard;
-            System.Object.ctor.call(this);
-        },
-        Load$$String: function (filePath)
-        {
-            this.Load$$TextReader(new System.IO.StreamReader.ctor$$String(filePath));
-        },
-        Load$$TextReader: function (reader)
-        {
-            this.Load$$IniReader(this.GetIniReader(reader, this.fileType));
-        },
-        Load$$Stream: function (stream)
-        {
-            this.Load$$TextReader(new System.IO.StreamReader.ctor$$Stream(stream));
-        },
-        Load$$IniReader: function (reader)
-        {
-            this.LoadReader(reader);
-        },
-        Sections$$: "Lib.Nini.Ini.IniSectionCollection",
-        get_Sections: function ()
-        {
-            return this.sections;
-        },
-        Save$$TextWriter: function (textWriter)
-        {
-            var writer = this.GetIniWriter(textWriter, this.fileType);
-            var item = null;
-            var section = null;
-            var $it10 = this.initialComment.GetEnumerator();
-            while ($it10.MoveNext())
-            {
-                var comment = $it10.get_Current();
-                writer.WriteEmpty$$String(comment);
-            }
-            for (var j = 0; j < this.sections.get_Count(); j++)
-            {
-                section = this.sections.get_Item$$Int32(j);
-                writer.WriteSection$$String$$String(section.get_Name(), section.get_Comment());
-                for (var i = 0; i < section.get_ItemCount(); i++)
-                {
-                    item = section.GetItem(i);
-                    switch (item.get_Type())
-                    {
-                        case Lib.Nini.Ini.IniType.Key:
-                            writer.WriteKey$$String$$String$$String(item.get_Name(), item.get_Value(), item.get_Comment());
-                            break;
-                        case Lib.Nini.Ini.IniType.Empty:
-                            writer.WriteEmpty$$String(item.get_Comment());
-                            break;
-                    }
-                }
-            }
-            writer.Close();
-        },
-        Save$$String: function (filePath)
-        {
-            var writer = new System.IO.StreamWriter.ctor$$String(filePath);
-            this.Save$$TextWriter(writer);
-            writer.Close();
-        },
-        Save$$Stream: function (stream)
-        {
-            this.Save$$TextWriter(new System.IO.StreamWriter.ctor$$Stream(stream));
-        },
-        LoadReader: function (reader)
-        {
-            reader.set_IgnoreComments(false);
-            var sectionFound = false;
-            var section = null;
-            try
-            {
-                while (reader.Read())
-                {
-                    switch (reader.get_Type())
-                    {
-                        case Lib.Nini.Ini.IniType.Empty:
-                            if (!sectionFound)
-                            {
-                                this.initialComment.Add(reader.get_Comment());
-                            }
-                            else
-                            {
-                                section.Set$$String(reader.get_Comment());
-                            }
-                            break;
-                        case Lib.Nini.Ini.IniType.Section:
-                            sectionFound = true;
-                            if (this.sections.get_Item$$String(reader.get_Name()) != null)
-                            {
-                                this.sections.Remove(reader.get_Name());
-                            }
-                            section = new Lib.Nini.Ini.IniSection.ctor$$String$$String(reader.get_Name(), reader.get_Comment());
-                            this.sections.Add(section);
-                            break;
-                        case Lib.Nini.Ini.IniType.Key:
-                            if (section.GetValue(reader.get_Name()) == null)
-                            {
-                                section.Set$$String$$String$$String(reader.get_Name(), reader.get_Value(), reader.get_Comment());
-                            }
-                            break;
-                    }
-                }
-            }
-            catch (ex)
-            {
-                throw $CreateException(ex, new Error());
-            }
-            finally
-            {
-                reader.Close();
-            }
-        },
-        GetIniReader: function (reader, type)
-        {
-            var result = new Lib.Nini.Ini.IniReader.ctor$$TextReader(reader);
-            switch (type)
-            {
-                case Lib.Nini.Ini.IniFileType.Standard:
-                    break;
-                case Lib.Nini.Ini.IniFileType.PythonStyle:
-                    result.set_AcceptCommentAfterKey(false);
-                    result.SetCommentDelimiters([";", "#"]);
-                    result.SetAssignDelimiters([":"]);
-                    break;
-                case Lib.Nini.Ini.IniFileType.SambaStyle:
-                    result.set_AcceptCommentAfterKey(false);
-                    result.SetCommentDelimiters([";", "#"]);
-                    result.set_LineContinuation(true);
-                    break;
-                case Lib.Nini.Ini.IniFileType.MysqlStyle:
-                    result.set_AcceptCommentAfterKey(false);
-                    result.set_AcceptNoAssignmentOperator(true);
-                    result.SetCommentDelimiters(["#"]);
-                    result.SetAssignDelimiters([":", "="]);
-                    break;
-                case Lib.Nini.Ini.IniFileType.WindowsStyle:
-                    result.set_ConsumeAllKeyText(true);
-                    break;
-            }
-            return result;
-        },
-        GetIniWriter: function (reader, type)
-        {
-            var result = new Lib.Nini.Ini.IniWriter.ctor$$TextWriter(reader);
-            switch (type)
-            {
-                case Lib.Nini.Ini.IniFileType.Standard:
-                case Lib.Nini.Ini.IniFileType.WindowsStyle:
-                    break;
-                case Lib.Nini.Ini.IniFileType.PythonStyle:
-                    result.set_AssignDelimiter(":");
-                    result.set_CommentDelimiter("#");
-                    break;
-                case Lib.Nini.Ini.IniFileType.SambaStyle:
-                case Lib.Nini.Ini.IniFileType.MysqlStyle:
-                    result.set_AssignDelimiter("=");
-                    result.set_CommentDelimiter("#");
-                    break;
-            }
-            return result;
-        }
-    }
-};
-JsTypes.push(Lib$Nini$Ini$IniDocument);
-var Lib$Nini$Ini$IniException =
- {
-    fullname: "Lib.Nini.Ini.IniException",
-    baseTypeName: "System.SystemException",
-    assemblyName: "GameApp",
-    Kind: "Class",
-    definition:
-    {
-        ctor: function ()
-        {
-            this.iniReader = null;
-            this.message = "";
-            System.SystemException.ctor.call(this);
-            this.message = "An error has occurred";
-        },
-        LinePosition$$: "System.Int32",
-        get_LinePosition: function ()
-        {
-            return (this.iniReader == null) ? 0 : this.iniReader.get_LinePosition();
-        },
-        LineNumber$$: "System.Int32",
-        get_LineNumber: function ()
-        {
-            return (this.iniReader == null) ? 0 : this.iniReader.get_LineNumber();
-        },
-        Message$$: "System.String",
-        get_Message: function ()
-        {
-            if (this.iniReader == null)
-            {
-                return System.Exception.commonPrototype.get_Message.call(this);
-            }
-            return System.String.Format$$IFormatProvider$$String$$Object$Array(System.Globalization.CultureInfo.get_InvariantCulture(), "{0} - Line: {1}, Position: {2}.", [this.message, this.get_LineNumber(), this.get_LinePosition()]);
-        },
-        ctor$$String$$Exception: function (message, exception)
-        {
-            this.iniReader = null;
-            this.message = "";
-            System.SystemException.ctor$$String$$Exception.call(this, message, exception);
-        },
-        ctor$$String: function (message)
-        {
-            this.iniReader = null;
-            this.message = "";
-            System.SystemException.ctor$$String.call(this, message);
-            this.message = message;
-        },
-        ctor$$IniReader$$String: function (reader, message)
-        {
-            this.iniReader = null;
-            this.message = "";
-            Lib.Nini.Ini.IniException.ctor$$String.call(this, message);
-            this.iniReader = reader;
-            this.message = message;
-        },
-        ctor$$SerializationInfo$$StreamingContext: function (info, context)
-        {
-            this.iniReader = null;
-            this.message = "";
-            System.SystemException.ctor$$SerializationInfo$$StreamingContext.call(this, info, context);
-        },
-        GetObjectData: function (info, context)
-        {
-            System.Exception.commonPrototype.GetObjectData.call(this, info, context);
-            if (this.iniReader != null)
-            {
-                info.AddValue$$String$$Int32("lineNumber", this.iniReader.get_LineNumber());
-                info.AddValue$$String$$Int32("linePosition", this.iniReader.get_LinePosition());
-            }
-        }
-    }
-};
-JsTypes.push(Lib$Nini$Ini$IniException);
-var Lib$Nini$Ini$IniItem =
- {
-    fullname: "Lib.Nini.Ini.IniItem",
-    baseTypeName: "System.Object",
-    assemblyName: "GameApp",
-    Kind: "Class",
-    definition:
-    {
-        ctor: function (name, value, type, comment)
-        {
-            this.iniType = Lib.Nini.Ini.IniType.Empty;
-            this.iniName = "";
-            this.iniValue = "";
-            this.iniComment = null;
-            System.Object.ctor.call(this);
-            this.iniName = name;
-            this.iniValue = value;
-            this.iniType = type;
-            this.iniComment = comment;
-        },
-        Type$$: "Lib.Nini.Ini.IniType",
-        get_Type: function ()
-        {
-            return this.iniType;
-        },
-        set_Type: function (value)
-        {
-            this.iniType = value;
-        },
-        Value$$: "System.String",
-        get_Value: function ()
-        {
-            return this.iniValue;
-        },
-        set_Value: function (value)
-        {
-            this.iniValue = value;
-        },
-        Name$$: "System.String",
-        get_Name: function ()
-        {
-            return this.iniName;
-        },
-        Comment$$: "System.String",
-        get_Comment: function ()
-        {
-            return this.iniComment;
-        },
-        set_Comment: function (value)
-        {
-            this.iniComment = value;
-        }
-    }
-};
-JsTypes.push(Lib$Nini$Ini$IniItem);
-var Lib$Nini$Ini$IniReadState =
- {
-    fullname: "Lib.Nini.Ini.IniReadState",
-    staticDefinition: {Closed: 0, EndOfFile: 1, Error: 2, Initial: 3, Interactive: 4},
-    Kind: "Enum"
-};
-JsTypes.push(Lib$Nini$Ini$IniReadState);
-var Lib$Nini$Ini$IniType =
- {
-    fullname: "Lib.Nini.Ini.IniType",
-    staticDefinition: {Section: 0, Key: 1, Empty: 2},
-    Kind: "Enum"
-};
-JsTypes.push(Lib$Nini$Ini$IniType);
-var Lib$Nini$Ini$IniReader =
- {
-    fullname: "Lib.Nini.Ini.IniReader",
-    baseTypeName: "System.Object",
-    assemblyName: "GameApp",
-    interfaceNames: ["System.IDisposable"],
-    Kind: "Class",
-    definition:
-    {
-        ctor$$String: function (filePath)
-        {
-            this.lineNumber = 1;
-            this.column = 1;
-            this.iniType = Lib.Nini.Ini.IniType.Empty;
-            this.textReader = null;
-            this.ignoreComments = false;
-            this.name = new System.Text.StringBuilder.ctor();
-            this.value = new System.Text.StringBuilder.ctor();
-            this.comment = new System.Text.StringBuilder.ctor();
-            this.readState = Lib.Nini.Ini.IniReadState.Initial;
-            this.hasComment = false;
-            this.disposed = false;
-            this.lineContinuation = false;
-            this.acceptCommentAfterKey = true;
-            this.acceptNoAssignmentOperator = false;
-            this.consumeAllKeyText = false;
-            this.commentDelimiters = [";"];
-            this.assignDelimiters = ["="];
-            System.Object.ctor.call(this);
-            this.textReader = new System.IO.StreamReader.ctor$$String(filePath);
-        },
-        Name$$: "System.String",
-        get_Name: function ()
-        {
-            return this.name.toString();
-        },
-        Value$$: "System.String",
-        get_Value: function ()
-        {
-            return this.value.toString();
-        },
-        Type$$: "Lib.Nini.Ini.IniType",
-        get_Type: function ()
-        {
-            return this.iniType;
-        },
-        Comment$$: "System.String",
-        get_Comment: function ()
-        {
-            return (this.hasComment) ? this.comment.toString() : null;
-        },
-        LineNumber$$: "System.Int32",
-        get_LineNumber: function ()
-        {
-            return this.lineNumber;
-        },
-        LinePosition$$: "System.Int32",
-        get_LinePosition: function ()
-        {
-            return this.column;
-        },
-        IgnoreComments$$: "System.Boolean",
-        get_IgnoreComments: function ()
-        {
-            return this.ignoreComments;
-        },
-        set_IgnoreComments: function (value)
-        {
-            this.ignoreComments = value;
-        },
-        ReadState$$: "Lib.Nini.Ini.IniReadState",
-        get_ReadState: function ()
-        {
-            return this.readState;
-        },
-        LineContinuation$$: "System.Boolean",
-        get_LineContinuation: function ()
-        {
-            return this.lineContinuation;
-        },
-        set_LineContinuation: function (value)
-        {
-            this.lineContinuation = value;
-        },
-        AcceptCommentAfterKey$$: "System.Boolean",
-        get_AcceptCommentAfterKey: function ()
-        {
-            return this.acceptCommentAfterKey;
-        },
-        set_AcceptCommentAfterKey: function (value)
-        {
-            this.acceptCommentAfterKey = value;
-        },
-        AcceptNoAssignmentOperator$$: "System.Boolean",
-        get_AcceptNoAssignmentOperator: function ()
-        {
-            return this.acceptNoAssignmentOperator;
-        },
-        set_AcceptNoAssignmentOperator: function (value)
-        {
-            this.acceptNoAssignmentOperator = value;
-        },
-        ConsumeAllKeyText$$: "System.Boolean",
-        get_ConsumeAllKeyText: function ()
-        {
-            return this.consumeAllKeyText;
-        },
-        set_ConsumeAllKeyText: function (value)
-        {
-            this.consumeAllKeyText = value;
-        },
-        ctor$$TextReader: function (reader)
-        {
-            this.lineNumber = 1;
-            this.column = 1;
-            this.iniType = Lib.Nini.Ini.IniType.Empty;
-            this.textReader = null;
-            this.ignoreComments = false;
-            this.name = new System.Text.StringBuilder.ctor();
-            this.value = new System.Text.StringBuilder.ctor();
-            this.comment = new System.Text.StringBuilder.ctor();
-            this.readState = Lib.Nini.Ini.IniReadState.Initial;
-            this.hasComment = false;
-            this.disposed = false;
-            this.lineContinuation = false;
-            this.acceptCommentAfterKey = true;
-            this.acceptNoAssignmentOperator = false;
-            this.consumeAllKeyText = false;
-            this.commentDelimiters = [";"];
-            this.assignDelimiters = ["="];
-            System.Object.ctor.call(this);
-            this.textReader = reader;
-        },
-        ctor$$Stream: function (stream)
-        {
-            this.lineNumber = 1;
-            this.column = 1;
-            this.iniType = Lib.Nini.Ini.IniType.Empty;
-            this.textReader = null;
-            this.ignoreComments = false;
-            this.name = new System.Text.StringBuilder.ctor();
-            this.value = new System.Text.StringBuilder.ctor();
-            this.comment = new System.Text.StringBuilder.ctor();
-            this.readState = Lib.Nini.Ini.IniReadState.Initial;
-            this.hasComment = false;
-            this.disposed = false;
-            this.lineContinuation = false;
-            this.acceptCommentAfterKey = true;
-            this.acceptNoAssignmentOperator = false;
-            this.consumeAllKeyText = false;
-            this.commentDelimiters = [";"];
-            this.assignDelimiters = ["="];
-            Lib.Nini.Ini.IniReader.ctor$$TextReader.call(this, new System.IO.StreamReader.ctor$$Stream(stream));
-        },
-        Read: function ()
-        {
-            var result = false;
-            if (this.readState != Lib.Nini.Ini.IniReadState.EndOfFile || this.readState != Lib.Nini.Ini.IniReadState.Closed)
-            {
-                this.readState = Lib.Nini.Ini.IniReadState.Interactive;
-                result = this.ReadNext();
-            }
-            return result;
-        },
-        MoveToNextSection: function ()
-        {
-            var result = false;
-            while (true)
-            {
-                result = this.Read();
-                if (this.iniType == Lib.Nini.Ini.IniType.Section || !result)
-                {
-                    break;
-                }
-            }
-            return result;
-        },
-        MoveToNextKey: function ()
-        {
-            var result = false;
-            while (true)
-            {
-                result = this.Read();
-                if (this.iniType == Lib.Nini.Ini.IniType.Section)
-                {
-                    result = false;
-                    break;
-                }
-                if (this.iniType == Lib.Nini.Ini.IniType.Key || !result)
-                {
-                    break;
-                }
-            }
-            return result;
-        },
-        Close: function ()
-        {
-            this.Reset();
-            this.readState = Lib.Nini.Ini.IniReadState.Closed;
-            if (this.textReader != null)
-            {
-                this.textReader.Close();
-            }
-        },
-        Dispose: function ()
-        {
-            this.Dispose$$Boolean(true);
-        },
-        GetCommentDelimiters: function ()
-        {
-            var result = new Array(this.commentDelimiters.length);
-            System.Array.Copy(this.commentDelimiters, 0, result, 0, this.commentDelimiters.length);
-            return result;
-        },
-        SetCommentDelimiters: function (delimiters)
-        {
-            if (delimiters.length < 1)
-            {
-                throw $CreateException(new System.ArgumentException.ctor$$String("Must supply at least one delimiter"), new Error());
-            }
-            this.commentDelimiters = delimiters;
-        },
-        GetAssignDelimiters: function ()
-        {
-            var result = new Array(this.assignDelimiters.length);
-            System.Array.Copy(this.assignDelimiters, 0, result, 0, this.assignDelimiters.length);
-            return result;
-        },
-        SetAssignDelimiters: function (delimiters)
-        {
-            if (delimiters.length < 1)
-            {
-                throw $CreateException(new System.ArgumentException.ctor$$String("Must supply at least one delimiter"), new Error());
-            }
-            this.assignDelimiters = delimiters;
-        },
-        Dispose$$Boolean: function (disposing)
-        {
-            if (!this.disposed)
-            {
-                this.textReader.Close();
-                this.disposed = true;
-                if (disposing)
-                {
-                    System.GC.SuppressFinalize(this);
-                }
-            }
-        },
-        Reset: function ()
-        {
-            this.name.Remove(0, this.name.get_Length());
-            this.value.Remove(0, this.value.get_Length());
-            this.comment.Remove(0, this.comment.get_Length());
-            this.iniType = Lib.Nini.Ini.IniType.Empty;
-            (this.hasComment) = false;
-        },
-        ReadNext: function ()
-        {
-            var result = true;
-            var ch = this.PeekChar();
-            this.Reset();
-            if (this.IsComment(ch))
-            {
-                this.iniType = Lib.Nini.Ini.IniType.Empty;
-                this.ReadChar();
-                this.ReadComment();
-                return result;
-            }
-            switch (ch)
-            {
-                case " ":
-                case "\t":
-                case "\r":
-                    this.SkipWhitespace();
-                    this.ReadNext();
-                    break;
-                case "\n":
-                    this.ReadChar();
-                    break;
-                case "[":
-                    this.ReadSection();
-                    break;
-                case -1:
-                    this.readState = Lib.Nini.Ini.IniReadState.EndOfFile;
-                    result = false;
-                    break;
-                default :
-                    this.ReadKey();
-                    break;
-            }
-            return result;
-        },
-        ReadComment: function ()
-        {
-            var ch = -1;
-            this.SkipWhitespace();
-            (this.hasComment) = true;
-            do {
-                ch = this.ReadChar();
-                this.comment.Append$$Char(Cast(ch, System.Char.ctor));
-            }
-            while (!this.EndOfLine(ch))
-            this.RemoveTrailingWhitespace(this.comment);
-        },
-        RemoveTrailingWhitespace: function (builder)
-        {
-            var temp = builder.toString();
-            builder.Remove(0, builder.get_Length());
-            builder.Append$$String(temp.TrimEnd(null));
-        },
-        ReadKey: function ()
-        {
-            var ch = -1;
-            this.iniType = Lib.Nini.Ini.IniType.Key;
-            while (true)
-            {
-                ch = this.PeekChar();
-                if (this.IsAssign(ch))
-                {
-                    this.ReadChar();
-                    break;
-                }
-                if (this.EndOfLine(ch))
-                {
-                    if (this.acceptNoAssignmentOperator)
-                    {
-                        break;
-                    }
-                    throw $CreateException(new Lib.Nini.Ini.IniException.ctor$$IniReader$$String(this, System.String.Format$$String$$Object("Expected assignment operator ({0})", this.assignDelimiters[0])), new Error());
-                }
-                this.name.Append$$Char(Cast(this.ReadChar(), System.Char.ctor));
-            }
-            this.ReadKeyValue();
-            this.SearchForComment();
-            this.RemoveTrailingWhitespace(this.name);
-        },
-        ReadKeyValue: function ()
-        {
-            var ch = -1;
-            var foundQuote = false;
-            var characters = 0;
-            this.SkipWhitespace();
-            while (true)
-            {
-                ch = this.PeekChar();
-                if (!this.IsWhitespace(ch))
-                {
-                    characters++;
-                }
-                if (!this.get_ConsumeAllKeyText() && ch == 34)
-                {
-                    this.ReadChar();
-                    if (!foundQuote && characters == 1)
-                    {
-                        foundQuote = true;
-                        continue;
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-                if (foundQuote && this.EndOfLine(ch))
-                {
-                    throw $CreateException(new Lib.Nini.Ini.IniException.ctor$$IniReader$$String(this, "Expected closing quote (\")"), new Error());
-                }
-                if (this.lineContinuation && ch == 92)
-                {
-                    var buffer = new System.Text.StringBuilder.ctor();
-                    buffer.Append$$Char(Cast(this.ReadChar(), System.Char.ctor));
-                    while (this.PeekChar() != 10 && this.IsWhitespace(this.PeekChar()))
-                    {
-                        if (this.PeekChar() != 13)
-                        {
-                            buffer.Append$$Char(Cast(this.ReadChar(), System.Char.ctor));
-                        }
-                        else
-                        {
-                            this.ReadChar();
-                        }
-                    }
-                    if (this.PeekChar() == 10)
-                    {
-                        this.ReadChar();
-                        continue;
-                    }
-                    else
-                    {
-                        this.value.Append$$String(buffer.toString());
-                    }
-                }
-                if (!this.get_ConsumeAllKeyText())
-                {
-                    if (this.acceptCommentAfterKey && this.IsComment(ch) && !foundQuote)
-                    {
-                        break;
-                    }
-                }
-                if (this.EndOfLine(ch))
-                {
-                    break;
-                }
-                this.value.Append$$Char(Cast(this.ReadChar(), System.Char.ctor));
-            }
-            if (!foundQuote)
-            {
-                this.RemoveTrailingWhitespace(this.value);
-            }
-        },
-        ReadSection: function ()
-        {
-            var ch = -1;
-            this.iniType = Lib.Nini.Ini.IniType.Section;
-            ch = this.ReadChar();
-            while (true)
-            {
-                ch = this.PeekChar();
-                if (ch == 93)
-                {
-                    break;
-                }
-                if (this.EndOfLine(ch))
-                {
-                    throw $CreateException(new Lib.Nini.Ini.IniException.ctor$$IniReader$$String(this, "Expected section end (])"), new Error());
-                }
-                this.name.Append$$Char(Cast(this.ReadChar(), System.Char.ctor));
-            }
-            this.ConsumeToEnd();
-            this.RemoveTrailingWhitespace(this.name);
-        },
-        SearchForComment: function ()
-        {
-            var ch = this.ReadChar();
-            while (!this.EndOfLine(ch))
-            {
-                if (this.IsComment(ch))
-                {
-                    if (this.ignoreComments)
-                    {
-                        this.ConsumeToEnd();
-                    }
-                    else
-                    {
-                        this.ReadComment();
-                    }
-                    break;
-                }
-                ch = this.ReadChar();
-            }
-        },
-        ConsumeToEnd: function ()
-        {
-            var ch = -1;
-            do {
-                ch = this.ReadChar();
-            }
-            while (!this.EndOfLine(ch))
-        },
-        ReadChar: function ()
-        {
-            var result = this.textReader.Read();
-            if (result == 10)
-            {
-                this.lineNumber++;
-                this.column = 1;
-            }
-            else
-            {
-                this.column++;
-            }
-            return result;
-        },
-        PeekChar: function ()
-        {
-            return this.textReader.Peek();
-        },
-        IsComment: function (ch)
-        {
-            return this.HasCharacter(this.commentDelimiters, ch);
-        },
-        IsAssign: function (ch)
-        {
-            return this.HasCharacter(this.assignDelimiters, ch);
-        },
-        HasCharacter: function (characters, ch)
-        {
-            var result = false;
-            for (var i = 0; i < characters.length; i++)
-            {
-                if (ch == characters[i])
-                {
-                    result = true;
-                    break;
-                }
-            }
-            return result;
-        },
-        IsWhitespace: function (ch)
-        {
-            return ch == 32 || ch == 9 || ch == 13 || ch == 10;
-        },
-        SkipWhitespace: function ()
-        {
-            while (this.IsWhitespace(this.PeekChar()))
-            {
-                if (this.EndOfLine(this.PeekChar()))
-                {
-                    break;
-                }
-                this.ReadChar();
-            }
-        },
-        EndOfLine: function (ch)
-        {
-            return (ch == 10 || ch == -1);
-        }
-    }
-};
-JsTypes.push(Lib$Nini$Ini$IniReader);
-var Lib$Nini$Ini$IniSection =
- {
-    fullname: "Lib.Nini.Ini.IniSection",
-    baseTypeName: "System.Object",
-    assemblyName: "GameApp",
-    Kind: "Class",
-    definition:
-    {
-        ctor$$String$$String: function (name, comment)
-        {
-            this.configList = new Lib.Nini.Util.OrderedList.ctor();
-            this.name = "";
-            this.comment = null;
-            this.commentCount = 0;
-            System.Object.ctor.call(this);
-            this.name = name;
-            this.comment = comment;
-        },
-        ctor$$String: function (name)
-        {
-            this.configList = new Lib.Nini.Util.OrderedList.ctor();
-            this.name = "";
-            this.comment = null;
-            this.commentCount = 0;
-            Lib.Nini.Ini.IniSection.ctor$$String$$String.call(this, name, null);
-        },
-        Name$$: "System.String",
-        get_Name: function ()
-        {
-            return this.name;
-        },
-        Comment$$: "System.String",
-        get_Comment: function ()
-        {
-            return this.comment;
-        },
-        ItemCount$$: "System.Int32",
-        get_ItemCount: function ()
-        {
-            return this.configList.get_Count();
-        },
-        GetValue: function (key)
-        {
-            var result = null;
-            if (this.Contains(key))
-            {
-                var item = Cast(this.configList.get_Item$$Object(key), Lib.Nini.Ini.IniItem.ctor);
-                result = item.get_Value();
-            }
-            return result;
-        },
-        GetItem: function (index)
-        {
-            return Cast(this.configList.get_Item$$Int32(index), Lib.Nini.Ini.IniItem.ctor);
-        },
-        GetKeys: function ()
-        {
-            var list = new System.Collections.ArrayList.ctor();
-            var item = null;
-            for (var i = 0; i < this.configList.get_Count(); i++)
-            {
-                item = Cast(this.configList.get_Item$$Int32(i), Lib.Nini.Ini.IniItem.ctor);
-                if (item.get_Type() == Lib.Nini.Ini.IniType.Key)
-                {
-                    list.Add(item.get_Name());
-                }
-            }
-            var result = new Array(list.get_Count());
-            list.CopyTo$$Array$$Int32(result, 0);
-            return result;
-        },
-        Contains: function (key)
-        {
-            return (this.configList.get_Item$$Object(key) != null);
-        },
-        Set$$String$$String$$String: function (key, value, comment)
-        {
-            var item = null;
-            if (this.Contains(key))
-            {
-                item = Cast(this.configList.get_Item$$Object(key), Lib.Nini.Ini.IniItem.ctor);
-                item.set_Value(value);
-                item.set_Comment(comment);
-            }
-            else
-            {
-                item = new Lib.Nini.Ini.IniItem.ctor(key, value, Lib.Nini.Ini.IniType.Key, comment);
-                this.configList.Add(key, item);
-            }
-        },
-        Set$$String$$String: function (key, value)
-        {
-            this.Set$$String$$String$$String(key, value, null);
-        },
-        Set$$String: function (comment)
-        {
-            var name = "#comment" + this.commentCount;
-            var item = new Lib.Nini.Ini.IniItem.ctor(name, null , Lib.Nini.Ini.IniType.Empty, comment);
-            this.configList.Add(name, item);
-            this.commentCount++;
-        },
-        Set: function ()
-        {
-            this.Set$$String(null);
-        },
-        Remove: function (key)
-        {
-            if (this.Contains(key))
-            {
-                this.configList.Remove(key);
-            }
-        }
-    }
-};
-JsTypes.push(Lib$Nini$Ini$IniSection);
-var Lib$Nini$Ini$IniSectionCollection =
- {
-    fullname: "Lib.Nini.Ini.IniSectionCollection",
-    baseTypeName: "System.Object",
-    assemblyName: "GameApp",
-    interfaceNames: ["System.Collections.ICollection", "System.Collections.IEnumerable"],
-    Kind: "Class",
-    definition:
-    {
-        ctor: function ()
-        {
-            this.list = new Lib.Nini.Util.OrderedList.ctor();
-            System.Object.ctor.call(this);
-        },
-        Item$$: "Lib.Nini.Ini.IniSection",
-        get_Item$$Int32: function (index)
-        {
-            return Cast(this.list.get_Item$$Int32(index), Lib.Nini.Ini.IniSection.ctor);
-        },
-        get_Item$$String: function (configName)
-        {
-            return Cast(this.list.get_Item$$Object(configName), Lib.Nini.Ini.IniSection.ctor);
-        },
-        Count$$: "System.Int32",
-        get_Count: function ()
-        {
-            return this.list.get_Count();
-        },
-        SyncRoot$$: "System.Object",
-        get_SyncRoot: function ()
-        {
-            return this.list.get_SyncRoot();
-        },
-        IsSynchronized$$: "System.Boolean",
-        get_IsSynchronized: function ()
-        {
-            return this.list.get_IsSynchronized();
-        },
-        Add: function (section)
-        {
-            if (this.list.Contains(section))
-            {
-                throw $CreateException(new System.ArgumentException.ctor$$String("IniSection already exists"), new Error());
-            }
-            this.list.Add(section.get_Name(), section);
-        },
-        Remove: function (config)
-        {
-            this.list.Remove(config);
-        },
-        CopyTo$$Array$$Int32: function (array, index)
-        {
-            this.list.CopyTo$$Array$$Int32(array, index);
-        },
-        CopyTo$$IniSection$Array$$Int32: function (array, index)
-        {
-            (this.list).CopyTo(array, index);
-        },
-        GetEnumerator: function ()
-        {
-            return this.list.GetEnumerator();
-        }
-    }
-};
-JsTypes.push(Lib$Nini$Ini$IniSectionCollection);
 var Lib$Nini$Ini$IniWriteState =
  {
     fullname: "Lib.Nini.Ini.IniWriteState",
@@ -3831,242 +1363,6 @@ var Lib$Nini$Ini$IniWriteState =
     Kind: "Enum"
 };
 JsTypes.push(Lib$Nini$Ini$IniWriteState);
-var Lib$Nini$Ini$IniWriter =
- {
-    fullname: "Lib.Nini.Ini.IniWriter",
-    baseTypeName: "System.Object",
-    assemblyName: "GameApp",
-    interfaceNames: ["System.IDisposable"],
-    Kind: "Class",
-    definition:
-    {
-        ctor$$String: function (filePath)
-        {
-            this.indentation = 0;
-            this.useValueQuotes = false;
-            this.writeState = Lib.Nini.Ini.IniWriteState.Start;
-            this.commentDelimiter = ";";
-            this.assignDelimiter = "=";
-            this.textWriter = null;
-            this.eol = "\r\n";
-            this.indentationBuffer = new System.Text.StringBuilder.ctor();
-            this.baseStream = null;
-            this.disposed = false;
-            Lib.Nini.Ini.IniWriter.ctor$$Stream.call(this, new System.IO.FileStream.ctor$$String$$FileMode$$FileAccess$$FileShare(filePath, 2, 2, 0));
-        },
-        Indentation$$: "System.Int32",
-        get_Indentation: function ()
-        {
-            return this.indentation;
-        },
-        set_Indentation: function (value)
-        {
-            if (value < 0)
-                throw $CreateException(new System.ArgumentException.ctor$$String("Negative values are illegal"), new Error());
-            this.indentation = value;
-            this.indentationBuffer.Remove(0, this.indentationBuffer.get_Length());
-            for (var i = 0; i < value; i++)
-                this.indentationBuffer.Append$$Char(" ");
-        },
-        UseValueQuotes$$: "System.Boolean",
-        get_UseValueQuotes: function ()
-        {
-            return this.useValueQuotes;
-        },
-        set_UseValueQuotes: function (value)
-        {
-            this.useValueQuotes = value;
-        },
-        WriteState$$: "Lib.Nini.Ini.IniWriteState",
-        get_WriteState: function ()
-        {
-            return this.writeState;
-        },
-        CommentDelimiter$$: "System.Char",
-        get_CommentDelimiter: function ()
-        {
-            return this.commentDelimiter;
-        },
-        set_CommentDelimiter: function (value)
-        {
-            this.commentDelimiter = value;
-        },
-        AssignDelimiter$$: "System.Char",
-        get_AssignDelimiter: function ()
-        {
-            return this.assignDelimiter;
-        },
-        set_AssignDelimiter: function (value)
-        {
-            this.assignDelimiter = value;
-        },
-        BaseStream$$: "System.IO.Stream",
-        get_BaseStream: function ()
-        {
-            return this.baseStream;
-        },
-        ctor$$TextWriter: function (writer)
-        {
-            this.indentation = 0;
-            this.useValueQuotes = false;
-            this.writeState = Lib.Nini.Ini.IniWriteState.Start;
-            this.commentDelimiter = ";";
-            this.assignDelimiter = "=";
-            this.textWriter = null;
-            this.eol = "\r\n";
-            this.indentationBuffer = new System.Text.StringBuilder.ctor();
-            this.baseStream = null;
-            this.disposed = false;
-            System.Object.ctor.call(this);
-            this.textWriter = writer;
-            var streamWriter = As(writer, System.IO.StreamWriter.ctor);
-            if (streamWriter != null)
-            {
-                this.baseStream = streamWriter.get_BaseStream();
-            }
-        },
-        ctor$$Stream: function (stream)
-        {
-            this.indentation = 0;
-            this.useValueQuotes = false;
-            this.writeState = Lib.Nini.Ini.IniWriteState.Start;
-            this.commentDelimiter = ";";
-            this.assignDelimiter = "=";
-            this.textWriter = null;
-            this.eol = "\r\n";
-            this.indentationBuffer = new System.Text.StringBuilder.ctor();
-            this.baseStream = null;
-            this.disposed = false;
-            Lib.Nini.Ini.IniWriter.ctor$$TextWriter.call(this, new System.IO.StreamWriter.ctor$$Stream(stream));
-        },
-        Close: function ()
-        {
-            this.textWriter.Close();
-            this.writeState = Lib.Nini.Ini.IniWriteState.Closed;
-        },
-        Flush: function ()
-        {
-            this.textWriter.Flush();
-        },
-        toString: function ()
-        {
-            return this.textWriter.toString();
-        },
-        WriteSection$$String: function (section)
-        {
-            this.ValidateState();
-            this.writeState = Lib.Nini.Ini.IniWriteState.Section;
-            this.WriteLine("[" + section + "]");
-        },
-        WriteSection$$String$$String: function (section, comment)
-        {
-            this.ValidateState();
-            this.writeState = Lib.Nini.Ini.IniWriteState.Section;
-            this.WriteLine("[" + section + "]" + this.Comment(comment));
-        },
-        WriteKey$$String$$String: function (key, value)
-        {
-            this.ValidateStateKey();
-            this.WriteLine(key + " " + this.assignDelimiter + " " + this.GetKeyValue(value));
-        },
-        WriteKey$$String$$String$$String: function (key, value, comment)
-        {
-            this.ValidateStateKey();
-            this.WriteLine(key + " " + this.assignDelimiter + " " + this.GetKeyValue(value) + this.Comment(comment));
-        },
-        WriteEmpty: function ()
-        {
-            this.ValidateState();
-            if (this.writeState == Lib.Nini.Ini.IniWriteState.Start)
-            {
-                this.writeState = Lib.Nini.Ini.IniWriteState.BeforeFirstSection;
-            }
-            this.WriteLine("");
-        },
-        WriteEmpty$$String: function (comment)
-        {
-            this.ValidateState();
-            if (this.writeState == Lib.Nini.Ini.IniWriteState.Start)
-            {
-                this.writeState = Lib.Nini.Ini.IniWriteState.BeforeFirstSection;
-            }
-            if (comment == null)
-            {
-                this.WriteLine("");
-            }
-            else
-            {
-                this.WriteLine(this.commentDelimiter + " " + comment);
-            }
-        },
-        Dispose: function ()
-        {
-            this.Dispose$$Boolean(true);
-        },
-        Dispose$$Boolean: function (disposing)
-        {
-            if (!this.disposed)
-            {
-                this.textWriter.Close();
-                this.baseStream.Close();
-                this.disposed = true;
-                if (disposing)
-                {
-                    System.GC.SuppressFinalize(this);
-                }
-            }
-        },
-        GetKeyValue: function (text)
-        {
-            var result;
-            if (this.useValueQuotes)
-            {
-                result = this.MassageValue("\"" + text + "\"");
-            }
-            else
-            {
-                result = this.MassageValue(text);
-            }
-            return result;
-        },
-        ValidateStateKey: function ()
-        {
-            this.ValidateState();
-            switch (this.writeState)
-            {
-                case Lib.Nini.Ini.IniWriteState.BeforeFirstSection:
-                case Lib.Nini.Ini.IniWriteState.Start:
-                    throw $CreateException(new System.InvalidOperationException.ctor$$String("The WriteState is not Section"), new Error());
-                case Lib.Nini.Ini.IniWriteState.Closed:
-                    throw $CreateException(new System.InvalidOperationException.ctor$$String("The writer is closed"), new Error());
-            }
-        },
-        ValidateState: function ()
-        {
-            if (this.writeState == Lib.Nini.Ini.IniWriteState.Closed)
-            {
-                throw $CreateException(new System.InvalidOperationException.ctor$$String("The writer is closed"), new Error());
-            }
-        },
-        Comment: function (text)
-        {
-            return (text == null) ? "" : (" " + this.commentDelimiter + " " + text);
-        },
-        Write: function (value)
-        {
-            this.textWriter.Write$$String(this.indentationBuffer.toString() + value);
-        },
-        WriteLine: function (value)
-        {
-            this.Write(value + this.eol);
-        },
-        MassageValue: function (text)
-        {
-            return text.Replace$$String$$String("\n", "");
-        }
-    }
-};
-JsTypes.push(Lib$Nini$Ini$IniWriter);
 var Lib$Nini$Util$OrderedList =
  {
     fullname: "Lib.Nini.Util.OrderedList",
@@ -4271,6 +1567,1137 @@ var Lib$Nini$Util$OrderedListEnumerator =
     }
 };
 JsTypes.push(Lib$Nini$Util$OrderedListEnumerator);
+var GameApp$Common$Logging$ConsoleTarget =
+ {
+    fullname: "GameApp.Common.Logging.ConsoleTarget",
+    baseTypeName: "GameApp.Common.Logging.LogTarget",
+    staticDefinition:
+    {
+        SetForeGroundColor: function (level)
+        {
+            switch (level)
+            {
+                case GameApp.Common.Logging.Logger.Level.Dump:
+                    GameApp.Console.set_ForegroundColor(8);
+                    break;
+                case GameApp.Common.Logging.Logger.Level.Trace:
+                    GameApp.Console.set_ForegroundColor(8);
+                    break;
+                case GameApp.Common.Logging.Logger.Level.Debug:
+                    GameApp.Console.set_ForegroundColor(11);
+                    break;
+                case GameApp.Common.Logging.Logger.Level.Info:
+                    GameApp.Console.set_ForegroundColor(15);
+                    break;
+                case GameApp.Common.Logging.Logger.Level.Warn:
+                    GameApp.Console.set_ForegroundColor(14);
+                    break;
+                case GameApp.Common.Logging.Logger.Level.Error:
+                    GameApp.Console.set_ForegroundColor(13);
+                    break;
+                case GameApp.Common.Logging.Logger.Level.Fatal:
+                    GameApp.Console.set_ForegroundColor(12);
+                    break;
+                default :
+                    break;
+            }
+        }
+    },
+    assemblyName: "GameApp",
+    Kind: "Class",
+    definition:
+    {
+        ctor: function (minLevel, maxLevel, includeTimeStamps, filterStr)
+        {
+            GameApp.Common.Logging.LogTarget.ctor.call(this);
+            this.set_MinimumLevel(minLevel);
+            this.set_MaximumLevel(maxLevel);
+            this.set_IncludeTimeStamps(includeTimeStamps);
+            if (!System.String.IsNullOrEmpty(filterStr))
+            {
+                this.set_Filters(filterStr.Split$$Char$Array("|"));
+            }
+        },
+        LogMessage: function (level, logger, message)
+        {
+            var timeStamp = this.get_IncludeTimeStamps() ? "[" + System.CurrentTimeGetter.get_Now().ToString$$String("dd.MM.yyyy HH:mm:ss.fff") + "] " : "";
+            GameApp.Common.Logging.ConsoleTarget.SetForeGroundColor(level);
+            var str = System.String.Format$$String$$Object$Array("{0}[{1}] [{2}]: {3}", [timeStamp, level.toString(), logger, message]);
+            GameApp.Console.WriteLine$$String(str);
+            GameApp.Trace.WriteLine$$String(str);
+            GameApp.Common.Logging.ConsoleTarget.SetForeGroundColor(GameApp.Common.Logging.Logger.Level.Info);
+        },
+        LogException: function (level, logger, message, exception)
+        {
+            var timeStamp = this.get_IncludeTimeStamps() ? "[" + System.CurrentTimeGetter.get_Now().ToString$$String("dd.MM.yyyy HH:mm:ss.fff") + "] " : "";
+            GameApp.Common.Logging.ConsoleTarget.SetForeGroundColor(level);
+            var str = System.String.Format$$String$$Object$Array("{0}[{1}] [{2}]: {3} - [Exception] {4}", [timeStamp, level.toString(), logger, message, exception]);
+            GameApp.Console.WriteLine$$String(str);
+            GameApp.Trace.WriteLine$$String(str);
+            GameApp.Common.Logging.ConsoleTarget.SetForeGroundColor(GameApp.Common.Logging.Logger.Level.Info);
+        }
+    }
+};
+JsTypes.push(GameApp$Common$Logging$ConsoleTarget);
+var GameApp$Common$Logging$ExtensionLogTarget =
+ {
+    fullname: "GameApp.Common.Logging.ExtensionLogTarget",
+    baseTypeName: "GameApp.Common.Logging.LogTarget",
+    assemblyName: "GameApp",
+    Kind: "Class",
+    definition:
+    {
+        ctor: function (fileName, minLevel, maxLevel, includeTimeStamps, reset, filterStr)
+        {
+            GameApp.Common.Logging.LogTarget.ctor.call(this);
+            this.set_MinimumLevel(minLevel);
+            this.set_MaximumLevel(maxLevel);
+            this.set_IncludeTimeStamps(this.get_IncludeTimeStamps());
+            if (!System.String.IsNullOrEmpty(filterStr))
+            {
+                this.set_Filters(filterStr.Split$$Char$Array("|"));
+            }
+        }
+    }
+};
+JsTypes.push(GameApp$Common$Logging$ExtensionLogTarget);
+var GameApp$Common$Logging$LogConfig =
+ {
+    fullname: "GameApp.Common.Logging.LogConfig",
+    baseTypeName: "GameApp.Common.Config.Config",
+    staticDefinition:
+    {
+        cctor: function ()
+        {
+            GameApp.Common.Logging.LogConfig._instance = null;
+            GameApp.Common.Logging.LogConfig._isinit = false;
+        },
+        Instance$$: "GameApp.Common.Logging.LogConfig",
+        get_Instance: function ()
+        {
+            if (GameApp.Common.Logging.LogConfig._instance == null)
+            {
+                GameApp.Common.Logging.LogConfig._instance = new GameApp.Common.Logging.LogConfig.ctor();
+                if (!System.String.IsNullOrEmpty(GameApp.Common.Logging.LogConfig._instance.get_LogTargets()))
+                {
+                    var logs = GameApp.Common.Logging.LogConfig._instance.get_LogTargets().Split$$Char$Array("|");
+                    var configs = new System.Collections.Generic.List$1.ctor(GameApp.Common.Logging.LogTargetConfig.ctor);
+                    for (var $i11 = 0, $l11 = logs.length, log = logs[$i11]; $i11 < $l11; $i11++, log = logs[$i11])
+                    {
+                        if (!System.String.IsNullOrEmpty(log))
+                        {
+                            configs.Add(new GameApp.Common.Logging.LogTargetConfig.ctor(log));
+                        }
+                    }
+                    GameApp.Common.Logging.LogConfig._instance.Targets = configs.ToArray();
+                }
+            }
+            return GameApp.Common.Logging.LogConfig._instance;
+        }
+    },
+    assemblyName: "GameApp",
+    Kind: "Class",
+    definition:
+    {
+        ctor: function ()
+        {
+            this.Targets = [new GameApp.Common.Logging.LogTargetConfig.ctor("ConsoleLog"), new GameApp.Common.Logging.LogTargetConfig.ctor("ServerLog")];
+            GameApp.Common.Config.Config.ctor$$String.call(this, "Logging");
+        },
+        LoggingRoot$$: "System.String",
+        get_LoggingRoot: function ()
+        {
+            return this.GetString("Root", "@root\\logs").Replace$$String$$String("@root", GameApp.Common.Helpers.IO.FileHelpers.get_AssemblyRoot());
+        },
+        set_LoggingRoot: function (value)
+        {
+            this.Set("Root", value);
+        },
+        LogTargets$$: "System.String",
+        get_LogTargets: function ()
+        {
+            return this.GetString("LogTargets", "ConsoleLog|ServerLog");
+        },
+        set_LogTargets: function (value)
+        {
+        },
+        ctor$$String: function (sectionName)
+        {
+            this.Targets = [new GameApp.Common.Logging.LogTargetConfig.ctor("ConsoleLog"), new GameApp.Common.Logging.LogTargetConfig.ctor("ServerLog")];
+            GameApp.Common.Config.Config.ctor$$String.call(this, sectionName);
+        }
+    }
+};
+JsTypes.push(GameApp$Common$Logging$LogConfig);
+var GameApp$Common$Logging$Logger =
+ {
+    fullname: "GameApp.Common.Logging.Logger",
+    baseTypeName: "System.Object",
+    assemblyName: "GameApp",
+    Kind: "Class",
+    definition:
+    {
+        ctor: function (name)
+        {
+            this._Name = null;
+            System.Object.ctor.call(this);
+            this.set_Name(name);
+        },
+        Name$$: "System.String",
+        get_Name: function ()
+        {
+            return this._Name;
+        },
+        set_Name: function (value)
+        {
+            this._Name = value;
+        },
+        Log: function (level, message, args)
+        {
+            GameApp.Common.Logging.LogRouter.RouteMessage$$Level$$String$$String$$Object$Array(level, this.get_Name(), message, args);
+        },
+        LogException: function (level, message, args, exception)
+        {
+            GameApp.Common.Logging.LogRouter.RouteException(level, this.get_Name(), message, args, exception);
+        },
+        Trace$$String: function (message)
+        {
+            this.Log(GameApp.Common.Logging.Logger.Level.Trace, message, null);
+        },
+        Trace$$String$$Object$Array: function (message, args)
+        {
+            this.Log(GameApp.Common.Logging.Logger.Level.Trace, message, args);
+        },
+        Debug$$String: function (message)
+        {
+            this.Log(GameApp.Common.Logging.Logger.Level.Debug, message, null);
+        },
+        Debug$$String$$Object$Array: function (message, args)
+        {
+            this.Log(GameApp.Common.Logging.Logger.Level.Debug, message, args);
+        },
+        Info$$String: function (message)
+        {
+            this.Log(GameApp.Common.Logging.Logger.Level.Info, message, null);
+        },
+        Info$$String$$Object$Array: function (message, args)
+        {
+            this.Log(GameApp.Common.Logging.Logger.Level.Info, message, args);
+        },
+        Warn$$String: function (message)
+        {
+            this.Log(GameApp.Common.Logging.Logger.Level.Warn, message, null);
+        },
+        Warn$$String$$Object$Array: function (message, args)
+        {
+            this.Log(GameApp.Common.Logging.Logger.Level.Warn, message, args);
+        },
+        Error$$String: function (message)
+        {
+            this.Log(GameApp.Common.Logging.Logger.Level.Error, message, null);
+        },
+        Error$$String$$Object$Array: function (message, args)
+        {
+            this.Log(GameApp.Common.Logging.Logger.Level.Error, message, args);
+        },
+        Fatal$$String: function (message)
+        {
+            this.Log(GameApp.Common.Logging.Logger.Level.Fatal, message, null);
+        },
+        Fatal$$String$$Object$Array: function (message, args)
+        {
+            this.Log(GameApp.Common.Logging.Logger.Level.Fatal, message, args);
+        },
+        LogIncoming: function (message, msg, args)
+        {
+            this.Log(GameApp.Common.Logging.Logger.Level.Dump, "[I] " + msg, args);
+        },
+        LogOutgoing: function (message, msg, args)
+        {
+            this.Log(GameApp.Common.Logging.Logger.Level.Dump, "[O] " + msg, args);
+        },
+        TraceException$$Exception$$String: function (exception, message)
+        {
+            this.LogException(GameApp.Common.Logging.Logger.Level.Trace, message, null , exception);
+        },
+        TraceException$$Exception$$String$$Object$Array: function (exception, message, args)
+        {
+            this.LogException(GameApp.Common.Logging.Logger.Level.Trace, message, args, exception);
+        },
+        DebugException$$Exception$$String: function (exception, message)
+        {
+            this.LogException(GameApp.Common.Logging.Logger.Level.Debug, message, null , exception);
+        },
+        DebugException$$Exception$$String$$Object$Array: function (exception, message, args)
+        {
+            this.LogException(GameApp.Common.Logging.Logger.Level.Debug, message, args, exception);
+        },
+        InfoException$$Exception$$String: function (exception, message)
+        {
+            this.LogException(GameApp.Common.Logging.Logger.Level.Info, message, null , exception);
+        },
+        InfoException$$Exception$$String$$Object$Array: function (exception, message, args)
+        {
+            this.LogException(GameApp.Common.Logging.Logger.Level.Info, message, args, exception);
+        },
+        WarnException$$Exception$$String: function (exception, message)
+        {
+            this.LogException(GameApp.Common.Logging.Logger.Level.Warn, message, null , exception);
+        },
+        WarnException$$Exception$$String$$Object$Array: function (exception, message, args)
+        {
+            this.LogException(GameApp.Common.Logging.Logger.Level.Warn, message, args, exception);
+        },
+        ErrorException$$Exception$$String: function (exception, message)
+        {
+            this.LogException(GameApp.Common.Logging.Logger.Level.Error, message, null , exception);
+        },
+        ErrorException$$Exception$$String$$Object$Array: function (exception, message, args)
+        {
+            this.LogException(GameApp.Common.Logging.Logger.Level.Error, message, args, exception);
+        },
+        FatalException$$Exception$$String: function (exception, message)
+        {
+            this.LogException(GameApp.Common.Logging.Logger.Level.Fatal, message, null , exception);
+        },
+        FatalException$$Exception$$String$$Object$Array: function (exception, message, args)
+        {
+            this.LogException(GameApp.Common.Logging.Logger.Level.Fatal, message, args, exception);
+        }
+    }
+};
+JsTypes.push(GameApp$Common$Logging$Logger);
+var GameApp$Common$Logging$Logger$Level =
+ {
+    fullname: "GameApp.Common.Logging.Logger.Level",
+    staticDefinition: {Dump: 0, Trace: 1, Debug: 2, Info: 3, Warn: 4, Error: 5, Fatal: 6},
+    Kind: "Enum"
+};
+JsTypes.push(GameApp$Common$Logging$Logger$Level);
+var GameApp$Common$Logging$LogManager =
+ {
+    fullname: "GameApp.Common.Logging.LogManager",
+    baseTypeName: "System.Object",
+    staticDefinition:
+    {
+        Enabled$$: "System.Boolean",
+        get_Enabled: function ()
+        {
+            return GameApp.Common.Logging.LogManager._Enabled;
+        },
+        set_Enabled: function (value)
+        {
+            GameApp.Common.Logging.LogManager._Enabled = value;
+        },
+        AttachLogTarget: function (target)
+        {
+            GameApp.Common.Logging.LogManager.Targets.Add(target);
+        },
+        CreateLogger: function ()
+        {
+            var frame = new System.Diagnostics.StackFrame.ctor$$Int32$$Boolean(1, false);
+            var name = frame.GetMethod().get_DeclaringType().get_Name();
+            if (name == null)
+                throw $CreateException(new System.Exception.ctor$$String("Error getting full name for declaring type."), new Error());
+            if (!GameApp.Common.Logging.LogManager.Loggers.ContainsKey(name))
+                GameApp.Common.Logging.LogManager.Loggers.Add(name, new GameApp.Common.Logging.Logger.ctor(name));
+            return GameApp.Common.Logging.LogManager.Loggers.get_Item$$TKey(name);
+        },
+        CreateLogger$$String: function (name)
+        {
+            if (!GameApp.Common.Logging.LogManager.Loggers.ContainsKey(name))
+                GameApp.Common.Logging.LogManager.Loggers.Add(name, new GameApp.Common.Logging.Logger.ctor(name));
+            return GameApp.Common.Logging.LogManager.Loggers.get_Item$$TKey(name);
+        },
+        cctor: function ()
+        {
+            GameApp.Common.Logging.LogManager.Targets = new System.Collections.Generic.List$1.ctor(GameApp.Common.Logging.LogTarget.ctor);
+            GameApp.Common.Logging.LogManager.Loggers = new System.Collections.Generic.Dictionary$2.ctor(System.String.ctor, GameApp.Common.Logging.Logger.ctor);
+            GameApp.Common.Logging.LogManager._isInit = false;
+            GameApp.Common.Logging.LogManager._Enabled = false;
+            GameApp.Common.Config.ConfigurationManager.Init();
+            GameApp.Common.Logging.LogManager.InitLoggers();
+        },
+        InitLoggers: function ()
+        {
+            if (GameApp.Common.Logging.LogManager._isInit)
+                return;
+            GameApp.Common.Logging.LogManager.set_Enabled(true);
+            var isAddConsole = false;
+            for (var $i12 = 0, $t12 = GameApp.Common.Logging.LogConfig.get_Instance().Targets, $l12 = $t12.length, targetConfig = $t12[$i12]; $i12 < $l12; $i12++, targetConfig = $t12[$i12])
+            {
+                if (!targetConfig.get_Enabled())
+                    continue;
+                var target = null;
+                try
+                {
+                    switch (targetConfig.get_Target().toLowerCase())
+                    {
+                        case "console":
+                            isAddConsole = true;
+                            target = new GameApp.Common.Logging.ConsoleTarget.ctor(targetConfig.get_MinimumLevel(), targetConfig.get_MaximumLevel(), targetConfig.get_IncludeTimeStamps(), targetConfig.get_FilterStr());
+                            break;
+                        case "file":
+                            if (System.App.IsJs())
+                                target = new GameApp.Common.Logging.FileTarget.ctor(targetConfig.get_FileName(), targetConfig.get_MinimumLevel(), targetConfig.get_MaximumLevel(), targetConfig.get_IncludeTimeStamps(), targetConfig.get_ResetOnStartup(), targetConfig.get_FilterStr());
+                            break;
+                        default :
+                            try
+                            {
+                                var assembly = System.Reflection.Assembly.Load$$String(targetConfig.get_Assembly());
+                                var type = assembly.GetType$$String(targetConfig.get_TargetType());
+                                target = As(System.Activator.CreateInstance$$Type$$Object$Array(type, targetConfig.get_FileName(), targetConfig.get_MinimumLevel(), targetConfig.get_MaximumLevel(), targetConfig.get_IncludeTimeStamps(), targetConfig.get_ResetOnStartup(), targetConfig.get_FilterStr()), GameApp.Common.Logging.ExtensionLogTarget.ctor);
+                            }
+                            catch (e)
+                            {
+                                GameApp.Console.WriteLine$$String$$Object$Array("ExtensionLogTarget Load Error:{0} {1}", targetConfig.get_Target(), e);
+                            }
+                            break;
+                    }
+                }
+                catch (ex)
+                {
+                    System.Diagnostics.Trace.WriteLine$$String(ex.get_Message());
+                }
+                if (target != null)
+                    GameApp.Common.Logging.LogManager.AttachLogTarget(target);
+            }
+            if (GameApp.Common.Helpers.DebugHelper.InDebugMode() && !isAddConsole)
+                GameApp.Common.Logging.LogManager.AttachLogTarget(new GameApp.Common.Logging.ConsoleTarget.ctor(GameApp.Common.Logging.Logger.Level.Dump, GameApp.Common.Logging.Logger.Level.Fatal, false, null));
+            try
+            {
+                GameApp.Common.Logging.LogManager.CreateLogger().Info$$String$$Object$Array("App:{0} v{1} warming-up..", System.Reflection.Assembly.GetEntryAssembly().GetName(), System.Reflection.Assembly.GetEntryAssembly().GetName().get_Version());
+                for (var $i13 = 0, $t13 = GameApp.Common.Logging.LogConfig.get_Instance().Targets, $l13 = $t13.length, targetConfig = $t13[$i13]; $i13 < $l13; $i13++, targetConfig = $t13[$i13])
+                {
+                    GameApp.Common.Logging.LogManager.CreateLogger().Info$$String$$Object$Array("LogTarget Load :{0}", targetConfig.get_Target());
+                }
+            }
+            catch ($$e3)
+            {
+            }
+            GameApp.Common.Logging.LogManager._isInit = true;
+        }
+    },
+    assemblyName: "GameApp",
+    Kind: "Class",
+    definition:
+    {
+        ctor: function ()
+        {
+            System.Object.ctor.call(this);
+        }
+    }
+};
+JsTypes.push(GameApp$Common$Logging$LogManager);
+var GameApp$Common$Logging$LogRouter =
+ {
+    fullname: "GameApp.Common.Logging.LogRouter",
+    baseTypeName: "System.Object",
+    staticDefinition:
+    {
+        MaxLevel$$: "GameApp.Common.Logging.Logger+Level",
+        get_MaxLevel: function ()
+        {
+            return GameApp.Common.Logging.LogRouter._MaxLevel;
+        },
+        set_MaxLevel: function (value)
+        {
+            GameApp.Common.Logging.LogRouter._MaxLevel = value;
+        },
+        MinLevel$$: "GameApp.Common.Logging.Logger+Level",
+        get_MinLevel: function ()
+        {
+            return GameApp.Common.Logging.LogRouter._MinLevel;
+        },
+        set_MinLevel: function (value)
+        {
+            GameApp.Common.Logging.LogRouter._MinLevel = value;
+        },
+        RouteMessage$$Level$$String$$String$$Object$Array: function (level, logger, message, args)
+        {
+            if (!GameApp.Common.Logging.LogManager.get_Enabled())
+                return;
+            if (GameApp.Common.Logging.LogManager.Targets.get_Count() == 0)
+                return;
+            if (level > GameApp.Common.Logging.LogRouter.get_MaxLevel() || level < GameApp.Common.Logging.LogRouter.get_MinLevel())
+                return;
+            GameApp.Common.Logging.LogRouter.LogQueue.Enqueue((function ()
+            {
+                var $v2 = new GameApp.Common.Logging.LogRouter.LogItem.ctor();
+                $v2.level = level;
+                $v2.logger = logger;
+                $v2.message = args == null ? message : System.String.Format$$IFormatProvider$$String$$Object$Array(System.Globalization.CultureInfo.get_InvariantCulture(), message, args);
+                return $v2;
+            })());
+            if (GameApp.Common.Logging.LogRouter.LogQueue.get_Count() > 1000)
+            {
+                GameApp.Common.Logging.LogRouter.LogQueue.Enqueue((function ()
+                {
+                    var $v3 = new GameApp.Common.Logging.LogRouter.LogItem.ctor();
+                    $v3.level = level;
+                    $v3.logger = logger;
+                    $v3.message = "=====================================================\r\nLogQueue Count:" + GameApp.Common.Logging.LogRouter.LogQueue.get_Count();
+                    return $v3;
+                })());
+            }
+        },
+        cctor: function ()
+        {
+            GameApp.Common.Logging.LogRouter._loggThread = null;
+            GameApp.Common.Logging.LogRouter.LogQueue = new System.ConcurrentQueue$1.ctor(GameApp.Common.Logging.LogRouter.LogItem.ctor);
+            GameApp.Common.Logging.LogRouter._MaxLevel = GameApp.Common.Logging.Logger.Level.Dump;
+            GameApp.Common.Logging.LogRouter._MinLevel = GameApp.Common.Logging.Logger.Level.Dump;
+            GameApp.Common.Logging.LogRouter._loggThread = (function ()
+            {
+                var $v4 = new GameApp.Common.SyncThread.ctor();
+                $v4.set_Name("LogRouter Thread");
+                $v4.set_Sleep(10);
+                $v4.set_Tag(GameApp.Common.Logging.LogRouter.LogQueue);
+                return $v4;
+            })();
+            GameApp.Common.Logging.LogRouter._loggThread.add_OnSync(GameApp.Common.Logging.LogRouter.RouteMessage);
+            GameApp.Common.Logging.LogRouter._loggThread.add_OnCheck(function (sender)
+            {
+                return (As(sender, System.ConcurrentQueue$1.ctor)).get_Count() > 0;
+            });
+            GameApp.Common.Logging.LogRouter.set_MaxLevel(GameApp.Common.Logging.Logger.Level.Dump);
+            GameApp.Common.Logging.LogRouter.set_MinLevel(GameApp.Common.Logging.Logger.Level.Fatal);
+            if (GameApp.Common.Logging.LogManager.Targets.get_Count() > 0)
+            {
+                var $it13 = GameApp.Common.Logging.LogManager.Targets.GetEnumerator();
+                while ($it13.MoveNext())
+                {
+                    var logTarget = $it13.get_Current();
+                    if (logTarget.get_MaximumLevel() > GameApp.Common.Logging.LogRouter.get_MaxLevel())
+                    {
+                        GameApp.Common.Logging.LogRouter.set_MaxLevel(logTarget.get_MaximumLevel());
+                    }
+                    if (logTarget.get_MinimumLevel() < GameApp.Common.Logging.LogRouter.get_MinLevel())
+                    {
+                        GameApp.Common.Logging.LogRouter.set_MinLevel(logTarget.get_MinimumLevel());
+                    }
+                }
+            }
+            GameApp.Common.Logging.LogRouter._loggThread.Start();
+        },
+        RouteMessage: function ()
+        {
+            try
+            {
+                while (GameApp.Common.Logging.LogRouter.LogQueue.get_Count() > 0)
+                {
+                    var item = null;
+                    (function ()
+                    {
+                        var $1 = {Value: item};
+                        var $res = GameApp.Common.Logging.LogRouter.LogQueue.TryDequeue($1);
+                        item = $1.Value;
+                        return $res;
+                    })();
+                    if (item != null)
+                    {
+                        var $it14 = System.Linq.Enumerable.Where$1$$IEnumerable$1$$Func$2(GameApp.Common.Logging.LogTarget.ctor, GameApp.Common.Logging.LogManager.Targets, function (target)
+                        {
+                            return item.level >= target.get_MinimumLevel() && item.level <= target.get_MaximumLevel();
+                        }).GetEnumerator();
+                        while ($it14.MoveNext())
+                        {
+                            var target = $it14.get_Current();
+                            var next = false;
+                            if (target.get_Filters() != null && target.get_Filters().length > 0)
+                            {
+                                for (var $i16 = 0, $t16 = target.get_Filters(), $l16 = $t16.length, str = $t16[$i16]; $i16 < $l16; $i16++, str = $t16[$i16])
+                                {
+                                    if (item.message.indexOf(str) >= 0)
+                                    {
+                                        next = true;
+                                        break;
+                                    }
+                                }
+                            }
+                            if (!next)
+                            {
+                                if (item.exception != null)
+                                    target.LogException(item.level, item.logger, item.message, item.exception);
+                                else
+                                    target.LogMessage(item.level, item.logger, item.message);
+                            }
+                            else
+                            {
+                                if (item != null)
+                                {
+                                    continue;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch ($$e4)
+            {
+            }
+        },
+        RouteException: function (level, logger, message, args, exception)
+        {
+            if (!GameApp.Common.Logging.LogManager.get_Enabled())
+                return;
+            if (GameApp.Common.Logging.LogManager.Targets.get_Count() == 0)
+                return;
+            GameApp.Common.Logging.LogRouter.LogQueue.Enqueue((function ()
+            {
+                var $v5 = new GameApp.Common.Logging.LogRouter.LogItem.ctor();
+                $v5.level = level;
+                $v5.logger = logger;
+                $v5.message = args == null ? message : System.String.Format$$IFormatProvider$$String$$Object$Array(System.Globalization.CultureInfo.get_InvariantCulture(), message, args);
+                $v5.exception = exception;
+                return $v5;
+            })());
+        }
+    },
+    assemblyName: "GameApp",
+    Kind: "Class",
+    definition:
+    {
+        ctor: function ()
+        {
+            System.Object.ctor.call(this);
+        }
+    }
+};
+JsTypes.push(GameApp$Common$Logging$LogRouter);
+var GameApp$Common$Logging$LogRouter$LogItem =
+ {
+    fullname: "GameApp.Common.Logging.LogRouter.LogItem",
+    baseTypeName: "System.Object",
+    assemblyName: "GameApp",
+    Kind: "Class",
+    definition:
+    {
+        ctor: function ()
+        {
+            this.level = GameApp.Common.Logging.Logger.Level.Dump;
+            this.logger = null;
+            this.message = null;
+            this.exception = null;
+            this.time = System.DateTime.MinValue;
+            System.Object.ctor.call(this);
+            this.time = System.CurrentTimeGetter.get_Now();
+        }
+    }
+};
+JsTypes.push(GameApp$Common$Logging$LogRouter$LogItem);
+var GameApp$Common$Logging$LogTarget =
+ {
+    fullname: "GameApp.Common.Logging.LogTarget",
+    baseTypeName: "System.Object",
+    assemblyName: "GameApp",
+    Kind: "Class",
+    definition:
+    {
+        ctor: function ()
+        {
+            this._MinimumLevel = GameApp.Common.Logging.Logger.Level.Dump;
+            this._MaximumLevel = GameApp.Common.Logging.Logger.Level.Dump;
+            this._IncludeTimeStamps = false;
+            this._Filters = null;
+            System.Object.ctor.call(this);
+        },
+        MinimumLevel$$: "GameApp.Common.Logging.Logger+Level",
+        get_MinimumLevel: function ()
+        {
+            return this._MinimumLevel;
+        },
+        set_MinimumLevel: function (value)
+        {
+            this._MinimumLevel = value;
+        },
+        MaximumLevel$$: "GameApp.Common.Logging.Logger+Level",
+        get_MaximumLevel: function ()
+        {
+            return this._MaximumLevel;
+        },
+        set_MaximumLevel: function (value)
+        {
+            this._MaximumLevel = value;
+        },
+        IncludeTimeStamps$$: "System.Boolean",
+        get_IncludeTimeStamps: function ()
+        {
+            return this._IncludeTimeStamps;
+        },
+        set_IncludeTimeStamps: function (value)
+        {
+            this._IncludeTimeStamps = value;
+        },
+        Filters$$: "System.String[]",
+        get_Filters: function ()
+        {
+            return this._Filters;
+        },
+        set_Filters: function (value)
+        {
+            this._Filters = value;
+        },
+        LogMessage: function (level, logger, message)
+        {
+            throw $CreateException(new System.NotSupportedException.ctor(), new Error());
+        },
+        LogException: function (level, logger, message, exception)
+        {
+            throw $CreateException(new System.NotSupportedException.ctor(), new Error());
+        }
+    }
+};
+JsTypes.push(GameApp$Common$Logging$LogTarget);
+var GameApp$Common$Logging$LogTargetConfig =
+ {
+    fullname: "GameApp.Common.Logging.LogTargetConfig",
+    baseTypeName: "GameApp.Common.Config.Config",
+    staticDefinition:
+    {
+        cctor: function ()
+        {
+        }
+    },
+    assemblyName: "GameApp",
+    Kind: "Class",
+    definition:
+    {
+        ctor: function (loggerName)
+        {
+            GameApp.Common.Config.Config.ctor$$String.call(this, loggerName);
+        },
+        Enabled$$: "System.Boolean",
+        get_Enabled: function ()
+        {
+            return this.GetBoolean("Enabled", false);
+        },
+        set_Enabled: function (value)
+        {
+            this.Set("Enabled", value);
+        },
+        Target$$: "System.String",
+        get_Target: function ()
+        {
+            return this.GetString("Target", "Console");
+        },
+        set_Target: function (value)
+        {
+            this.GetString("Target", value);
+        },
+        IncludeTimeStamps$$: "System.Boolean",
+        get_IncludeTimeStamps: function ()
+        {
+            return this.GetBoolean("IncludeTimeStamps", false);
+        },
+        set_IncludeTimeStamps: function (value)
+        {
+            this.Set("IncludeTimeStamps", value);
+        },
+        FileName$$: "System.String",
+        get_FileName: function ()
+        {
+            return this.GetString("FileName", "");
+        },
+        set_FileName: function (value)
+        {
+            this.GetString("FileName", value);
+        },
+        Assembly$$: "System.String",
+        get_Assembly: function ()
+        {
+            return this.GetString("Assembly", "");
+        },
+        set_Assembly: function (value)
+        {
+            this.GetString("Assembly", value);
+        },
+        TargetType$$: "System.String",
+        get_TargetType: function ()
+        {
+            return this.GetString("TargetType", "");
+        },
+        set_TargetType: function (value)
+        {
+            this.GetString("TargetType", value);
+        },
+        MinimumLevel$$: "GameApp.Common.Logging.Logger+Level",
+        get_MinimumLevel: function ()
+        {
+            return Cast((this.GetInt$$String$$Int32$$Boolean("MinimumLevel", 3, true)), GameApp.Common.Logging.Logger.Level.ctor);
+        },
+        set_MinimumLevel: function (value)
+        {
+            this.Set("MinimumLevel", value);
+        },
+        MaximumLevel$$: "GameApp.Common.Logging.Logger+Level",
+        get_MaximumLevel: function ()
+        {
+            return Cast((this.GetInt$$String$$Int32$$Boolean("MaximumLevel", 6, true)), GameApp.Common.Logging.Logger.Level.ctor);
+        },
+        set_MaximumLevel: function (value)
+        {
+            this.Set("MaximumLevel", value);
+        },
+        ResetOnStartup$$: "System.Boolean",
+        get_ResetOnStartup: function ()
+        {
+            return this.GetBoolean("ResetOnStartup", false);
+        },
+        set_ResetOnStartup: function (value)
+        {
+            this.Set("ResetOnStartup", value);
+        },
+        FilterStr$$: "System.String",
+        get_FilterStr: function ()
+        {
+            return this.GetString("FilterStr", "");
+        },
+        set_FilterStr: function (value)
+        {
+            this.GetString("FilterStr", value);
+        }
+    }
+};
+JsTypes.push(GameApp$Common$Logging$LogTargetConfig);
+var GameApp$Common$Priority =
+ {
+    fullname: "GameApp.Common.Priority",
+    staticDefinition: {Normal: 30, High: 10, Low: 50, Singlone: 0, VeryHigh: 1, VeryLow: 100, MAX: 500},
+    Kind: "Enum"
+};
+JsTypes.push(GameApp$Common$Priority);
+var GameApp$Common$SyncThread =
+ {
+    fullname: "GameApp.Common.SyncThread",
+    baseTypeName: "System.Object",
+    staticDefinition:
+    {
+        cctor: function ()
+        {
+            GameApp.Common.SyncThread.stopWatch = null;
+            GameApp.Common.SyncThread._mtlock = new System.Object.ctor();
+            GameApp.Common.SyncThread._RunThreads = new System.SafeList$1.ctor(GameApp.Common.SyncThread.ctor);
+            GameApp.Common.SyncThread.logger = GameApp.Common.Logging.LogManager.CreateLogger();
+        },
+        ShutDown: function ()
+        {
+            if (GameApp.Common.SyncThread._RunThreads != null)
+            {
+                var $it16 = GameApp.Common.SyncThread._RunThreads.GetEnumerator();
+                while ($it16.MoveNext())
+                {
+                    var syncThread = $it16.get_Current();
+                    syncThread.Stop();
+                }
+                GameApp.Common.SyncThread._RunThreads.Clear();
+            }
+            if (GameApp.Common.SyncThread.stopWatch != null)
+                GameApp.Common.SyncThread.stopWatch.Stop();
+            GameApp.Common.SyncThread.stopWatch = null;
+        },
+        Suspend: function (name)
+        {
+            var $it17 = GameApp.Common.SyncThread._RunThreads.GetEnumerator();
+            while ($it17.MoveNext())
+            {
+                var syncThread = $it17.get_Current();
+                if (syncThread.get_Name() == name)
+                {
+                    syncThread._syncThread.Suspend();
+                }
+            }
+        },
+        Resume: function (name)
+        {
+            var $it18 = GameApp.Common.SyncThread._RunThreads.GetEnumerator();
+            while ($it18.MoveNext())
+            {
+                var syncThread = $it18.get_Current();
+                if (syncThread.get_Name() == name)
+                {
+                    syncThread._syncThread.Resume();
+                }
+            }
+        },
+        PrintInfo: function ()
+        {
+            GameApp.Console.WriteLine$$String(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            var $it19 = GameApp.Common.SyncThread._RunThreads.GetEnumerator();
+            while ($it19.MoveNext())
+            {
+                var syncThread = $it19.get_Current();
+                GameApp.Console.WriteLine$$String$$Object$Array("#{0} Sleep:{1} {2} {3} LastRun:{4} MS:{5}", syncThread.get_Name(), syncThread.get_Sleep(), syncThread.get_Priority(), syncThread._syncThread == null ? "Stop" : syncThread._syncThread.get_ThreadState().toString(), syncThread._lastRun.ToString$$String("HH:mm:ss"), syncThread.RunMs / 1000);
+            }
+        }
+    },
+    assemblyName: "GameApp",
+    Kind: "Class",
+    definition:
+    {
+        ctor: function ()
+        {
+            this._syncThread = null;
+            this._isInt = false;
+            this._lock = new System.Object.ctor();
+            this._autoResetEvent = new System.Threading.AutoResetEvent.ctor(false);
+            this._lastRun = System.CurrentTimeGetter.get_Now();
+            this.RunMs = 0;
+            this._inRuningCount = 0;
+            this.OnCheck = null;
+            this.OnSync = null;
+            this.OnTagSync = null;
+            this.OnError = null;
+            this._UserPool = false;
+            this._MaxActiveThreadCount = 0;
+            this.__Pools = null;
+            this._Sleep = 0;
+            this._Name = null;
+            this._Priority = GameApp.Common.Priority.Singlone;
+            this._Tag = null;
+            System.Object.ctor.call(this);
+            this.set_Priority(GameApp.Common.Priority.Normal);
+            if (GameApp.Common.SyncThread.stopWatch == null)
+            {
+                GameApp.Common.SyncThread.stopWatch = new GameApp.StopWatchTimer.ctor(0);
+                GameApp.Common.SyncThread.stopWatch.Start();
+            }
+            if (GameApp.Common.SyncThread._RunThreads == null)
+                GameApp.Common.SyncThread._RunThreads = new System.SafeList$1.ctor(GameApp.Common.SyncThread.ctor);
+            GameApp.Common.SyncThread._RunThreads.Add(this);
+            this.set__Pools(new System.SafeList$1.ctor(GameApp.Common.SyncThread.ctor));
+        },
+        UserPool$$: "System.Boolean",
+        get_UserPool: function ()
+        {
+            return this._UserPool;
+        },
+        set_UserPool: function (value)
+        {
+            this._UserPool = value;
+        },
+        MaxActiveThreadCount$$: "System.Int32",
+        get_MaxActiveThreadCount: function ()
+        {
+            return this._MaxActiveThreadCount;
+        },
+        set_MaxActiveThreadCount: function (value)
+        {
+            this._MaxActiveThreadCount = value;
+        },
+        _Pools$$: "System.SafeList`1[[GameApp.Common.SyncThread]]",
+        get__Pools: function ()
+        {
+            return this.__Pools;
+        },
+        set__Pools: function (value)
+        {
+            this.__Pools = value;
+        },
+        stopWatch_Elapsed: function (sender, e)
+        {
+            if (this._inRuningCount > 0)
+            {
+                if (this.get_UserPool() && this.get__Pools().get_Count() < this.get_MaxActiveThreadCount() - 1)
+                {
+                    if ((System.DateTime.op_Subtraction$$DateTime$$DateTime(System.CurrentTimeGetter.get_Now(), this._lastRun)).get_TotalMilliseconds() >= this.get_Sleep())
+                    {
+                        var _newThread = (function ()
+                        {
+                            var $v6 = new GameApp.Common.SyncThread.ctor();
+                            $v6.set_Name(this.get_Name() + "#" + (this.get__Pools().get_Count() + 1));
+                            $v6.set_UserPool(false);
+                            $v6.set_Sleep(this.get_Sleep());
+                            return $v6;
+                        }).call(this);
+                        _newThread.OnSync = this.OnSync;
+                        _newThread.OnCheck = this.OnCheck;
+                        _newThread.OnError = this.OnError;
+                        _newThread.OnTagSync = this.OnTagSync;
+                        this.get__Pools().Add(_newThread);
+                        _newThread.Start();
+                    }
+                }
+                return;
+            }
+            if (this.Check())
+                this.PostEvent();
+        },
+        Sleep$$: "System.Int32",
+        get_Sleep: function ()
+        {
+            return this._Sleep;
+        },
+        set_Sleep: function (value)
+        {
+            this._Sleep = value;
+        },
+        Name$$: "System.String",
+        get_Name: function ()
+        {
+            return this._Name;
+        },
+        set_Name: function (value)
+        {
+            this._Name = value;
+        },
+        Priority$$: "GameApp.Common.Priority",
+        get_Priority: function ()
+        {
+            return this._Priority;
+        },
+        set_Priority: function (value)
+        {
+            this._Priority = value;
+        },
+        Tag$$: "System.Object",
+        get_Tag: function ()
+        {
+            return this._Tag;
+        },
+        set_Tag: function (value)
+        {
+            this._Tag = value;
+        },
+        add_OnCheck: function (value)
+        {
+            this.OnCheck = $CombineDelegates(this.OnCheck, value);
+        },
+        remove_OnCheck: function (value)
+        {
+            this.OnCheck = $RemoveDelegate(this.OnCheck, value);
+        },
+        add_OnSync: function (value)
+        {
+            this.OnSync = $CombineDelegates(this.OnSync, value);
+        },
+        remove_OnSync: function (value)
+        {
+            this.OnSync = $RemoveDelegate(this.OnSync, value);
+        },
+        add_OnTagSync: function (value)
+        {
+            this.OnTagSync = $CombineDelegates(this.OnTagSync, value);
+        },
+        remove_OnTagSync: function (value)
+        {
+            this.OnTagSync = $RemoveDelegate(this.OnTagSync, value);
+        },
+        add_OnError: function (value)
+        {
+            this.OnError = $CombineDelegates(this.OnError, value);
+        },
+        remove_OnError: function (value)
+        {
+            this.OnError = $RemoveDelegate(this.OnError, value);
+        },
+        Check: function ()
+        {
+            if (this.OnCheck != null)
+                return this.OnCheck(this.get_Tag());
+            return true;
+        },
+        PostEvent: function ()
+        {
+            this._autoResetEvent.Set();
+        },
+        DoError: function (ex)
+        {
+            try
+            {
+                if (this.OnError != null)
+                    this.OnError();
+            }
+            catch (e)
+            {
+                GameApp.Common.SyncThread.logger.InfoException$$Exception$$String(e, e.get_Message());
+            }
+        },
+        Run: function ()
+        {
+            if ((System.DateTime.op_Subtraction$$DateTime$$DateTime(System.CurrentTimeGetter.get_Now(), this._lastRun)).get_TotalMilliseconds() >= this.get_Sleep())
+            {
+                var sw = new System.Diagnostics.Stopwatch.ctor();
+                try
+                {
+                    this._inRuningCount++;
+                    sw.Start();
+                    this._lastRun = System.CurrentTimeGetter.get_Now();
+                    if (this.OnSync != null)
+                        this.OnSync();
+                    if (this.OnTagSync != null)
+                        this.OnTagSync(this.get_Tag());
+                }
+                catch (ex)
+                {
+                    GameApp.Common.SyncThread.logger.InfoException$$Exception$$String(ex, ex.get_Message());
+                    this.DoError(ex);
+                }
+                finally
+                {
+                    this._inRuningCount--;
+                    sw.Stop();
+                    this.RunMs += sw.get_ElapsedMilliseconds();
+                }
+            }
+        },
+        Init: function ()
+        {
+            if (this._isInt)
+                return;
+            this._isInt = true;
+            this._syncThread = new System.Threading.Thread.ctor$$ThreadStart($CreateAnonymousDelegate(this, function ()
+            {
+                if (this._isInt && System.App.IsJs())
+                {
+                    if (this.Check())
+                    {
+                        this.Run();
+                    }
+                }
+                else
+                {
+                    while (this._syncThread != null && this._isInt)
+                    {
+                        this._autoResetEvent.WaitOne$$Int32(this.get_Sleep());
+                        if (this.Check())
+                        {
+                            this.Run();
+                        }
+                    }
+                }
+            }));
+            this._syncThread.set_Name("SyncThread_" + this.get_Priority() + "_" + this.get_Name());
+        },
+        Start: function ()
+        {
+            if (this.OnSync == null && this.OnTagSync == null)
+                return;
+            if (!this._isInt)
+                this.Init();
+            if (this._syncThread != null && this._syncThread.get_ThreadState() == 8)
+            {
+                this._syncThread.Start();
+                GameApp.Common.SyncThread.stopWatch.add_Elapsed($CreateDelegate(this, this.stopWatch_Elapsed));
+            }
+        },
+        Stop: function ()
+        {
+            this._syncThread = null;
+            this.PostEvent();
+            this._isInt = false;
+            GameApp.Common.SyncThread.stopWatch.remove_Elapsed($CreateDelegate(this, this.stopWatch_Elapsed));
+            var $it20 = this.get__Pools().GetEnumerator();
+            while ($it20.MoveNext())
+            {
+                var syncThread = $it20.get_Current();
+                syncThread.Stop();
+            }
+            this.get__Pools().Clear();
+        }
+    }
+};
+JsTypes.push(GameApp$Common$SyncThread);
 var System$CurrentTimeGetter =
  {
     fullname: "System.CurrentTimeGetter",
@@ -4553,7 +2980,7 @@ var GameApp$Console =
     {
         cctor: function ()
         {
-            GameApp.Console._ForegroundColor = 0;
+            GameApp.Console._consoleColor = 0;
         },
         Log: function (logItem)
         {
@@ -4583,11 +3010,25 @@ var GameApp$Console =
         ForegroundColor$$: "System.ConsoleColor",
         get_ForegroundColor: function ()
         {
-            return GameApp.Console._ForegroundColor;
+            if (System.App.IsJs())
+            {
+                return GameApp.Console._consoleColor;
+            }
+            else
+            {
+                return System.Console.get_ForegroundColor();
+            }
         },
         set_ForegroundColor: function (value)
         {
-            GameApp.Console._ForegroundColor = value;
+            if (System.App.IsJs())
+            {
+                GameApp.Console._consoleColor = value;
+            }
+            else
+            {
+                System.Console.set_ForegroundColor(value);
+            }
         }
     },
     assemblyName: "GameApp",
@@ -4766,7 +3207,7 @@ var System$App =
                 var obj =  window;
                 return obj != null;
             }
-            catch ($$e2)
+            catch ($$e5)
             {
                 return true;
             }

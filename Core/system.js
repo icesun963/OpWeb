@@ -201,6 +201,25 @@ var System$PropertyInfoFix =
     }
 };
 JsTypes.push(System$PropertyInfoFix);
+var Lib$Nini$Config$IniConfigSource =
+{
+    fullname: "Lib.Nini.Config.IniConfigSource",
+    baseTypeName: "Lib.Nini.Config.ConfigSourceBase",
+    assemblyName: "OpHost.JS",
+    Kind: "Class",
+    definition:
+    {
+        ctor: function ()
+        {
+            Lib.Nini.Config.ConfigSourceBase.ctor.call(this);
+        },
+        ctor$$String: function (iniFile)
+        {
+            Lib.Nini.Config.ConfigSourceBase.ctor.call(this);
+        }
+    }
+};
+JsTypes.push(Lib$Nini$Config$IniConfigSource);
 var System$Collections$DictionaryEntry =
 {
     fullname: "System.Collections.DictionaryEntry",
@@ -571,7 +590,7 @@ var System$Threading$Thread =
     {
         ctor: function ()
         {
-            this._timer = new OpHost.JS.Timer.ctor(1);
+            this._timer = new OpHost.JS.Timer.ctor(5);
             this._Name = null;
             this._Priority = 0;
             this._ThreadState = 0;
@@ -579,7 +598,7 @@ var System$Threading$Thread =
         },
         ctor$$ThreadStart: function (start)
         {
-            this._timer = new OpHost.JS.Timer.ctor(10);
+            this._timer = new OpHost.JS.Timer.ctor(5);
             this._Name = null;
             this._Priority = 0;
             this._ThreadState = 0;
