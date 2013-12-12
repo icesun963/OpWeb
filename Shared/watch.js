@@ -477,36 +477,101 @@ Array.prototype.remove = function(item) {
     this.pop();
 };
 
+//服务端转换对象
+if(window!=undefined && window.Clr){
+    window.IsClient = function(){
+        return false;
+    }
 
+    global.OpLogItem= function(baseObj){
+        this.OpStr = null;
+        this.Op=0;
+        this.RId=null;
+        this.Ts=0;
+        if(baseObj){
+            this.Op = baseObj._Op;
+            this.RId = baseObj._RId;
+            this.Ts = baseObj._Ts;
+            if(baseObj._opStr)
+            {
+                this.OpStr =  baseObj._opStr._Target;
+
+            }
+            if(baseObj._Ns){
+                this.Ns=baseObj._Ns.substr(8);
+            }
+
+            if(baseObj._OId){
+                this.OId=baseObj._OId;
+            }
+        }
+    };
+
+    global.OpLogItems=function(array){
+        var resultArray= [];
+        for(var item in array){
+            if(array[item]._Op != undefined)
+            {
+                var newitem= new OpLogItem(array[item]);
+                if(newitem.Op == 1 && JSON.stringify(newitem.OpStr)=="{}")
+                {
+                    continue;
+                }
+                resultArray.push(newitem);
+            }
+        }
+        return resultArray;
+    }
+}
+else
+{
+    window.IsClient = function(){
+        return true;
+    }
+}
+
+var uuidList= [];
 //opSession for Client
-var opSession = function(opitem,opid){
+var opSession = function(opitem,opid,svurl){
     this.Opid = opid;
+    opitem._OpId = opid;
     this.BindItem = opitem;
     this.Ts = 0;
     var self = this;
+    this.connected = false;
+    this.url=svurl;
 
-    var url="http://localhost:8000";
+    this.socket;
 
-    var socket;
-    if (typeof io == 'undefined') {
-        socket = comet.connect(url);
-    } else {
-        socket = io.connect();
+    uuidList.push(this);
+
+    this.Init=function(){
+        if (typeof io == 'undefined') {
+            this.socket = comet.connect(this.url);
+        } else {
+            this.socket = io.connect();
+        }
+
+
+        this.socket.on('connect', function() {
+            console.log('connected');
+            self.connected = true;
+        }).on('sync.message', function (data)
+            {
+               if(self.connected)
+               {
+                    dochange(data,self);
+                    var item={
+                        Ts:self.Ts,
+                        Opid:self.Opid,
+                        count:data.count
+                    };
+                   self.socket.emit('sync.response', item);
+                   console.log("do sync..");
+                }
+
+        });
     }
-
-
-    socket.on('connect', function() {
-        console.log('connected');
-    }).on('sync.message', function (data) {
-            dochange(data);
-            var item={
-                Ts:self.Ts,
-                Opid:self.Opid,
-                count:data.count
-            };
-            socket.emit('sync.response', item);
-            console.log("do sync..");
-    });
 
     this.doRpcCall=function ( fun , args){
         var rpcfun = {
@@ -514,7 +579,7 @@ var opSession = function(opitem,opid){
             args : JSON.stringify(args)
         };
 
-        socket.emit("rpc.response",rpcfun);
+        self.socket.emit("rpc.response",rpcfun);
         console.log("do Rcp:" + fun + " " + JSON.stringify(rpcfun));
     }
 
@@ -586,7 +651,7 @@ var opSession = function(opitem,opid){
         if(level<=0)
             return null;
 
-        if(root._OpId==opid)
+        if(root._OpId && root._OpId==opid)
             return root;
 
         for(var prop in root){
@@ -609,17 +674,26 @@ var opSession = function(opitem,opid){
 
         return null;
     }
-    var dochange = function(changeData){
-        console.log("dochange..");
+
+    var dochange = function(changeData,bindItem){
+        var count=0;
+
         for(var item in changeData){
-            if(changeData[item].Ts && changeData[item].Ts>self.Ts)
-                self.Ts=changeData[item].Ts;
+            count++;
+            if(count==1)
+                console.log("dochange..:" + bindItem.BindItem._OpId);
+            if(changeData[item].Ts && changeData[item].Ts>bindItem.Ts)
+                bindItem.Ts=changeData[item].Ts;
             if(changeData[item].Op != undefined){
                 var opitem=changeData[item];
                 switch (opitem.Op){
                     case 0:
                     case 1:
-                        var rootobj = self.BindItem;
+                        var rootobj = bindItem.BindItem;
+
+                        if(opitem.Op==0 && rootobj._OpId!=opitem.RId)
+                            break;
+
                         if(opitem.Op==1) {
                            rootobj = findItem(rootobj,opitem.RId,5);
                         }
@@ -633,11 +707,11 @@ var opSession = function(opitem,opid){
                         break;
 
                     case 2:
-                        var rootobj = findItem(self.BindItem,opitem.RId,5);
+                        var rootobj = findItem(bindItem.BindItem,opitem.RId,5);
                         rootobj[opitem.Ns].push(buildSubItem(opitem.OpStr,rootobj[opitem.Ns]));
                         break;
                     case 3:
-                        var rootobj = findItem(self.BindItem,opitem.RId,5);
+                        var rootobj = findItem(bindItem.BindItem,opitem.RId,5);
                         rootobj[opitem.Ns].forEach(function(item){
                             if(item._OpId==opitem.OId){
                                 rootobj[opitem.Ns].remove(item);
@@ -650,52 +724,13 @@ var opSession = function(opitem,opid){
     };
 }
 
-//服务端转换对象
-if(window!=undefined && window.Clr){
-    window.IsClient = function(){
-        return false;
-    }
-    global.OpLogItem= function(baseObj){
-        this.OpStr = null;
-        this.Op=0;
-        this.RId=null;
-        this.Ts=0;
-        if(baseObj){
-            this.Op = baseObj._Op;
-            this.RId = baseObj._RId;
-            this.Ts = baseObj._Ts;
-            if(baseObj._opStr)
-                this.OpStr = baseObj._opStr._Target;
-            if(baseObj._Ns){
-                this.Ns=baseObj._Ns.substr(8);
-            }
-
-            if(baseObj._OId){
-                this.OId=baseObj._OId;
-            }
+setInterval(function(){
+    for(var item in uuidList){
+        var subitem =uuidList[item];
+        if(subitem.connected!=undefined && subitem.connected==false){
+            subitem.Init();
+            break;
         }
-    };
-
-    global.OpLogItems=function(array){
-        var resultArray= [];
-        for(var item in array){
-            if(array[item]._Op != undefined)
-            {
-                var newitem= new OpLogItem(array[item]);
-                if(newitem.Op == 1 && JSON.stringify(newitem.OpStr)=="{}")
-                {
-                    continue;
-                }
-                resultArray.push(newitem);
-            }
-        }
-        return resultArray;
     }
-}
-else
-{
-    window.IsClient = function(){
-        return true;
-    }
-}
+},100);
 

@@ -97,15 +97,34 @@ GameApp.Trace.WriteLine$$String = function(msg) {
 };
 
 
+
 if (global.LogManager == undefined)
     global.LogManager = {};
 LogManager.CreateLogger = function (name) {
     var log = name ? GameApp.Common.Logging.LogManager.CreateLogger$$String(name) : GameApp.Common.Logging.LogManager.CreateLogger(__filename);
+    log.Trace = function (msg) {
+        log.Trace$$String(msg);
+    }
+    log.Debug = function (msg) {
+        log.Debug$$String(msg);
+    }
     log.Info = function (msg) {
         log.Info$$String(msg);
     }
+    log.Warn = function (msg) {
+        log.Warn$$String(msg);
+    }
+    log.Error = function (msg) {
+        log.Error$$String(msg);
+    }
+    log.Fatal = function (msg) {
+        log.Fatal$$String(msg);
+    }
+
     return log;
 };
+
+global.Log = LogManager.CreateLogger;
 
 
 

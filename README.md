@@ -34,7 +34,7 @@ C＃版本拥有的，但是Js版本并未拥有的特性：
 npm install node-static
 cd OpWeb
 node AppLauncher.js
-在浏览器中打开(你可以打开多个)
+在浏览器中打开(你可以打开多个,请使用chrome)
 http://localhost:8000
 
 目录:
