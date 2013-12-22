@@ -1,0 +1,9 @@
+{
+    "Version" : "0.0.2",
+    "ClrOn" : true,
+    "Mongo" :{
+        "SyncOn": true,
+        "Uri" : null,
+        "Db" : null
+    }
+}

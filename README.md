@@ -2,7 +2,10 @@ OpWeb
 =====
 a easy and Real Time develop game/web frame
 
-Try it now!!
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/icesun963/opweb/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
+### Try it now!!
+
 Download and unzip to a folder
 
 cd OpWeb
@@ -15,7 +18,8 @@ http://localhost:8000
 
 (Don't work in IE)
 
-Update 0.0.2:
+
+### Update 0.0.2:
 
 1.Move Core to Service/Core/ClrJs/
 
