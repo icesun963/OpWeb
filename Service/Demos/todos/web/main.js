@@ -127,12 +127,12 @@ var sideItem = function(value,div) {
  //设置列表子对象
  sideList.lists.__type = sideItem;
  //绑定session
- var session1=new opSession(sideList,"1000");
+ var session1=new opSession(sideList,"1000","http://localhost:8000");
  //右边列表
  var todoList = new uiItemList($("#item-list"),$("#todo-item-template"));
  todoList.lists.__type =todoItem;
  //绑定session
- var session2=new opSession(todoList,"1001");
+ var session2=new opSession(todoList,"1001","http://localhost:8000");
 
 
  RPCSetItemValue =function (item , value){

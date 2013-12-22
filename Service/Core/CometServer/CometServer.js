@@ -1,6 +1,7 @@
-var logger = LogManager.CreateLogger(__filename);
-global.CometServer = function(path,port,cache){
-
+var logger = new Logger(__filename);
+global.CometServer = function(path,port,cache,delay){
+    if(delay==undefined)
+        delay = 50;
     var static = require("node-static");
     if(cache == undefined){
         cache = 0;
@@ -9,7 +10,7 @@ global.CometServer = function(path,port,cache){
 
     var sharedfile = new static.Server( "./Shared/" ,{ cache: cache });
 
-    var comet = require("./comet/comet.io.js").createServer();
+    var comet = require("./Lib/comet.io.js").createServer();
 
     require("http").createServer(function (request, response) {
         response.setHeader("Access-Control-Allow-Origin", "*");
@@ -49,21 +50,56 @@ global.CometServer = function(path,port,cache){
               if(opid)
               {
                   var retry = function(){
-                      var syncdata = OpLog.OpFunction.GetChangeData(ts,opid);
+
+                       var syncdata = OpLog.OpFunction.GetChangeData(ts,opid, function(data){
+                           readData(data);
+                       });
+
+                       if(typeof syncdata!= typeof undefined )
+                           readData(syncdata);
+                  };
+
+                  var filterData = function(data){
+                      passProperty.forEach(function(key){
+                          if(data.hasOwnProperty(key)){
+                              delete  data[key];
+                          }
+                      });
+                      for(var prop in data){
+                          if(data[prop]!=null && data[prop].hasOwnProperty("_OpId")){
+                              filterData(data[prop]);
+                          }
+                          if(isArray(data[prop])){
+                              data[prop].forEach(function(subitem){
+                                  filterData(subitem);
+                              });
+                          }
+                      }
+                  }
+
+                  var readData = function(syncdata){
+
                       var logdata =  [];
+
                       if(syncdata!=null)
                           logdata = OpLogItems(syncdata);
+
                       if(logdata.length>0){
+
+                          logdata.forEach(function(subitem){
+                              filterData(subitem);
+                          });
+
                           socket.emit("sync.message", logdata);
                           console.log("syncdata:" + JSON.stringify(logdata));
                       }
                       else{
                           if(!socket._zombi) {
-                            setTimeout(retry,30);
+                              setTimeout(retry,delay);
                           }
 
                       }
-                  }
+                  };
                   retry();
               }
 
@@ -71,7 +107,8 @@ global.CometServer = function(path,port,cache){
           }
           catch (e)
           {
-              console.log("err:" + e);
+              console.warn("err:" + e);
+              throw e;
           }
         });
         socket.on("rpc.response" ,function(data){

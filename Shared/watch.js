@@ -145,6 +145,8 @@
         }
     };
 
+    var passProperty = [];
+
     var watch = function () {
 
         if (isFunction(arguments[1])) {
@@ -206,6 +208,8 @@
 
     var watchOne = function (obj, prop, watcher, level, addNRemove) {
 
+        if(passProperty.indexOf(prop)>=0)
+            return;
         if ((typeof obj == "string") || (!(obj instanceof Object) && !isArray(obj))) { //accepts only objects and array (not string)
             return;
         }
@@ -307,8 +311,7 @@
 
             if (level !== 0 && obj[prop]){
                 // watch sub properties
-                if(prop!="PropertyChanged")
-                 watchAll(obj[prop], watcher, (level===undefined)?level:level-1);
+                watchAll(obj[prop], watcher, (level===undefined)?level:level-1);
             }
 
             watchFunctions(obj, prop);
@@ -328,8 +331,12 @@
 
     var callWatchers = function (obj, prop, action, newval, oldval) {
         if (prop) {
-            for (var wr=0; wr<obj.watchers[prop].length; wr++) {
-                obj.watchers[prop][wr].call(obj, prop, action, newval, oldval);
+
+            if(obj.watchers[prop] != undefined)
+            {
+                for (var wr=0; wr<obj.watchers[prop].length; wr++) {
+                    obj.watchers[prop][wr].call(obj, prop, action, newval, oldval);
+                }
             }
         } else {
             for (var prop in obj) {//call all
@@ -457,7 +464,7 @@
     WatchJS.watch = watch;
     WatchJS.unwatch = unwatch;
     WatchJS.callWatchers = callWatchers;
-
+    WatchJS.passProperty = passProperty;
     return WatchJS;
 
 }));
@@ -467,23 +474,38 @@
 Array.prototype.__ondelItem__={};
 //增加remove方法(可用自定义列表处理)
 Array.prototype.remove = function(item) {
+
+    /*
+    var index= this.indexOf(item);
+    if(index>=0)
+        this.splice(this.indexOf(item), 1);
+    */
+
     item.__ondel__ = true;
-    this.sort(function(a,b){
-        if(a.__ondel__)
-            return 1;
-        return 0;
-    });
+    if(this.length>1)
+    {
+        this.sort(function(a,b){
+            if(a.__ondel__)
+                return 1;
+            return 0;
+        });
+    }
+
     this.__ondelItem__=item;
     this.pop();
+
+
+
 };
 
 //服务端转换对象
-if(window!=undefined && window.Clr){
+if(window!=undefined && window.Services){
     window.IsClient = function(){
         return false;
     }
 
     global.OpLogItem= function(baseObj){
+
         this.OpStr = null;
         this.Op=0;
         this.RId=null;
@@ -494,11 +516,21 @@ if(window!=undefined && window.Clr){
             this.Ts = baseObj._Ts;
             if(baseObj._opStr)
             {
-                this.OpStr =  baseObj._opStr._Target;
+                if(baseObj._opStr.hasOwnProperty("_Target"))
+                    this.OpStr =  baseObj._opStr._Target;
+                else
+                    this.OpStr =  baseObj._opStr;
 
             }
+            if(baseObj._OpStr)
+            {
+                this.OpStr = baseObj._OpStr;
+            }
             if(baseObj._Ns){
-                this.Ns=baseObj._Ns.substr(8);
+                if(baseObj._Ns.startsWith("__list__"))
+                    this.Ns=baseObj._Ns.substr(8);
+                else
+                    this.Ns=baseObj._Ns;
             }
 
             if(baseObj._OId){
@@ -530,6 +562,20 @@ else
     }
 }
 
+
+window.isFunction = function (functionToCheck) {
+    var getType = {};
+    return functionToCheck && getType.toString.call(functionToCheck) == '[object Function]';
+};
+
+window.isInt = function (x) {
+    return x % 1 === 0;
+};
+
+window.isArray = function(obj) {
+    return Object.prototype.toString.call(obj) === '[object Array]';
+};
+
 var uuidList= [];
 //opSession for Client
 var opSession = function(opitem,opid,svurl){
@@ -539,6 +585,8 @@ var opSession = function(opitem,opid,svurl){
     this.Ts = 0;
     var self = this;
     this.connected = false;
+    if(svurl==undefined)
+        svurl="";
     this.url=svurl;
 
     this.socket;
@@ -583,18 +631,6 @@ var opSession = function(opitem,opid,svurl){
         console.log("do Rcp:" + fun + " " + JSON.stringify(rpcfun));
     }
 
-    var isFunction = function (functionToCheck) {
-        var getType = {};
-        return functionToCheck && getType.toString.call(functionToCheck) == '[object Function]';
-    };
-
-    var isInt = function (x) {
-        return x % 1 === 0;
-    };
-
-    var isArray = function(obj) {
-        return Object.prototype.toString.call(obj) === '[object Array]';
-    };
 
     var buildSubItem = function(subitem,tagitem){
         if(typeof subitem == "string")

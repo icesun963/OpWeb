@@ -15,10 +15,11 @@ var myApp = function(){
     };
 
     var dbroot= new listdb();
-    dbroot._OpId="1000";
+    dbroot.SetOpId("1000");
     OpLog.OpFunction.SetMaster(dbroot);
+
     var dbroot2= new listdb();
-    dbroot2._OpId="1001";
+    dbroot2.SetOpId("1001");
     OpLog.OpFunction.SetMaster(dbroot2);
 
 
