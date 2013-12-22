@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e2581cb0-c3f5-460a-897a-333a3e3716ef" name="Default" comment="修改目录结构 独立各个App" />
+    <list default="true" id="e2581cb0-c3f5-460a-897a-333a3e3716ef" name="Default" comment="修改目录结构 独立各个App">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/OpWeb.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.bat" afterPath="$PROJECT_DIR$/test.bat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="OpWeb.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,57 +33,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AppLauncher.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AppLauncher.js">
+      <file leaf-file-name="MongodbSync.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Service/Core/MongodbSync.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="0" selection-start="1032" selection-end="1032" vertical-scroll-proportion="0.0" vertical-offset="700" max-vertical-offset="1197">
+            <state line="436" column="5" selection-start="13165" selection-end="13165" vertical-scroll-proportion="0.0" vertical-offset="6440" max-vertical-offset="7425">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="colors.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/node-static/node_modules/colors/colors.js">
+      <file leaf-file-name="todoTest.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Service/Demos/todos/todoTest.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="214" column="8" selection-start="6146" selection-end="6146" vertical-scroll-proportion="0.0" vertical-offset="3407" max-vertical-offset="4788">
-              <folding>
-                <marker date="1386653306258" expanded="false" signature="4175:4210" placeholder="..." />
-                <marker date="1386653306258" expanded="false" signature="4281:4293" placeholder="..." />
-                <marker date="1386653306258" expanded="false" signature="4347:4358" placeholder="..." />
-                <marker date="1386653306258" expanded="false" signature="4413:4425" placeholder="..." />
-                <marker date="1386653306258" expanded="false" signature="4494:4505" placeholder="..." />
-                <marker date="1386653306258" expanded="false" signature="4560:4571" placeholder="..." />
-                <marker date="1386653306258" expanded="false" signature="4626:4638" placeholder="..." />
-                <marker date="1386653306258" expanded="false" signature="4692:4706" placeholder="..." />
-                <marker date="1386653306258" expanded="false" signature="4758:4768" placeholder="..." />
-                <marker date="1386653306258" expanded="false" signature="4824:4837" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jsclr.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Core/jsclr.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4271" column="56" selection-start="133237" selection-end="133279" vertical-scroll-proportion="0.29338843" vertical-offset="81007" max-vertical-offset="185573">
+            <state line="67" column="10" selection-start="1566" selection-end="1576" vertical-scroll-proportion="0.0" vertical-offset="695" max-vertical-offset="1110">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="break.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/node-static/node_modules/optimist/node_modules/wordwrap/test/break.js">
+      <file leaf-file-name="Config.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Config.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="16" selection-start="554" selection-end="554" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="684">
+            <state line="4" column="15" selection-start="71" selection-end="77" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="210">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="node-static.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/node-static/lib/node-static.js">
+      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="4" selection-start="150" selection-end="175" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5282">
+            <state line="33" column="0" selection-start="500" selection-end="500" vertical-scroll-proportion="0.78821653" vertical-offset="0" max-vertical-offset="628">
               <folding />
             </state>
           </provider>
@@ -102,27 +92,29 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Service/Demos/test/test.js" />
-        <option value="$PROJECT_DIR$/Service/Demos/todos/todoTest.js" />
+        <option value="$PROJECT_DIR$/Service/Demos/todos/web/main.js" />
         <option value="$PROJECT_DIR$/Service/Demos/todos/web/index.html" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/Service/Core/server.js" />
-        <option value="$PROJECT_DIR$/Service/Demos/gameDemo/gameDemo.js" />
-        <option value="$PROJECT_DIR$/Service/Demos/gameDemo/web/index.html" />
-        <option value="$PROJECT_DIR$/Service/Demos/gameDemo/web/js/resources.js" />
-        <option value="$PROJECT_DIR$/Service/Demos/gameDemo/web/js/entities/entities.js" />
-        <option value="$PROJECT_DIR$/Service/Demos/gameDemo/web/js/screens/play.js" />
-        <option value="$PROJECT_DIR$/Service/Demos/gameDemo/web/js/game.js" />
-        <option value="$PROJECT_DIR$/Core/jsclr.js" />
+        <option value="$PROJECT_DIR$/Service/Core/CometServer.js" />
+        <option value="$PROJECT_DIR$/Service/Core/JsClr/JsClrLauncher.js" />
+        <option value="$PROJECT_DIR$/Service/Core/_JsClr/JsClrLauncher.js" />
+        <option value="$PROJECT_DIR$/Service/Core/CometServer/CometServer.js" />
+        <option value="$PROJECT_DIR$/Shared/watch.js" />
+        <option value="$PROJECT_DIR$/LICENSE.md" />
+        <option value="$PROJECT_DIR$/Config.json.js" />
+        <option value="$PROJECT_DIR$/Service/Core/ClrJs/JsClrLauncher.js" />
+        <option value="$PROJECT_DIR$/Service/Demos/todos/todoTest.js" />
+        <option value="$PROJECT_DIR$/Service/Core/ClrJs/ClrLauncher.js" />
         <option value="$PROJECT_DIR$/AppLauncher.js" />
+        <option value="$PROJECT_DIR$/Service/Core/MongodbSync.js" />
+        <option value="$PROJECT_DIR$/Config.json" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1456" />
-    <option name="height" value="916" />
+    <option name="y" value="22" />
+    <option name="width" value="1280" />
+    <option name="height" value="774" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -150,7 +142,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -179,20 +170,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Shared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OpWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OpWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Service" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -204,10 +181,6 @@
               <option name="myItemId" value="todos" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -237,12 +210,21 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CometServer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -256,7 +238,7 @@
     <property name="recentsLimit" value="5" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/AppLauncher.js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Service/Demos/todos/web/index.html" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="55" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="529" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="535" />
@@ -270,14 +252,14 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Service/Core/JsClr/Core" />
+      <recent name="$PROJECT_DIR$/Service/Core/JsClr" />
+      <recent name="$PROJECT_DIR$/Service/Core/CometServer" />
       <recent name="E:\SkyDrive\WebstormProjects\OpWeb\Shared" />
       <recent name="$PROJECT_DIR$/Service/Demos/gameDemo/web/data/map" />
-      <recent name="$PROJECT_DIR$/Shared" />
-      <recent name="$PROJECT_DIR$/Core" />
-      <recent name="$PROJECT_DIR$/Service/Demos" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.Unnamed">
+  <component name="RunManager" selected="Node.js.OsxApp">
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -314,12 +296,12 @@
       <browser start="false" url="" with-js-debugger="false" />
       <method />
     </configuration>
-    <configuration default="false" name="index" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true" uri="http://localhost:63342/OpWeb/Service/Demos/gameDemo/web/index.html">
+    <configuration default="false" name="index" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true" uri="http://localhost:63342/OpWeb/Service/Demos/todos/web/index.html">
       <RunnerSettings RunnerId="JavascriptDebugRunner" />
       <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
       <method />
     </configuration>
-    <configuration default="false" name="Unnamed" type="NodeJSConfigurationType" factoryName="Node.js" singleton="true" path-to-node="D:/Program Files/nodejs/node" path-to-js-file="AppLauncher.js" working-dir="$PROJECT_DIR$">
+    <configuration default="false" name="winApp" type="NodeJSConfigurationType" factoryName="Node.js" singleton="true" path-to-node="D:/Program Files/nodejs/node" path-to-js-file="AppLauncher.js" working-dir="$PROJECT_DIR$">
       <browser start="false" url="" with-js-debugger="false" />
       <RunnerSettings RunnerId="NodeJS.debug" />
       <RunnerSettings RunnerId="NodeJS.run" />
@@ -327,9 +309,18 @@
       <ConfigurationWrapper RunnerId="NodeJS.run" />
       <method />
     </configuration>
-    <list size="2">
+    <configuration default="false" name="OsxApp" type="NodeJSConfigurationType" factoryName="Node.js" singleton="true" path-to-node="/usr/local/bin/node" path-to-js-file="AppLauncher.js" working-dir="$PROJECT_DIR$">
+      <browser start="false" url="" with-js-debugger="false" />
+      <RunnerSettings RunnerId="NodeJS.debug" />
+      <RunnerSettings RunnerId="NodeJS.run" />
+      <ConfigurationWrapper RunnerId="NodeJS.debug" />
+      <ConfigurationWrapper RunnerId="NodeJS.run" />
+      <method />
+    </configuration>
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index" />
-      <item index="1" class="java.lang.String" itemvalue="Node.js.Unnamed" />
+      <item index="1" class="java.lang.String" itemvalue="Node.js.winApp" />
+      <item index="2" class="java.lang.String" itemvalue="Node.js.OsxApp" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -368,7 +359,15 @@
       <created>1386484388142</created>
       <updated>1386484388142</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="update to user MongoDb user OpLog Engine">
+      <created>1387698177765</created>
+      <updated>1387698177765</updated>
+    </task>
+    <task id="LOCAL-00005" summary="update">
+      <created>1387698308471</created>
+      <updated>1387698308471</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -392,23 +391,23 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="916" extended-state="6" />
+    <frame x="0" y="22" width="1280" height="774" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32874617" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32874617" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32874617" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32820514" sideWeight="0.49960223" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24930556" sideWeight="0.6717949" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39871794" sideWeight="0.49930555" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24900557" sideWeight="0.67431194" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39634147" sideWeight="0.49930555" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39871794" sideWeight="0.50069445" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32820514" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32568806" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32820514" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3246951" sideWeight="0.49960223" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -427,124 +426,105 @@
     <MESSAGE value="base test Demo Done" />
     <MESSAGE value="update readme" />
     <MESSAGE value="修改目录结构 独立各个App" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改目录结构 独立各个App" />
+    <MESSAGE value="update to user MongoDb user OpLog Engine" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/AppLauncher.js</url>
-          <line>47</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/AppLauncher.js</url>
-          <line>52</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="13" />
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="116" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Core/system.js">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="9570">
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
+        <state line="23" column="8" selection-start="390" selection-end="390" vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="465">
+          <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Service/Demos/todos/web/jquery-1.8.2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="984" column="24" selection-start="25658" selection-end="25658" vertical-scroll-proportion="0.7971831" vertical-offset="14297" max-vertical-offset="141510" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Service/Demos/todos/web/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="8" selection-start="391" selection-end="391" vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="1005" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Service/Demos/todos/web/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="10" selection-start="3334" selection-end="3334" vertical-scroll-proportion="0.0" vertical-offset="1970" max-vertical-offset="2910" />
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript5.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="125" column="16" selection-start="2286" selection-end="2286" vertical-scroll-proportion="0.33152175" vertical-offset="1753" max-vertical-offset="2865" />
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="855" column="26" selection-start="13280" selection-end="13289" vertical-scroll-proportion="0.3325301" vertical-offset="12687" max-vertical-offset="13785" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Service/Core/ClrJs/Lib/jsclr.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="847" column="38" selection-start="25659" selection-end="25668" vertical-scroll-proportion="0.3324468" vertical-offset="12580" max-vertical-offset="146520" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Shared/watch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="501" column="39" selection-start="13717" selection-end="13717" vertical-scroll-proportion="0.0" vertical-offset="7515" max-vertical-offset="11670" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LICENSE.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="626" />
+        <state line="2" column="21" selection-start="42" selection-end="44" vertical-scroll-proportion="0.072289154" vertical-offset="0" max-vertical-offset="415" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/Service/Core/ClrJs/ClrLauncher.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="0" selection-start="594" selection-end="944" vertical-scroll-proportion="0.81751823" vertical-offset="519" max-vertical-offset="945" />
+        <state line="241" column="0" selection-start="7606" selection-end="7606" vertical-scroll-proportion="0.7761194" vertical-offset="3303" max-vertical-offset="3705" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/node-static/examples/file-server.js">
+    <entry file="file://$PROJECT_DIR$/Service/Core/CometServer/CometServer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="45" selection-end="882" vertical-scroll-proportion="0.07645875" vertical-offset="0" max-vertical-offset="589">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.WebStorm7/system/extLibs/nodejs-v0.10.22-src/core-modules-sources/lib/module.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="337" column="14" selection-start="9525" selection-end="9525" vertical-scroll-proportion="0.33199194" vertical-offset="5877" max-vertical-offset="9956">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Shared/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="28.035715" vertical-offset="785" max-vertical-offset="1254">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Service/Core/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="40" selection-start="53" selection-end="90" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2489">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/node-static/lib/node-static.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="4" selection-start="150" selection-end="175" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5282">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/node-static/node_modules/colors/colors.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="214" column="8" selection-start="6146" selection-end="6146" vertical-scroll-proportion="0.0" vertical-offset="3407" max-vertical-offset="4788">
-          <folding>
-            <marker date="1386653306258" expanded="false" signature="4175:4210" placeholder="..." />
-            <marker date="1386653306258" expanded="false" signature="4281:4293" placeholder="..." />
-            <marker date="1386653306258" expanded="false" signature="4347:4358" placeholder="..." />
-            <marker date="1386653306258" expanded="false" signature="4413:4425" placeholder="..." />
-            <marker date="1386653306258" expanded="false" signature="4494:4505" placeholder="..." />
-            <marker date="1386653306258" expanded="false" signature="4560:4571" placeholder="..." />
-            <marker date="1386653306258" expanded="false" signature="4626:4638" placeholder="..." />
-            <marker date="1386653306258" expanded="false" signature="4692:4706" placeholder="..." />
-            <marker date="1386653306258" expanded="false" signature="4758:4768" placeholder="..." />
-            <marker date="1386653306258" expanded="false" signature="4824:4837" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/node-static/node_modules/optimist/node_modules/wordwrap/test/break.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="16" selection-start="554" selection-end="554" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="684">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.WebStorm7/system/extLibs/nodejs-v0.10.22-src/core-modules-sources/lib/path.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="208" column="38" selection-start="6871" selection-end="6877" vertical-scroll-proportion="0.63983905" vertical-offset="3634" max-vertical-offset="9367">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="36" vertical-scroll-proportion="-4.8915663" vertical-offset="2030" max-vertical-offset="2520" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AppLauncher.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="0" selection-start="1032" selection-end="1032" vertical-scroll-proportion="0.0" vertical-offset="746" max-vertical-offset="1197">
+        <state line="36" column="43" selection-start="702" selection-end="702" vertical-scroll-proportion="1.2650602" vertical-offset="15" max-vertical-offset="2190" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Service/Demos/todos/todoTest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="10" selection-start="1566" selection-end="1576" vertical-scroll-proportion="0.0" vertical-offset="695" max-vertical-offset="1110">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Core/jsclr.js">
+    <entry file="file://$PROJECT_DIR$/Service/Core/MongodbSync.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4271" column="56" selection-start="133237" selection-end="133279" vertical-scroll-proportion="0.29338843" vertical-offset="81007" max-vertical-offset="185573">
+        <state line="436" column="5" selection-start="13165" selection-end="13165" vertical-scroll-proportion="0.0" vertical-offset="6440" max-vertical-offset="7425">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="15" selection-start="71" selection-end="77" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="210">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="0" selection-start="500" selection-end="500" vertical-scroll-proportion="0.78821653" vertical-offset="0" max-vertical-offset="628">
           <folding />
         </state>
       </provider>
