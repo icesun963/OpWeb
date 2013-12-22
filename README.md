@@ -3,7 +3,7 @@ OpWeb
 a easy and Real Time develop game/web frame
 
 Try it now!!
-DownLoad And UnZip To A Folder
+Download and unzip to a folder
 
 cd OpWeb
 
@@ -13,7 +13,7 @@ Open On Browser:
 
 http://localhost:8000
 
-(Don't Work In IE)
+(Don't work in IE)
 
 Update 0.0.2:
 1.Move Core to Service/Core/ClrJs/
@@ -23,4 +23,3 @@ Update 0.0.2:
 PS:
 Config.Mongo.SyncOn = false (user Memory OpLog Engine)
 Config.Mongo.SyncOn = true (user Mongodb OpLog Engine)
- 
