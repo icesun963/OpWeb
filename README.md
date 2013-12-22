@@ -36,3 +36,7 @@ Config.Mongo.SyncOn = false (user Memory OpLog Engine)
 Config.Mongo.SyncOn = true (user Mongodb OpLog Engine)
 
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/icesun963/opweb/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
