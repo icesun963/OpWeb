@@ -44,9 +44,10 @@ var GameApp$Common$Config$Config =
         ctor$$String: function (sectionName)
         {
             this._section = null;
+            this._path_section = null;
             this._valueValueMap = new System.Collections.Generic.Dictionary$2.ctor(System.String.ctor, GameApp.Common.Config.Config.CacheItem.ctor);
             this.SectionName = "";
-            GameApp.Common.Config.Config.ctor$$String$$Boolean.call(this, sectionName, true);
+            GameApp.Common.Config.Config.ctor$$String$$Boolean$$Boolean.call(this, sectionName, true, false);
         },
         GetValue$1: function (T, key, defaultValue, func)
         {
@@ -74,13 +75,15 @@ var GameApp$Common$Config$Config =
             this._valueValueMap.set_Item$$TKey(key, item);
             return item.get_Value();
         },
-        ctor$$String$$Boolean: function (sectionName, autoSet)
+        ctor$$String$$Boolean$$Boolean: function (sectionName, autoSet, userPath)
         {
             this._section = null;
+            this._path_section = null;
             this._valueValueMap = new System.Collections.Generic.Dictionary$2.ctor(System.String.ctor, GameApp.Common.Config.Config.CacheItem.ctor);
             this.SectionName = "";
             System.Object.ctor.call(this);
             this._section = (GameApp.Common.Config.ConfigurationManager.Section(sectionName) != null ? GameApp.Common.Config.ConfigurationManager.Section(sectionName) : GameApp.Common.Config.ConfigurationManager.AddSection(sectionName));
+            this._path_section = (GameApp.Common.Config.ConfigurationManager.PathSection(sectionName) != null ? GameApp.Common.Config.ConfigurationManager.PathSection(sectionName) : GameApp.Common.Config.ConfigurationManager.PathSection(sectionName));
             (As(this._section, Lib.Nini.Config.ConfigBase.ctor)).set_AutoSet(autoSet);
             this.SectionName = sectionName;
         },
@@ -102,6 +105,10 @@ var GameApp$Common$Config$Config =
         {
             return this.GetValue$1(System.Boolean.ctor, key, defaultValue, $CreateAnonymousDelegate(this, function ()
             {
+                if (this._path_section != null && this._path_section.Contains(key))
+                {
+                    return this._path_section.GetBoolean$$String(key);
+                }
                 return this._section.GetBoolean$$String$$Boolean(key, defaultValue);
             }));
         },
@@ -109,6 +116,10 @@ var GameApp$Common$Config$Config =
         {
             return this.GetValue$1(System.Double.ctor, key, defaultValue, $CreateAnonymousDelegate(this, function ()
             {
+                if (this._path_section != null && this._path_section.Contains(key))
+                {
+                    return this._path_section.GetDouble$$String(key);
+                }
                 return this._section.GetDouble$$String$$Double(key, defaultValue);
             }));
         },
@@ -116,6 +127,10 @@ var GameApp$Common$Config$Config =
         {
             return this.GetValue$1(System.Single.ctor, key, defaultValue, $CreateAnonymousDelegate(this, function ()
             {
+                if (this._path_section != null && this._path_section.Contains(key))
+                {
+                    return this._path_section.GetFloat$$String(key);
+                }
                 return this._section.GetFloat$$String$$Single(key, defaultValue);
             }));
         },
@@ -123,6 +138,10 @@ var GameApp$Common$Config$Config =
         {
             return this.GetValue$1(System.Int32.ctor, key, defaultValue, $CreateAnonymousDelegate(this, function ()
             {
+                if (this._path_section != null && this._path_section.Contains(key))
+                {
+                    return this._path_section.GetInt$$String(key);
+                }
                 return this._section.GetInt$$String$$Int32(key, defaultValue);
             }));
         },
@@ -130,6 +149,10 @@ var GameApp$Common$Config$Config =
         {
             return this.GetValue$1(System.Int32.ctor, key, defaultValue, $CreateAnonymousDelegate(this, function ()
             {
+                if (this._path_section != null && this._path_section.Contains(key))
+                {
+                    return this._path_section.GetInt$$String$$Boolean(key, fromAlias);
+                }
                 return this._section.GetInt$$String$$Int32$$Boolean(key, defaultValue, fromAlias);
             }));
         },
@@ -137,6 +160,10 @@ var GameApp$Common$Config$Config =
         {
             return this.GetValue$1(System.Int64.ctor, key, defaultValue, $CreateAnonymousDelegate(this, function ()
             {
+                if (this._path_section != null && this._path_section.Contains(key))
+                {
+                    return this._path_section.GetLong$$String(key);
+                }
                 return this._section.GetLong$$String$$Int64(key, defaultValue);
             }));
         },
@@ -144,6 +171,10 @@ var GameApp$Common$Config$Config =
         {
             return this.GetValue$1(System.String.ctor, key, defaultValue, $CreateAnonymousDelegate(this, function ()
             {
+                if (this._path_section != null && this._path_section.Contains(key))
+                {
+                    return this._path_section.GetString$$String(key);
+                }
                 return this._section.GetString$$String$$String(key, defaultValue);
             }));
         },
@@ -231,7 +262,7 @@ var GameApp$Common$Config$Config$1 =
         ctor$$String$$Boolean: function (T, sectionName, autoSet)
         {
             this.T = T;
-            GameApp.Common.Config.Config.ctor$$String$$Boolean.call(this, sectionName, autoSet);
+            GameApp.Common.Config.Config.ctor$$String$$Boolean$$Boolean.call(this, sectionName, autoSet, false);
         }
     }
 };
@@ -249,6 +280,8 @@ var GameApp$Common$Config$ConfigurationManager =
         {
             GameApp.Common.Config.ConfigurationManager.Parser = null;
             GameApp.Common.Config.ConfigurationManager.ConfigFile = null;
+            GameApp.Common.Config.ConfigurationManager.PathParser = null;
+            GameApp.Common.Config.ConfigurationManager.PathConfigFile = null;
             GameApp.Common.Config.ConfigurationManager._fileExists = false;
             try
             {
@@ -256,6 +289,12 @@ var GameApp$Common$Config$ConfigurationManager =
                 GameApp.Common.Config.ConfigurationManager.ConfigFile = GameApp.Common.Config.ConfigurationManager.ConfigFile.Replace$$String$$String("\\", "/");
                 GameApp.Common.Config.ConfigurationManager.Parser = new Lib.Nini.Config.IniConfigSource.ctor$$String(GameApp.Common.Config.ConfigurationManager.ConfigFile);
                 GameApp.Common.Config.ConfigurationManager._fileExists = true;
+                GameApp.Common.Config.ConfigurationManager.PathConfigFile = System.String.Format$$String$$Object$$Object("{0}/{1}", GameApp.Common.Helpers.IO.FileHelpers.get_AssemblyRoot(), "config.path.ini");
+                GameApp.Common.Config.ConfigurationManager.PathConfigFile = GameApp.Common.Config.ConfigurationManager.PathConfigFile.Replace$$String$$String("\\", "/");
+                if (System.IO.File.Exists(GameApp.Common.Config.ConfigurationManager.PathConfigFile))
+                {
+                    GameApp.Common.Config.ConfigurationManager.PathParser = new Lib.Nini.Config.IniConfigSource.ctor$$String(GameApp.Common.Config.ConfigurationManager.PathConfigFile);
+                }
             }
             catch ($$e1)
             {
@@ -267,18 +306,41 @@ var GameApp$Common$Config$ConfigurationManager =
             {
                 GameApp.Common.Config.ConfigurationManager.Parser.get_Alias().AddAlias$$String$$Boolean("On", true);
                 GameApp.Common.Config.ConfigurationManager.Parser.get_Alias().AddAlias$$String$$Boolean("Off", false);
+                if (GameApp.Common.Config.ConfigurationManager.PathParser != null)
+                {
+                    GameApp.Common.Config.ConfigurationManager.PathParser.get_Alias().AddAlias$$String$$Boolean("On", true);
+                    GameApp.Common.Config.ConfigurationManager.PathParser.get_Alias().AddAlias$$String$$Boolean("Off", false);
+                }
+                if (GameApp.Common.Config.ConfigurationManager.PathParser != null)
+                {
+                    GameApp.Common.Config.ConfigurationManager.PathParser.get_Alias().AddAlias$$String$$Enum("MinimumLevel", GameApp.Common.Logging.Logger.Level.Trace);
+                }
                 GameApp.Common.Config.ConfigurationManager.Parser.get_Alias().AddAlias$$String$$Enum("MinimumLevel", GameApp.Common.Logging.Logger.Level.Trace);
                 for (var $i3 = 0, $t3 = System.Enum.GetValues(Typeof(GameApp.Common.Logging.Logger.Level.ctor)), $l3 = $t3.length, value = $t3[$i3]; $i3 < $l3; $i3++, value = $t3[$i3])
                 {
                     GameApp.Common.Config.ConfigurationManager.Parser.get_Alias().AddAlias$$String$$String$$Int32("MinimumLevel", value.toString(), value);
+                    if (GameApp.Common.Config.ConfigurationManager.PathParser != null)
+                    {
+                        GameApp.Common.Config.ConfigurationManager.PathParser.get_Alias().AddAlias$$String$$String$$Int32("MinimumLevel", value.toString(), value);
+                    }
                 }
                 GameApp.Common.Config.ConfigurationManager.Parser.get_Alias().AddAlias$$String$$Enum("MaximumLevel", GameApp.Common.Logging.Logger.Level.Trace);
                 for (var $i4 = 0, $t4 = System.Enum.GetValues(Typeof(GameApp.Common.Logging.Logger.Level.ctor)), $l4 = $t4.length, value = $t4[$i4]; $i4 < $l4; $i4++, value = $t4[$i4])
                 {
                     GameApp.Common.Config.ConfigurationManager.Parser.get_Alias().AddAlias$$String$$String$$Int32("MaximumLevel", value.toString(), value);
+                    if (GameApp.Common.Config.ConfigurationManager.PathParser != null)
+                    {
+                        GameApp.Common.Config.ConfigurationManager.PathParser.get_Alias().AddAlias$$String$$String$$Int32("MaximumLevel", value.toString(), value);
+                    }
                 }
             }
             GameApp.Common.Config.ConfigurationManager.Parser.ExpandKeyValues();
+        },
+        PathSection: function (section)
+        {
+            if (GameApp.Common.Config.ConfigurationManager.PathParser != null)
+                return GameApp.Common.Config.ConfigurationManager.PathParser.get_Configs().get_Item$$String(section);
+            return null;
         },
         Section: function (section)
         {
@@ -2040,6 +2102,10 @@ var GameApp$Common$Logging$LogRouter =
                     return $v3;
                 })());
             }
+            if (System.App.IsJs())
+            {
+                GameApp.Common.Logging.LogRouter.RouteMessage();
+            }
         },
         cctor: function ()
         {
@@ -2047,6 +2113,10 @@ var GameApp$Common$Logging$LogRouter =
             GameApp.Common.Logging.LogRouter.LogQueue = new System.ConcurrentQueue$1.ctor(GameApp.Common.Logging.LogRouter.LogItem.ctor);
             GameApp.Common.Logging.LogRouter._MaxLevel = GameApp.Common.Logging.Logger.Level.Dump;
             GameApp.Common.Logging.LogRouter._MinLevel = GameApp.Common.Logging.Logger.Level.Dump;
+            if (System.App.IsJs())
+            {
+                return;
+            }
             GameApp.Common.Logging.LogRouter._loggThread = (function ()
             {
                 var $v4 = new GameApp.Common.SyncThread.ctor();

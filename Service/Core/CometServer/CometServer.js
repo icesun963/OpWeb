@@ -133,7 +133,7 @@ global.CometServer = function(path,port,cache,delay){
 
     });
 
-    logger.Info("server on:" + port);
+    logger.Info("Server Listen On:" + port);
 
 };
 

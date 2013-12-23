@@ -18,6 +18,14 @@ http://localhost:8000
 
 (Don't work in IE)
 
+Input txt and hit Enter to AddItem
+
+Click [DEL] to remove a item
+
+Doubleclick to edit a item
+
+### Update 0.0.2.1:
+1. edit item can sync now
 
 ### Update 0.0.2:
 

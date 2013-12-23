@@ -40,7 +40,7 @@ var OpHost$JS$BaseItem =
 };
 JsTypes.push(OpHost$JS$BaseItem);
 var compilerApp = function(){
-    log("[start Compile..]");
+    log("[Start Compile..]");
     var compiler = global.Clr["Compile"];
 
     compiler();
@@ -123,9 +123,9 @@ var initApp = function(){
 
 
         watch(this, function (prop, action, newval, oldval) {
-            if (!this.OnPropertyChanged)
+            if (!this.OnPropertyChanged || prop == "PropertyChanged" || prop == "OnDispose")
                 return;
-            if (action == "set" && prop != "PropertyChanged" && prop != "OnDispose")
+            if (action == "set" )
                 this.OnPropertyChanged(prop);
             if (action == "push") {
                 this["__list__" + prop].Add(newval[0]);
@@ -133,6 +133,7 @@ var initApp = function(){
             else if (action == "pop") {
                 this["__list__" + prop].Remove(this[prop].__ondelItem__);
             }
+
         });
 
         var baseItem = new OpHost.JS.BaseItem.ctor();

@@ -537,6 +537,10 @@ if(window!=undefined && window.Services){
                 this.OId=baseObj._OId;
             }
         }
+
+        if(this.OpStr){
+            this.OpStr = JSON.parse(JSON.stringify(this.OpStr));
+        }
     };
 
     global.OpLogItems=function(array){

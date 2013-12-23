@@ -60,6 +60,16 @@ var OpLog$OpFunctionFix =
              System.GC = {};
              System.GC.SuppressFinalize = function(){};
              OpLog.Exctions.GetProperty = OpLog.OpFunctionFix.GetProperty;
+             OpLog.Exctions.GetValue = OpLog.OpFunctionFix.GetValue;
+        },
+        GetValue: function (obj, pname)
+        {
+            var jobj =  obj;
+            if (jobj.hasOwnProperty(pname))
+            {
+                return jobj[pname];
+            }
+            return OpLog.Exctions.GetValue(obj, pname);
         },
         GetProperty: function (obj, pname)
         {
