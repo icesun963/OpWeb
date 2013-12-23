@@ -4,30 +4,30 @@ a easy and Real Time develop game/web frame
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/icesun963/opweb/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
-### Try it now!!
+##Try it now!!##
 
 Download and unzip to a folder
 
-cd OpWeb
+	cd OpWeb
 
-node AppLauncher.js
+	node AppLauncher.js
 
-Open On Browser:
+###Open On Browser:###
 
-http://localhost:8000
+	http://localhost:8000
 
-(Don't work in IE)
+	(Don't work in IE)
 
-Input txt and hit Enter to AddItem
+	Input txt and hit Enter to AddItem
 
-Click [DEL] to remove a item
+	Click [DEL] to remove a item
 
-Doubleclick to edit a item
+	Doubleclick to edit a item
 
-### Update 0.0.2.1:
+##Update 0.0.2.1:## 
 1. edit item can sync now
 
-### Update 0.0.2:
+##Update 0.0.2:##
 
 1.Move Core to Service/Core/ClrJs/
 
@@ -37,10 +37,10 @@ Doubleclick to edit a item
 
 4.Add MongodbSync.js to User Mongodb in OpLog Engine
 
-PS:
 
-Config.Mongo.SyncOn = false (user Memory OpLog Engine)
 
-Config.Mongo.SyncOn = true (user Mongodb OpLog Engine)
+	Config.Mongo.SyncOn = false (user Memory OpLog Engine)
+
+	Config.Mongo.SyncOn = true (user Mongodb OpLog Engine)
 
 

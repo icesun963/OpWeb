@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="watch.js" type="text/javascript"></script>
+    <script src="/_comet.io/comet.io.client.js"></script>
+    <title>easy chat test</title>
+</head>
+<body>
+
+    <div id="content">
+    </div>
+
+    <p>
+        <input type="text" name="word" id="word" value="" />
+    </p>
+
+    <script>
+        //定义对象
+        var chatList =   function(){
+            var self = this;
+            //定义消息列表
+            this.lists= [];
+            //监听事件
+            watch(this,"lists", function(prop, action, newval, oldval){
+                if(action == "push" )
+                {
+                    //当发现lists添加一条消息时,在界面上添加一条message显示
+                    $('#content').append('<div>' + newval[0].message + '</div>');
+                }
+            })
+        };
+
+        //新建一个对象
+        var chatRoot = new chatList();
+        //绑定到一个推送session
+        var session1=new opSession(chatRoot,"2000","http://localhost:8008");
+        //当用户在Input上输入回车时,发送一个添加请求
+        $('#word').bind('keydown', function (e) {
+            var key = e.which;
+            if (key == 13) {
+                session1.doRpcCall("RPCAddChatMessage",[  $('#word').val() ]);
+            }
+        });
+
+        //客户端结束
+    </script>
+
+</body>
+</html>
