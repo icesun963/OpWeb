@@ -1,7 +1,12 @@
 var fs = require('fs');
 
 global.window = global;
-global.Services = [];
+
+var serviceConfig = function(){
+    this.Services=[];
+};
+
+global.ServiceConfig = new serviceConfig();
 
 global.log = require('logging');
 global.Logger = function(name){
@@ -40,7 +45,7 @@ global.AddService = function (app,lv) {
         lv = 10
 
     var find = null;
-    global.Services.forEach(function(lvSvs){
+    ServiceConfig.Services.forEach(function(lvSvs){
         if(lvSvs.Lv==lv ){
             find = lvSvs;
         }
@@ -48,30 +53,26 @@ global.AddService = function (app,lv) {
     if(find==null){
         find = {
             Lv : lv ,
-            Apps : []
+            Apps : [],
+            Rets : []
         };
-        global.Services.push(find);
+        ServiceConfig.Services.push(find);
     }
     find.Apps.push(app);
 };
 
 global.StartApps = function () {
-    global.Services.forEach(function(lvSvs){
+    ServiceConfig.Services.forEach(function(lvSvs){
         lvSvs.Apps.forEach(function (app) {
-            app();
+            var ret =new app();
+            lvSvs.Rets.push(ret);
         });
     })
 
 }
 
-String.prototype.startsWith = function (str) {
-    return this.indexOf(str) == 0;
-}
-String.prototype.endsWith = function (str) {
-    return this.substr(this.length - str.length, str.length) == str;
-}
 
-
+require("./Shared/util.js");
 var WatchJS = require("./Shared/watch.js");
 global.watch = WatchJS.watch;
 global.unwatch = WatchJS.unwatch;

@@ -134,6 +134,7 @@ var initApp = function(){
                 this["__list__" + prop].Remove(this[prop].__ondelItem__);
             }
 
+            //console.log(">>" + prop + " " + action + " " + newval[0]);
         });
 
         var baseItem = new OpHost.JS.BaseItem.ctor();

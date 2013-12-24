@@ -14,7 +14,7 @@ Download and unzip to a folder
 
 ###Open On Browser:###
 
-	http://localhost:8000
+	http://localhost:8000 or http://localhost:8000/todos/
 
 	(Don't work in IE)
 
@@ -24,10 +24,16 @@ Download and unzip to a folder
 
 	Doubleclick to edit a item
 
-##Update 0.0.2.1:##
+###Update 0.0.3.0:###
+1. Add OpLogService in Servie/Core : [RPCSetMaster] [RPCUpdate] [RPCAdd] [RPCRemove]
+2. Now you can user a Fast and Easy way to build a Real Time app whithout a service
+3. Add Web folder for default webroot and move todos demo in it
+4. Update todos demo to NoService version
+
+###Update 0.0.2.1:###
 1. edit item can sync now
 
-##Update 0.0.2:##
+###Update 0.0.2:###
 
 1.Move Core to Service/Core/ClrJs/
 
@@ -36,7 +42,6 @@ Download and unzip to a folder
 3.Add Config.json to Config Services
 
 4.Add MongodbSync.js to User Mongodb in OpLog Engine
-
 
 
 	Config.Mongo.SyncOn = false (user Memory OpLog Engine)

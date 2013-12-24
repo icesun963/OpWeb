@@ -65,7 +65,12 @@ global.CometServer = function(path,port,cache,delay){
                               delete  data[key];
                           }
                       });
+
                       for(var prop in data){
+                          if(prop.indexOf("__")==0){
+                              delete  data[prop];
+                              continue;
+                          }
                           if(data[prop]!=null && data[prop].hasOwnProperty("_OpId")){
                               filterData(data[prop]);
                           }
@@ -107,8 +112,9 @@ global.CometServer = function(path,port,cache,delay){
           }
           catch (e)
           {
+              socket.emit("sync.error",{});
               console.warn("err:" + e);
-              throw e;
+
           }
         });
         socket.on("rpc.response" ,function(data){
@@ -126,6 +132,12 @@ global.CometServer = function(path,port,cache,delay){
                     funItem.Call.apply(funItem.App , JSON.parse(data.args));
                 }
             });
+            if(data.cid != undefined){
+                var result = {};
+                result.rid = data.cid;
+                socket.emit("rpc.result", result);
+            }
+
         });
         socket.on("disconnect" ,function(){
             console.log('disconnect...');
@@ -133,25 +145,24 @@ global.CometServer = function(path,port,cache,delay){
 
     });
 
-    logger.Info("Server Listen On:" + port);
+    logger.Info("Server Listen On:" + port + " Root:" + path);
 
 };
-
 
 global.RpcList = [];
-var rpcItem = function(funName,app,call){
-    this.Call=call;
-    this.FunName = funName;
-    this.App=app;
-    this.AppName =arguments.callee.toString();
-};
 
 
-global.AddRPC = function(app){
-    logger.Info("Add RPC App:" + typeof app);
+var AddRPC = function(app){
+    //var haveRpc = true;
     for(var prop in app){
+
         if(prop.startsWith("RPC"))
         {
+            /*
+            if(haveRpc){
+                logger.Info("Add RPC App:" + typeof app);
+                haveRpc=false;
+            }*/
             logger.Info("Add Rpc Fun:" + prop);
             if(prop.startsWith("RPC")){
                 global.RpcList.push(new rpcItem(prop,app,app[prop]));
@@ -159,4 +170,30 @@ global.AddRPC = function(app){
         }
     }
 }
+
+var rpcItem = function(funName,app,call){
+    this.Call=call;
+    this.FunName = funName;
+    this.App=app;
+    this.AppName = arguments.callee.toString();
+};
+
+watchOnService = function(app){
+    watch(app,function(prop, action, newval, oldval){
+        if(action=="push" && prop=="Rets"){
+            AddRPC(newval[0]);
+        }
+    });
+}
+
+watch(ServiceConfig,function(prop, action, newval, oldval){
+    if(action=="push")
+    {
+        watchOnService(newval[0]);
+    }
+});
+
+
+
+
 

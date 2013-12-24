@@ -2,14 +2,15 @@
 $(document).ready(function() {
 
 //对象基类
-var uiItemList =   function(rootdiv,template){
+var uiItemList =  function(rootdiv,template){
     var self = this;
     this.lists= [];
+
     //绑定模板数据
-    watch(this,"lists", function(prop, action, newval, oldval){
+    doUIWatch(this,function(prop, action, newval, oldval){
         if(action=="push" )
         {
-            var item = this.cloneSubItem();
+            var item = self.cloneSubItem();
             newval[0].setBind(item);
             item.binditem=newval[0];
         }
@@ -32,14 +33,15 @@ var uiItemList =   function(rootdiv,template){
     };
 
     this.setBind(rootdiv,template);
+
 };
 
 //右边TodoItem
 var todoItem = function(value,div) {
     var self = this;
     this.value=value;
-
-    watch(this, function(prop, action, newval, oldval){
+    this._OpId = new Date().getTime();
+    doUIWatch(this, function(prop, action, newval, oldval){
         if(self.input && self.txt)
         {
             self.input.val(newval);
@@ -62,12 +64,12 @@ var todoItem = function(value,div) {
             self.input.show();
         });
         this.deltxt.click(function(){
-            RPCDelItem(true,div.binditem);
+            todoList.lists.remove(div.binditem);
         });
         this.input.bind('keydown', function (e) {
             var key = e.which;
             if (key == 13) {
-                RPCSetItemValue(self , self.input.val());
+                self.value=self.input.val();
                 self.txt.show();
                 self.input.hide();
             }
@@ -80,9 +82,10 @@ var todoItem = function(value,div) {
  //绑定侧边栏对象显示
 var sideItem = function(value,div) {
      var self = this;
-     this.value=value;
+     this.value = value;
+     this._OpId = new Date().getTime();
 
-     watch(this, function(prop, action, newval, oldval){
+    doUIWatch(this, function(prop, action, newval, oldval){
          if(self.input && self.txt)
          {
             self.input.val(newval);
@@ -106,12 +109,12 @@ var sideItem = function(value,div) {
          });
          this.txt.removeAttr('href');
          this.deltxt.click(function(){
-             RPCDelItem(false,div.binditem);
+             sideList.lists.remove(div.binditem);
          });
          this.input.bind('keydown', function (e) {
              var key = e.which;
              if (key == 13) {
-                 RPCSetItemValue(self , self.input.val());
+                 self.value=self.input.val();
                  self.txt.show();
                  self.input.hide();
              }
@@ -127,58 +130,29 @@ var sideItem = function(value,div) {
  //设置列表子对象
  sideList.lists.__type = sideItem;
  //绑定session
- var session1=new opSession(sideList,"1000","http://localhost:8000");
+ var session1=new opSession(sideList,"1100","http://localhost:8000",true);
  //右边列表
  var todoList = new uiItemList($("#item-list"),$("#todo-item-template"));
  todoList.lists.__type =todoItem;
  //绑定session
- var session2=new opSession(todoList,"1001","http://localhost:8000");
+ var session2=new opSession(todoList,"1101","http://localhost:8000",true);
 
-
- RPCSetItemValue =function (item , value){
-     //我们需要子对象类型
-     session1.doRpcCall("RPCSetItemValue",[ item._OpId  ,value ]);
-     return;
-     item.value = value;
- };
-
-RPCAddItem = function (userto, value){
-     session1.doRpcCall("RPCAddItem",[ userto ,value ]);
-     return;
-     if(userto)
-     {
-         todoList.lists.push(new  todoItem(value));
-     }
-    else
-     {
-         sideList.lists.push(new sideItem(value));
-     }
-};
-
-RPCDelItem = function (userto , value){
-    session1.doRpcCall("RPCDelItem",[ userto ,value._OpId ]);
-    return;
-    if(userto)
-    {
-        todoList.lists.remove(value);
-    }
-    else
-    {
-        sideList.lists.remove(value);
-    }
-};
 
 $("#new-list").bind('keydown', function (e) {
     var key = e.which;
     if (key == 13) {
-        RPCAddItem(false,$("#new-list").val());
+        var newitem = new sideItem();
+        newitem.value= $("#new-list").val();
+        sideList.lists.push(newitem);
     }
 });
 
 $("#new-todo").bind('keydown', function (e) {
     var key = e.which;
     if (key == 13) {
-        RPCAddItem(true,$("#new-todo").val());
+        var newitem = new todoItem();
+        newitem.value= $("#new-todo").val();
+        todoList.lists.push(newitem);
     }
 });
 
