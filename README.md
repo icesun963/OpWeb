@@ -46,6 +46,13 @@ a easy and Real Time develop game/web frame
 9.无服务端式开发。（这点我会再使用一个小示例，用于介绍，相信你会喜欢它的！）
 
 
+###在线体验地址###
+
+现在我把它部署到了HeroKu上了，你可以通过使用Chrome打开：
+
+    http://opweb.herokuapp.com/todos/
+
+
 ###下载和测试？###
 
 
@@ -53,9 +60,13 @@ a easy and Real Time develop game/web frame
 
 如果你拥有了nodejs，
 
-github地址：https://github.com/icesun963/OpWeb
+github地址：
 
-现在有csdn版本：https://code.csdn.net/IceSun963/opweb
+    https://github.com/icesun963/OpWeb
+
+现在有csdn版本：
+
+    https://code.csdn.net/IceSun963/opweb
 
 下载项目并解压缩
 
