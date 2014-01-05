@@ -72,8 +72,8 @@ global.StartApps = function () {
 }
 
 
-require("./../OpWeb/OpWeb/Shared/util.js");
-var WatchJS = require("./../OpWeb/OpWeb/Shared/watch.js");
+require("./Shared/util.js");
+var WatchJS = require("./Shared/watch.js");
 
 global.passProperty  = [];
 global.opStrPassProperty  = [];
@@ -128,9 +128,8 @@ files.forEach(function (file) {
 log("[Start Apps...]");
 
 
-/*
+
 StartApps();
-*/
 
 
 
