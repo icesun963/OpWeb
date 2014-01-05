@@ -48,9 +48,7 @@ a easy and Real Time develop game/web frame
 
 ###在线体验地址###
 
-现在我把它部署到了HeroKu上了，你可以通过使用Chrome打开：
-
-    http://opweb.herokuapp.com/todos/
+现在我把它部署到了HeroKu上了，你可以通过使用Chrome打开2个用于测试：http://opweb.herokuapp.com/todos/
 
 
 ###下载和测试？###
