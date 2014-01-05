@@ -130,12 +130,12 @@ var sideItem = function(value,div) {
  //设置列表子对象
  sideList.lists.__type = sideItem;
  //绑定session
- var session1=new opSession(sideList,"1100","http://localhost:8000",true);
+ var session1=new opSession(sideList,"1100","/",true);
  //右边列表
  var todoList = new uiItemList($("#item-list"),$("#todo-item-template"));
  todoList.lists.__type =todoItem;
  //绑定session
- var session2=new opSession(todoList,"1101","http://localhost:8000",true);
+ var session2=new opSession(todoList,"1101","/",true);
 
 
 $("#new-list").bind('keydown', function (e) {

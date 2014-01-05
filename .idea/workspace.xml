@@ -1,9 +1,181 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e2581cb0-c3f5-460a-897a-333a3e3716ef" name="Default" comment="">
+    <list default="true" id="e2581cb0-c3f5-460a-897a-333a3e3716ef" name="Default" comment="update">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web/index.html" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/ext/win32/ia32/bson.node" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/ext/win32/ia32/bson.node" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/ext/win32/x64/bson.node" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/ext/win32/x64/bson.node" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/tools/jasmine-1.1.0/jasmine_favicon.png" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/tools/jasmine-1.1.0/jasmine_favicon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/logo.png" afterPath="$PROJECT_DIR$/node_modules/mongoskin/logo.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/.jshintrc" afterPath="$PROJECT_DIR$/node_modules/mongoskin/.jshintrc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/.npmignore" afterPath="$PROJECT_DIR$/node_modules/mongoskin/.npmignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/.travis.yml" afterPath="$PROJECT_DIR$/node_modules/mongoskin/.travis.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/.travis.yml" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/.travis.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/.travis.yml" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/.travis.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/AUTHORS" afterPath="$PROJECT_DIR$/node_modules/mongoskin/AUTHORS" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/CONTRIBUTING.md" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/CONTRIBUTING.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Service/Core/ClrJs/ClrLauncher.js" afterPath="$PROJECT_DIR$/Service/Core/ClrJs/ClrLauncher.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Config.json" afterPath="$PROJECT_DIR$/Config.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/History.md" afterPath="$PROJECT_DIR$/node_modules/mongoskin/History.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/LICENSE" afterPath="$PROJECT_DIR$/node_modules/mongoskin/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/LICENSE" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/LICENSE" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/tools/jasmine-1.1.0/MIT.LICENSE" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/tools/jasmine-1.1.0/MIT.LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/Makefile" afterPath="$PROJECT_DIR$/node_modules/mongoskin/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/Makefile" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/Makefile" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/ext/Makefile" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/ext/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Service/Core/MongoDBSync.js" afterPath="$PROJECT_DIR$/Service/Core/MongoDBSync.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Service/Core/OpLogService.js" afterPath="$PROJECT_DIR$/Service/Core/OpLogService.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/README.md" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/README.md" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/Readme.md" afterPath="$PROJECT_DIR$/node_modules/mongoskin/Readme.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/Readme.md" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/Readme.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/examples/admin.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/examples/admin.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/lib/mongoskin/admin.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/lib/mongoskin/admin.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/admin.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/admin.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/connection/base.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/connection/base.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/base64.c" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/base64.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/base64.c" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/base64.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/base64.h" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/base64.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/base64.h" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/base64.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/commands/base_command.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/commands/base_command.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/lib/bson/binary.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/lib/bson/binary.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/lib/bson/binary_parser.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/lib/bson/binary_parser.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/binding.gyp" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/binding.gyp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/binding.gyp" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/binding.gyp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/ext/bson.cc" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/ext/bson.cc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/ext/bson.h" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/ext/bson.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/browser_build/bson.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/browser_build/bson.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/lib/bson/bson.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/lib/bson/bson.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/build_browser.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/build_browser.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/builderror.log" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/builderror.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/builderror.log" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/builderror.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/gridfs/chunk.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/gridfs/chunk.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/examples/close.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/examples/close.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/lib/bson/code.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/lib/bson/code.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/lib/mongoskin/collection.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/lib/mongoskin/collection.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/collection.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/collection.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/build/config.gypi" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/build/config.gypi" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/build/config.gypi" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/build/config.gypi" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/examples/config.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/examples/config.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/connection/connection.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/connection/connection.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/connection/connection_pool.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/connection/connection_pool.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/connection/connection_utils.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/connection/connection_utils.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/lib/mongoskin/constant.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/lib/mongoskin/constant.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/lib/mongoskin/cursor.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/lib/mongoskin/cursor.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/cursor.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/cursor.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/cursorstream.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/cursorstream.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/lib/mongoskin/db.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/lib/mongoskin/db.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/db.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/db.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/commands/db_command.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/commands/db_command.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/lib/bson/db_ref.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/lib/bson/db_ref.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/commands/delete_command.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/commands/delete_command.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/lib/bson/double.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/lib/bson/double.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/lib/bson/float_parser.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/lib/bson/float_parser.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/examples/generateId.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/examples/generateId.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/commands/get_more_command.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/commands/get_more_command.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/tools/gleak.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/tools/gleak.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/gridfs/grid.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/gridfs/grid.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/examples/gridfs.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/examples/gridfs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/lib/mongoskin/gridfs.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/lib/mongoskin/gridfs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/gridfs/gridstore.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/gridfs/gridstore.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/connection/repl_set/ha.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/connection/repl_set/ha.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/todos/index.html" afterPath="$PROJECT_DIR$/Web/todos/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/index.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/lib/mongoskin/index.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/lib/mongoskin/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/index.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/ext/index.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/ext/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/lib/bson/index.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/lib/bson/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/index.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/examples/insert.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/examples/insert.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/commands/insert_command.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/commands/insert_command.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/integration/integration_tests.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/integration/integration_tests.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/tools/jasmine-1.1.0/jasmine-html.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/tools/jasmine-1.1.0/jasmine-html.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/tools/jasmine-1.1.0/jasmine.css" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/tools/jasmine-1.1.0/jasmine.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/tools/jasmine-1.1.0/jasmine.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/tools/jasmine-1.1.0/jasmine.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/kerberos.cc" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/kerberos.cc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/kerberos.cc" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/kerberos.cc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/kerberos.h" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/kerberos.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/kerberos.h" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/kerberos.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/kerberos.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/kerberos.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/kerberos_context.cc" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/kerberos_context.cc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/kerberos_context.h" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/kerberos_context.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/kerberos_sspi.c" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/kerberos_sspi.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/kerberos_sspi.h" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/kerberos_sspi.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/test/kerberos_tests.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/test/kerberos_tests.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/test/kerberos_win32_test.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/test/kerberos_win32_test.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/kerberosgss.c" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/kerberosgss.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/kerberosgss.h" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/kerberosgss.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/commands/kill_cursor_command.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/commands/kill_cursor_command.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/lib/bson/long.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/lib/bson/long.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/integration/longlive.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/integration/longlive.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/todos/main.js" afterPath="$PROJECT_DIR$/Web/todos/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/lib/bson/max_key.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/lib/bson/max_key.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/lib/bson/min_key.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/lib/bson/min_key.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/mongo_client.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/mongo_client.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/responses/mongo_reply.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/responses/mongo_reply.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/auth_processes/mongodb.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/auth_processes/mongodb.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/auth/mongodb_cr.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/auth/mongodb_cr.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/auth/mongodb_gssapi.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/auth/mongodb_gssapi.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/auth/mongodb_plain.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/auth/mongodb_plain.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/auth/mongodb_sspi.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/auth/mongodb_sspi.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/connection/mongos.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/connection/mongos.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/nedbLib/nedb.js" afterPath="$PROJECT_DIR$/Web/nedbLib/nedb.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/nedbLib/nedbSync.js" afterPath="$PROJECT_DIR$/Web/nedbLib/nedbSync.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/lib/bson/objectid.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/lib/bson/objectid.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/connection/repl_set/options.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/connection/repl_set/options.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/package.json" afterPath="$PROJECT_DIR$/node_modules/mongoskin/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/package.json" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/browser_build/package.json" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/browser_build/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/package.json" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/nedbLib/peerToComnet.js" afterPath="$PROJECT_DIR$/Web/nedbLib/peerToComnet.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/connection/repl_set/strategies/ping_strategy.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/connection/repl_set/strategies/ping_strategy.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/commands/query_command.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/commands/query_command.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/connection/read_preference.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/connection/read_preference.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/gridfs/readstream.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/gridfs/readstream.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/examples/replSetBenchmark.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/examples/replSetBenchmark.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/connection/repl_set/repl_set.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/connection/repl_set/repl_set.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/connection/repl_set/repl_set_state.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/connection/repl_set/repl_set_state.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/examples/replset.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/examples/replset.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/lib/mongoskin/router.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/lib/mongoskin/router.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_buffer.cc" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_buffer.cc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_buffer.h" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_buffer.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_buffer.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_buffer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_buffer_descriptor.cc" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_buffer_descriptor.cc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_buffer_descriptor.h" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_buffer_descriptor.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_buffer_descriptor.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_buffer_descriptor.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/test/win32/security_buffer_descriptor_tests.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/test/win32/security_buffer_descriptor_tests.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/test/win32/security_buffer_tests.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/test/win32/security_buffer_tests.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_context.cc" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_context.cc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_context.h" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_context.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_context.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_context.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_credentials.cc" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_credentials.cc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_credentials.h" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_credentials.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_credentials.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/wrappers/security_credentials.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/test/win32/security_credentials_tests.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/test/win32/security_credentials_tests.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/lib/mongoskin/server.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/lib/mongoskin/server.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/connection/server.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/connection/server.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/sspi.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/sspi.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/connection/repl_set/strategies/statistics_strategy.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/connection/repl_set/strategies/statistics_strategy.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/lib/bson/symbol.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/lib/bson/symbol.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/t.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/t.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/lib/bson/timestamp.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/lib/bson/timestamp.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/todos/todos.css" afterPath="$PROJECT_DIR$/Web/todos/todos.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/examples/update.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/examples/update.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/commands/update_command.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/commands/update_command.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/connection/url_parser.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/connection/url_parser.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shared/util.js" afterPath="$PROJECT_DIR$/Shared/util.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/lib/mongoskin/utils.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/lib/mongoskin/utils.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/utils.js" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/utils.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/worker.cc" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/worker.cc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/worker.cc" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/worker.cc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/worker.h" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/worker.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/worker.h" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/kerberos/lib/win32/worker.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/ext/wscript" afterPath="$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/node_modules/bson/ext/wscript" />
     </list>
     <ignored path="OpWeb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,17 +197,7 @@
     <favorites_list name="OpWeb" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="OpLogService.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Service/Core/OpLogService.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="3" selection-start="184" selection-end="184" vertical-scroll-proportion="0.215311" vertical-offset="0" max-vertical-offset="418">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -59,27 +221,28 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Service/Core/ClrJs/Lib/OpLog.js" />
-        <option value="$PROJECT_DIR$/Service/Core/ClrJs/Lib/system.js" />
-        <option value="$PROJECT_DIR$/Service/Core/CometServer/CometServer.js" />
         <option value="$PROJECT_DIR$/Shared/OpLogService.js" />
         <option value="$PROJECT_DIR$/AppLauncher.js" />
         <option value="$PROJECT_DIR$/Service/Core/ClrJs/ClrLauncher.js" />
         <option value="$PROJECT_DIR$/Web/mp/index.html" />
         <option value="$PROJECT_DIR$/Web/nedbLib/nedbSync.js" />
         <option value="$PROJECT_DIR$/Service/Tests/utiltest.js" />
-        <option value="$PROJECT_DIR$/Shared/util.js" />
         <option value="$PROJECT_DIR$/Shared/NoSQLSync.js" />
         <option value="$PROJECT_DIR$/Config.json" />
         <option value="$PROJECT_DIR$/Service/Core/MongoDBSync.js" />
         <option value="$PROJECT_DIR$/Shared/OpLogRPC.js" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/Service/Core/OpLogService.js" />
+        <option value="$PROJECT_DIR$/Shared/util.js" />
+        <option value="$PROJECT_DIR$/Web/todos/main.js" />
+        <option value="$PROJECT_DIR$/Web/index.html" />
+        <option value="$PROJECT_DIR$/Web/todos/index.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="22" />
+    <option name="x" value="16" />
+    <option name="y" value="25" />
     <option name="width" value="1280" />
     <option name="height" value="774" />
   </component>
@@ -154,39 +317,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OpWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OpWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OpWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OpWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gitConfig" />
+              <option name="myItemId" value="Web" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -195,19 +326,19 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="44" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="55" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="42" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="47" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="recentsLimit" value="5" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="51" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="46" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../OpWebPush" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="55" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="535" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="529" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="54" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="55" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="51" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="457" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="454" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="48" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="49" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
@@ -382,7 +513,11 @@
       <created>1388925642114</created>
       <updated>1388925642114</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="update">
+      <created>1388927182284</created>
+      <updated>1388927182284</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -406,24 +541,24 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1280" height="774" extended-state="0" />
-    <editor active="true" />
+    <frame x="16" y="25" width="1280" height="774" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32874617" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277439" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277439" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32415903" sideWeight="0.49960223" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2442323" sideWeight="0.6819572" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2442323" sideWeight="0.6727829" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39634147" sideWeight="0.49930555" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3180428" sideWeight="0.5003978" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3180428" sideWeight="0.49960223" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32820514" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32721713" sideWeight="0.5003978" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3180428" sideWeight="0.49960223" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32721713" sideWeight="0.49960223" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3246951" sideWeight="0.49960223" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -540,16 +675,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Web/index.html">
+    <entry file="file://$PROJECT_DIR$/Service/Core/OpLogService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="399" selection-end="399" vertical-scroll-proportion="0.4568528" vertical-offset="15" max-vertical-offset="840">
+        <state line="6" column="3" selection-start="184" selection-end="184" vertical-scroll-proportion="0.215311" vertical-offset="0" max-vertical-offset="418">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Service/Core/OpLogService.js">
+    <entry file="file://$PROJECT_DIR$/Web/todos/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="3" selection-start="184" selection-end="184" vertical-scroll-proportion="0.215311" vertical-offset="0" max-vertical-offset="418">
+        <state line="137" column="54" selection-start="3682" selection-end="3682" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2520">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Shared/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="548" column="12" selection-start="14548" selection-end="14548" vertical-scroll-proportion="0.0" vertical-offset="8280" max-vertical-offset="10635">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/node-static/test/integration/node-static-test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="145" column="31" selection-start="4902" selection-end="4902" vertical-scroll-proportion="0.33333334" vertical-offset="2037" max-vertical-offset="2940">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/todos/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="64" selection-start="600" selection-end="600" vertical-scroll-proportion="0.3426396" vertical-offset="60" max-vertical-offset="1050">
           <folding />
         </state>
       </provider>

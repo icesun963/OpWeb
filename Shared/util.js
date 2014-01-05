@@ -545,6 +545,9 @@ else
     }
 
     var opSession = function(opitem,opid,svurl,userRPC,mysocket){
+        if(svurl=="/"){
+            svurl = "http://" + window.location.host ;
+        }
         this.Opid = opid;
         opitem._OpId = opid;
         this.BindItem = opitem;
