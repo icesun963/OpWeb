@@ -79,10 +79,15 @@ github地址：https://github.com/icesun963/OpWeb
 
 ###0.0.4版本更新:###
 1.替换Hashtable库
+
 2.移动MongoDbSync中NoSQL部分到Shared／NoSQLSync
+
 3.移动OpLogService中RPC服务到Shared／OpLogRPC
+
 4.Web下增加了nedbLib，用于WebBrowser端同步，而不使用jsclr部分代码
+
 5.Web下nedbLib，增加p2p支持，现在可以chrome<－>chrom ，firefox<－>firefox 下通讯，demo制作中
+
 6.重写Shared/util.js部分代码
 （JsClr部分发现GetTime函数有些Bug待修复)
 
