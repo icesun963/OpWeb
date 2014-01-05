@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e2581cb0-c3f5-460a-897a-333a3e3716ef" name="Default" comment="update">
+    <list default="true" id="e2581cb0-c3f5-460a-897a-333a3e3716ef" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OpWeb.iws" />
@@ -318,7 +318,11 @@
       <created>1388925306952</created>
       <updated>1388925306952</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="update">
+      <created>1388925399676</created>
+      <updated>1388925399676</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
