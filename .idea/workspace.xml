@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2581cb0-c3f5-460a-897a-333a3e3716ef" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppLauncher.js" afterPath="$PROJECT_DIR$/AppLauncher.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/index.html" afterPath="$PROJECT_DIR$/Web/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/OpWeb.iml" afterPath="$PROJECT_DIR$/.idea/OpWeb.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OpWeb.iws" />
@@ -142,14 +145,14 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="44" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="55" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="51" />
-    <property name="recentsLimit" value="5" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="recentsLimit" value="5" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="51" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../OpWebPush" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="55" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="529" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="535" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="529" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="54" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="55" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
@@ -175,6 +178,14 @@
     </key>
   </component>
   <component name="RunManager" selected="Node.js.OsxApp">
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -185,23 +196,15 @@
       <option name="showConsoleOnStdOut" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
-      <envs />
-      <method />
-    </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
       <setting name="configLocationType" value="CONFIG_FILE" />
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="CHROME" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
@@ -294,7 +297,11 @@
       <created>1388909601215</created>
       <updated>1388909601215</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fix path">
+      <created>1388916369207</created>
+      <updated>1388916369207</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -318,7 +325,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1280" height="774" extended-state="6" />
+    <frame x="0" y="22" width="1280" height="774" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32874617" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -356,9 +363,9 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24900557" sideWeight="0.6753049" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3246951" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3246951" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -377,7 +384,8 @@
     <MESSAGE value="update to user MongoDb user OpLog Engine" />
     <MESSAGE value="update" />
     <MESSAGE value="update to 0.0.4.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="update to 0.0.4.0" />
+    <MESSAGE value="fix path" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix path" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -388,84 +396,16 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/connection/connection.js">
+    <entry file="file://$PROJECT_DIR$/gitConfig/config_github">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="208" column="0" selection-start="7932" selection-end="7932" vertical-scroll-proportion="0.0" vertical-offset="2710" max-vertical-offset="7695" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="626">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/db.js">
+    <entry file="file://$PROJECT_DIR$/gitConfig/config_csdn">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1797" column="0" selection-start="76500" selection-end="76500" vertical-scroll-proportion="0.30985916" vertical-offset="26845" max-vertical-offset="29400" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Shared/watch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="356" column="0" selection-start="10128" selection-end="10128" vertical-scroll-proportion="0.0" vertical-offset="5222" max-vertical-offset="7065" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Shared/util.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0" vertical-offset="62" max-vertical-offset="5805" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/collection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="871" column="4" selection-start="36321" selection-end="36321" vertical-scroll-proportion="0.0" vertical-offset="12931" max-vertical-offset="26040" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Web/mp/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="78" selection-start="441" selection-end="441" vertical-scroll-proportion="-1.25" vertical-offset="75" max-vertical-offset="5610" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="1" selection-start="138" selection-end="138" vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="210" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Service/Core/CometServer/CometServer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="132" column="0" selection-start="4536" selection-end="4536" vertical-scroll-proportion="0.28045976" vertical-offset="1858" max-vertical-offset="2955" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Service/Core/OpLogService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Shared/NoSQLSync.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="310" column="9" selection-start="9070" selection-end="9070" vertical-scroll-proportion="1.0344827" vertical-offset="4200" max-vertical-offset="6735" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Service/Core/MongoDBSync.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="20" selection-start="2615" selection-end="2615" vertical-scroll-proportion="0.0" vertical-offset="1725" max-vertical-offset="2235" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="23" selection-start="1227" selection-end="1227" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1740" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LICENSE.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Shared/OpLogRPC.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="40" selection-start="1224" selection-end="1224" vertical-scroll-proportion="0.0" vertical-offset="220" max-vertical-offset="1575" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Web/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="428" selection-end="428" vertical-scroll-proportion="0.47445256" vertical-offset="0" max-vertical-offset="840" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="627">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
           <folding />
         </state>
       </provider>
