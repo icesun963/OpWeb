@@ -7,8 +7,7 @@
 
     },
     "dependencies":{
-        "logging" : ">= 0.0.1",
-        "node-static" : ">= 0.0.1"
+        "connect" : ">= 0.0.1"
     },
     "keywords": [
         "opweb"
