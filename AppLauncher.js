@@ -74,9 +74,13 @@ global.StartApps = function () {
 
 require("./Shared/util.js");
 var WatchJS = require("./Shared/watch.js");
-global.watch = WatchJS.watch;
-global.unwatch = WatchJS.unwatch;
-global.passProperty  = WatchJS.passProperty;
+
+global.passProperty  = [];
+global.opStrPassProperty  = [];
+
+global.watch = function(obj,callback){
+    return WatchJS.watch(obj, $$(obj).getProperties(),callback , 0);
+};
 
 
 passProperty.push("PropertyChanged");
@@ -126,10 +130,6 @@ log("[Start Apps...]");
 
 
 StartApps();
-
-
-
-
 
 
 

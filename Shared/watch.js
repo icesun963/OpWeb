@@ -143,9 +143,14 @@
         } catch(error) {
             obj[propName] = value;
         }
-    };
 
-    var passProperty = [];
+        if(!obj.hasOwnProperty(propName))
+        {
+            obj[propName] = value;
+            //console.log("define prop eror:" + propName);
+        }
+
+    };
 
     var watch = function () {
 
@@ -161,9 +166,6 @@
 
 
     var watchAll = function (obj, watcher, level, addNRemove) {
-
-        if(level == undefined)
-            level = 1;
 
         if ((typeof obj == "string") || (!(obj instanceof Object) && !isArray(obj))) { //accepts only objects and array (not string)
             return;
@@ -208,8 +210,6 @@
 
     var watchOne = function (obj, prop, watcher, level, addNRemove) {
 
-        if(passProperty.indexOf(prop)>=0)
-            return;
         if ((typeof obj == "string") || (!(obj instanceof Object) && !isArray(obj))) { //accepts only objects and array (not string)
             return;
         }
@@ -282,22 +282,23 @@
 
         watchFunctions(obj, prop);
 
-        if (!obj.watchers) {
-            defineProp(obj, "watchers", {});
+        if (!obj.__watchers) {
+            defineProp(obj, "__watchers", {});
         }
 
-        if (!obj.watchers[prop]) {
-            obj.watchers[prop] = [];
+
+        if (!obj.__watchers[prop]) {
+            obj.__watchers[prop] = [];
         }
 
-        for (var i=0; i<obj.watchers[prop].length; i++) {
-            if(obj.watchers[prop][i] === watcher){
+        for (var i=0; i<obj.__watchers[prop].length; i++) {
+            if(obj.__watchers[prop][i] === watcher){
                 return;
             }
         }
 
 
-        obj.watchers[prop].push(watcher); //add the new watcher in the watchers array
+        obj.__watchers[prop].push(watcher); //add the new watcher in the watchers array
 
 
         var getter = function () {
@@ -331,12 +332,8 @@
 
     var callWatchers = function (obj, prop, action, newval, oldval) {
         if (prop) {
-
-            if(obj.watchers[prop] != undefined)
-            {
-                for (var wr=0; wr<obj.watchers[prop].length; wr++) {
-                    obj.watchers[prop][wr].call(obj, prop, action, newval, oldval);
-                }
+            for (var wr=0; wr<obj.__watchers[prop].length; wr++) {
+                obj.__watchers[prop][wr].call(obj, prop, action, newval, oldval);
             }
         } else {
             for (var prop in obj) {//call all
@@ -374,17 +371,16 @@
     };
 
     var unwatchOne = function (obj, prop, watcher) {
-        for (var i=0; i<obj.watchers[prop].length; i++) {
-            var w = obj.watchers[prop][i];
+        for (var i=0; i<obj.__watchers[prop].length; i++) {
+            var w = obj.__watchers[prop][i];
 
             if(w == watcher) {
-                obj.watchers[prop].splice(i, 1);
+                obj.__watchers[prop].splice(i, 1);
             }
         }
 
         removeFromLengthSubjects(obj, prop, watcher);
     };
-
 
     var loop = function(){
 
@@ -412,8 +408,8 @@
 
                 if(difference.added.length || difference.removed.length){
                     if(difference.added.length){
-                        for (var j=0; j<subj.obj.watchers[subj.prop].length; j++) {
-                            watchMany(subj.obj[subj.prop], difference.added, subj.obj.watchers[subj.prop][j], subj.level - 1, true);
+                        for (var j=0; j<subj.obj.__watchers[subj.prop].length; j++) {
+                            watchMany(subj.obj[subj.prop], difference.added, subj.obj.__watchers[subj.prop][j], subj.level - 1, true);
                         }
                     }
 
@@ -464,7 +460,7 @@
     WatchJS.watch = watch;
     WatchJS.unwatch = unwatch;
     WatchJS.callWatchers = callWatchers;
-    WatchJS.passProperty = passProperty;
+
     return WatchJS;
 
 }));

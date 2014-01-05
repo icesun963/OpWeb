@@ -2,6 +2,7 @@
 if(!Config.ClrOn)
     return;
 
+
 global.Clr = {};
 global.Node = function () { };
 global.navigator = function () { };
@@ -18,7 +19,8 @@ require('./Lib/GameApp.js');
 require('./Lib/OpLog.js');
 require('./Lib/system.js');
 
-
+passProperty.push("disposed");
+opStrPassProperty.push("disposed");
 
 var JsTypes = global.Clr["JsTypes"];
 
@@ -131,7 +133,7 @@ var initApp = function(){
                 this["__list__" + prop].Add(newval[0]);
             }
             else if (action == "pop") {
-                this["__list__" + prop].Remove(this[prop].__ondelItem__);
+                this["__list__" + prop].Remove(this[prop].$del());
             }
 
             //console.log(">>" + prop + " " + action + " " + newval[0]);
@@ -154,13 +156,7 @@ var initApp = function(){
 
         this.GetType = function () {
             var basetype = baseItem.GetType();
-            /*
-             var mypropers = basetype.GetProperties().slice();
-             if(!basetype.BaseGetProperties)
-             basetype.BaseGetProperties=basetype.GetProperties;
-             else
-             mypropers = basetype.BaseGetProperties().slice();
-             */
+
             var mypropers = [];
             for (var prop in this) {
                 if (prop != "disposed" && prop != "OnDispose")
@@ -168,7 +164,7 @@ var initApp = function(){
                         if (prop.startsWith("__list__"))
                             continue;
 
-                        if (Object.prototype.toString.call(this[prop]) === '[object Array]') {
+                        if (isArray(this[prop])) {
                             //BuildAListBind
                             if (!this.hasOwnProperty("__list__" + prop))
                                 this["__list__" + prop] = new OpLog.OpList$1.ctor(OpHost.JS.BaseItem.ctor);

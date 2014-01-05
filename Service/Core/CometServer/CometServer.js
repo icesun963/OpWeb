@@ -51,58 +51,46 @@ global.CometServer = function(path,port,cache,delay){
               {
                   var retry = function(){
 
-                       var syncdata = OpLog.OpFunction.GetChangeData(ts,opid, function(data){
-                           readData(data);
+                       var syncdata = OpLog.OpFunction.GetChangeData(ts,opid, function(data,error){
+                           if(error!=undefined){
+                               console.warn("err:" + error );
+                               if(!socket.syncerror){
+                                   socket.syncerror = 1;
+                                   socket.emit("sync.error",{ });
+                               }
+                           }else{
+                                readData(data);
+                           }
                        });
 
                        if(typeof syncdata!= typeof undefined )
                            readData(syncdata);
                   };
 
-                  var filterData = function(data){
-                      passProperty.forEach(function(key){
-                          if(data.hasOwnProperty(key)){
-                              delete  data[key];
-                          }
-                      });
 
-                      for(var prop in data){
-                          if(prop.indexOf("__")==0){
-                              delete  data[prop];
-                              continue;
-                          }
-                          if(data[prop]!=null && data[prop].hasOwnProperty("_OpId")){
-                              filterData(data[prop]);
-                          }
-                          if(isArray(data[prop])){
-                              data[prop].forEach(function(subitem){
-                                  filterData(subitem);
-                              });
-                          }
-                      }
-                  }
 
                   var readData = function(syncdata){
+                      try{
+                          var logdata =  [];
 
-                      var logdata =  [];
+                          if(syncdata!=null)
+                              logdata = OpLogItems(syncdata);
 
-                      if(syncdata!=null)
-                          logdata = OpLogItems(syncdata);
+                          if(logdata.length>0){
+                              socket.emit("sync.message", logdata);
+                              console.log("syncdata:" + JSON.stringify(logdata));
+                          }
+                          else{
+                              if(!socket._zombi) {
+                                  setTimeout(retry,delay);
+                              }
 
-                      if(logdata.length>0){
-
-                          logdata.forEach(function(subitem){
-                              filterData(subitem);
-                          });
-
-                          socket.emit("sync.message", logdata);
-                          console.log("syncdata:" + JSON.stringify(logdata));
-                      }
-                      else{
-                          if(!socket._zombi) {
-                              setTimeout(retry,delay);
                           }
 
+                      }
+                      catch (ex){
+                          console.warn("err:" + ex + "\r\n");
+                          dumpError(ex);
                       }
                   };
                   retry();
@@ -112,9 +100,13 @@ global.CometServer = function(path,port,cache,delay){
           }
           catch (e)
           {
-              socket.emit("sync.error",{});
-              console.warn("err:" + e);
+              if(!socket.syncerror){
+                  socket.syncerror = 1;
+                  socket.emit("sync.error",{ });
+              }
 
+              console.warn("err:" + e + "\r\n");
+              dumpError(e);
           }
         });
         socket.on("rpc.response" ,function(data){

@@ -16,7 +16,7 @@ var uiItemList =  function(rootdiv,template){
         }
         else if(action=="pop" )
         {
-            self.lists.__ondelItem__.bind.remove();
+            self.lists.$del().bind.remove();
         }
     });
 

@@ -1,2 +1,0 @@
-node AppLauncher.js
-pause

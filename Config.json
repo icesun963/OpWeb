@@ -1,8 +1,8 @@
 {
-    "Version" : "0.0.3.0",
+    "Version" : "0.0.4.0",
     "ClrOn" : true,
     "Mongo" :{
-        "SyncOn": true,
+        "SyncOff": true,
         "Uri" : null,
         "Db" : null
     }
