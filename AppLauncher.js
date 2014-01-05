@@ -72,8 +72,8 @@ global.StartApps = function () {
 }
 
 
-require("./Shared/util.js");
-var WatchJS = require("./Shared/watch.js");
+require("./../OpWeb/OpWeb/Shared/util.js");
+var WatchJS = require("./../OpWeb/OpWeb/Shared/watch.js");
 
 global.passProperty  = [];
 global.opStrPassProperty  = [];

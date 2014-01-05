@@ -2,110 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2581cb0-c3f5-460a-897a-333a3e3716ef" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Shared/Hashtable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Shared/NoSQLSync.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Web/nedbLib/peer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Web/nedbLib/peerToComnet.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/ut.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Service/Tests/utiltest.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/.gitmodules" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/.idea/.name" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/.idea/comb.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/.idea/compiler.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/.idea/copyright/profiles_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/.idea/encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/.idea/inspectionProfiles/Project_Default.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/.idea/jsLibraryMappings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/.idea/jsLinters/jshint.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/.idea/libraries/sass_stdlib.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/.idea/scopes/scope_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/.idea/vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/History.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/atlassian-ide-plugin.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/comb.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/coverage.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/docs-md/coverage.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/docs-md/define.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/docs-md/introduction.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/docs-md/logging.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/docs-md/promise.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/docs-md/utilities.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/async.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/base/array.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/base/broadcast.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/base/date/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/base/date/transforms.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/base/functions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/base/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/base/inflections.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/base/misc.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/base/number.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/base/object.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/base/regexp.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/base/string.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/collections/AVLTree.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/collections/AnderssonTree.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/collections/BinaryTree.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/collections/Collection.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/collections/HashTable.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/collections/Heap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/collections/Iterable.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/collections/MaxHeap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/collections/MinHeap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/collections/Pool.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/collections/PriorityQueue.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/collections/Queue.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/collections/RedBlackTree.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/collections/Stack.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/collections/Tree.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/collections/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/define.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/extensions/arguments.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/extensions/array.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/extensions/cast.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/extensions/date.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/extensions/function.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/extensions/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/extensions/is.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/extensions/number.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/extensions/object.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/extensions/string.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/extensions/utils.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/logging/appenders/appender.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/logging/appenders/consoleAppender.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/logging/appenders/fileAppender.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/logging/appenders/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/logging/appenders/jsonAppender.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/logging/appenders/rollingFileAppender.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/logging/config.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/logging/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/logging/level.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/plugins/Broadcaster.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/plugins/Middleware.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/plugins/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/lib/promise.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/comb/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test.bat" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Shared/OpLogRPC.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Procfile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Web/nedbLib/nedb.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Web/nedbLib/nedbSync.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppLauncher.js" afterPath="$PROJECT_DIR$/AppLauncher.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Service/Core/ClrJs/ClrLauncher.js" afterPath="$PROJECT_DIR$/Service/Core/ClrJs/ClrLauncher.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Service/Core/CometServer/CometServer.js" afterPath="$PROJECT_DIR$/Service/Core/CometServer/CometServer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Config.json" afterPath="$PROJECT_DIR$/Config.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Service/Core/MongoDBSync.js" afterPath="$PROJECT_DIR$/Service/Core/MongoDBSync.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Service/Core/OpLogService.js" afterPath="$PROJECT_DIR$/Service/Core/OpLogService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/index.html" afterPath="$PROJECT_DIR$/Web/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web/todos/main.js" afterPath="$PROJECT_DIR$/Web/todos/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shared/util.js" afterPath="$PROJECT_DIR$/Shared/util.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shared/watch.js" afterPath="$PROJECT_DIR$/Shared/watch.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OpWeb.iws" />
@@ -129,37 +31,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="OpLogRPC.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Shared/OpLogRPC.js">
+      <file leaf-file-name="package.json" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="40" selection-start="1224" selection-end="1224" vertical-scroll-proportion="0.0" vertical-offset="220" max-vertical-offset="1575">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LICENSE.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LICENSE.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="23" selection-start="1227" selection-end="1227" vertical-scroll-proportion="2.2393365" vertical-offset="0" max-vertical-offset="1740">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MongoDBSync.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Service/Core/MongoDBSync.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="97" column="20" selection-start="2615" selection-end="2615" vertical-scroll-proportion="0.0" vertical-offset="1725" max-vertical-offset="2235">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="627">
               <folding />
             </state>
           </provider>
@@ -281,14 +156,14 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="44" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="55" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="51" />
-    <property name="recentsLimit" value="5" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="recentsLimit" value="5" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="51" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Web/todos/index.html" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../OpWebPush" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="55" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="529" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="535" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="529" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="54" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="55" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
@@ -306,14 +181,22 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/Web/nedbLib" />
       <recent name="$PROJECT_DIR$/Service/Core" />
       <recent name="$PROJECT_DIR$/Service/Core/CometServer" />
       <recent name="$PROJECT_DIR$/Web" />
-      <recent name="$PROJECT_DIR$/Service/Demos/cometChat/web" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.OsxApp">
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -324,23 +207,15 @@
       <option name="showConsoleOnStdOut" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
-      <envs />
-      <method />
-    </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
       <setting name="configLocationType" value="CONFIG_FILE" />
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="CHROME" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
@@ -425,7 +300,11 @@
       <created>1387698544093</created>
       <updated>1387698544093</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="update to 0.0.4.0">
+      <created>1388906869146</created>
+      <updated>1388906869146</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -455,17 +334,17 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32874617" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277439" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277439" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3246951" sideWeight="0.49960223" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24453124" sideWeight="0.6818851" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39634147" sideWeight="0.49930555" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39786586" sideWeight="0.50069445" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31811488" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31811488" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32820514" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3246951" sideWeight="0.49960223" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -487,9 +366,9 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24900557" sideWeight="0.6753049" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3246951" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3246951" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -507,7 +386,8 @@
     <MESSAGE value="修改目录结构 独立各个App" />
     <MESSAGE value="update to user MongoDb user OpLog Engine" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="update to 0.0.4.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="update to 0.0.4.0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -518,135 +398,84 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/commands/insert_command.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="145" column="0" selection-start="5383" selection-end="5383" vertical-scroll-proportion="0.0" vertical-offset="2065" max-vertical-offset="2505">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/connection/connection.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="208" column="0" selection-start="7932" selection-end="7932" vertical-scroll-proportion="0.0" vertical-offset="2710" max-vertical-offset="7695">
-          <folding />
-        </state>
+        <state line="208" column="0" selection-start="7932" selection-end="7932" vertical-scroll-proportion="0.0" vertical-offset="2710" max-vertical-offset="7695" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/db.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1797" column="0" selection-start="76500" selection-end="76500" vertical-scroll-proportion="0.30985916" vertical-offset="26845" max-vertical-offset="29400">
-          <folding />
-        </state>
+        <state line="1797" column="0" selection-start="76500" selection-end="76500" vertical-scroll-proportion="0.30985916" vertical-offset="26845" max-vertical-offset="29400" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Shared/watch.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="356" column="0" selection-start="10128" selection-end="10128" vertical-scroll-proportion="0.0" vertical-offset="5222" max-vertical-offset="7065">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Web/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="29" selection-start="1149" selection-end="1149" vertical-scroll-proportion="-7.5" vertical-offset="390" max-vertical-offset="840">
-          <folding />
-        </state>
+        <state line="356" column="0" selection-start="10128" selection-end="10128" vertical-scroll-proportion="0.0" vertical-offset="5222" max-vertical-offset="7065" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Shared/util.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0" vertical-offset="62" max-vertical-offset="5805">
-          <folding>
-            <element signature="e#957#1379#0" expanded="false" />
-            <element signature="e#1430#1476#0" expanded="false" />
-            <element signature="e#1525#1605#0" expanded="false" />
-            <element signature="e#1658#1788#0" expanded="false" />
-            <element signature="e#1823#1859#0" expanded="false" />
-            <element signature="e#1894#1941#0" expanded="false" />
-            <element signature="e#1977#2024#0" expanded="false" />
-            <element signature="e#2061#2141#0" expanded="false" />
-            <element signature="e#2178#2267#0" expanded="false" />
-            <element signature="e#2303#2475#0" expanded="false" />
-            <element signature="e#2531#2822#0" expanded="false" />
-            <element signature="e#2854#5412#0" expanded="false" />
-            <element signature="e#5444#5538#0" expanded="false" />
-            <element signature="e#5582#5690#0" expanded="false" />
-            <element signature="e#5872#6181#0" expanded="false" />
-            <element signature="e#6248#7185#0" expanded="false" />
-            <element signature="e#7249#8613#0" expanded="false" />
-            <element signature="e#8651#9617#0" expanded="false" />
-            <element signature="e#9653#10043#0" expanded="false" />
-            <element signature="e#10090#10155#0" expanded="false" />
-          </folding>
-        </state>
+        <state line="12" column="0" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0" vertical-offset="62" max-vertical-offset="5805" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/mongoskin/node_modules/mongodb/lib/mongodb/collection.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="871" column="4" selection-start="36321" selection-end="36321" vertical-scroll-proportion="0.0" vertical-offset="12931" max-vertical-offset="26040">
-          <folding />
-        </state>
+        <state line="871" column="4" selection-start="36321" selection-end="36321" vertical-scroll-proportion="0.0" vertical-offset="12931" max-vertical-offset="26040" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Web/mp/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="78" selection-start="441" selection-end="441" vertical-scroll-proportion="-1.25" vertical-offset="75" max-vertical-offset="5610">
-          <folding />
-        </state>
+        <state line="7" column="78" selection-start="441" selection-end="441" vertical-scroll-proportion="-1.25" vertical-offset="75" max-vertical-offset="5610" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Config.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="1" selection-start="138" selection-end="138" vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="210">
-          <folding />
-        </state>
+        <state line="8" column="1" selection-start="138" selection-end="138" vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="210" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Service/Core/CometServer/CometServer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="132" column="0" selection-start="4536" selection-end="4536" vertical-scroll-proportion="0.28045976" vertical-offset="1858" max-vertical-offset="2955">
-          <folding />
-        </state>
+        <state line="132" column="0" selection-start="4536" selection-end="4536" vertical-scroll-proportion="0.28045976" vertical-offset="1858" max-vertical-offset="2955" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Service/Core/OpLogService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Shared/NoSQLSync.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="310" column="9" selection-start="9070" selection-end="9070" vertical-scroll-proportion="1.0344827" vertical-offset="4200" max-vertical-offset="6735">
-          <folding />
-        </state>
+        <state line="310" column="9" selection-start="9070" selection-end="9070" vertical-scroll-proportion="1.0344827" vertical-offset="4200" max-vertical-offset="6735" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Service/Core/MongoDBSync.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="20" selection-start="2615" selection-end="2615" vertical-scroll-proportion="0.0" vertical-offset="1725" max-vertical-offset="2235">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Shared/OpLogRPC.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="40" selection-start="1224" selection-end="1224" vertical-scroll-proportion="0.0" vertical-offset="220" max-vertical-offset="1575">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LICENSE.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
-          <folding />
-        </state>
+        <state line="97" column="20" selection-start="2615" selection-end="2615" vertical-scroll-proportion="0.0" vertical-offset="1725" max-vertical-offset="2235" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="23" selection-start="1227" selection-end="1227" vertical-scroll-proportion="2.2393365" vertical-offset="0" max-vertical-offset="1740">
+        <state line="63" column="23" selection-start="1227" selection-end="1227" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1740" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LICENSE.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Shared/OpLogRPC.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="40" selection-start="1224" selection-end="1224" vertical-scroll-proportion="0.0" vertical-offset="220" max-vertical-offset="1575" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="428" selection-end="428" vertical-scroll-proportion="0.47445256" vertical-offset="0" max-vertical-offset="840" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="627">
           <folding />
         </state>
       </provider>

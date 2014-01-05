@@ -1,0 +1,21 @@
+{
+    "name": "opweb",
+    "version": "0.0.4",
+    "description": "opweb.",
+    "main": "AppLauncher.js",
+    "scripts": {
+
+    },
+    "dependencies":{
+        "logging" : ">= 0.0.1",
+        "node-static" : ">= 0.0.1"
+    },
+    "keywords": [
+        "opweb"
+    ],
+    "author": "icesun963@gmail.com  ",
+    "license": "MIT",
+    "engines": {
+        "node": "0.10.x"
+    }
+}
