@@ -36,7 +36,7 @@
         //new a root item
         var chatRoot = new chatList();
         //bind item to a sync session
-        var session1=new opSession(chatRoot,"10000","http://localhost:8000",true);
+        var session1=new opSession(chatRoot,"10000","/",true);
         //if user input on and enter add a new message
         $('#word').bind('keydown', function (e) {
             var key = e.which;
